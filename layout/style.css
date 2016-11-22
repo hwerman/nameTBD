@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  background-color: #5bc0de;
+  padding: 6px;
+  height: 18vh;
+}
+
+
+header > h1 {
+  position: absolute;
+  top: 1vh;
+  left: 5vw;
+  color: #fafafa;
+  text-shadow: 2px 2px 2px #222;
+  letter-spacing: 4px;
+  font-size: 3.5em;
+}
+
+#loginDiv {
+  position: absolute;
+  top: 3vh;
+  right: 1vw;
+  display: none;
+}
+
+#loginDiv > input[type=text] {
+  line-height: 4.5vh;
+  border: none;
+  padding: 0 1vw;
+  background-color: #E6F1F5;
+}
+
+#showLogin {
+  position: absolute;
+  top: 3vh;
+  right: 1vw;
+  width: 15vw;
+}
+
+.button {
+  position: relative;
+  top: 1px;
+  height: 4.5vh;
+  width: 8vw;
+  font-size: 1em;
+  border: none;
+  color: #fafafa;
+  background-color: #421C52;
+}
+
+nav {
+  position: relative;
+  top: 13vh;
+  font-size: 1.5em;
+  width: 100%;
+}
+
+.buttons {
+  margin: 0 5vw;
+  position: relative;
+  left: 12vw;
+  text-align: center;
+  display: inline-block;
+  width: 15vw;
+}
+
+.buttons:hover {
+  background-color: red;
+}
+
+#loginSignup {
+  position: relative;
+  left: 20vw;
+  height: 70vh;
+  width: 60vw;
+  background-color: pink;
+  display: none;
+}
+
+#login {
+  width: 29.45vw;
+  height: 70vh;
+}
+
+#signup {
+  border-left: .1vw solid grey;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 29.45vw;
+  height: 70vh;
+}
+
+.loginModal > h1 {
+  text-align: center;
+  width: 100%;
+}
+
+#dividingLine {
+  /*border-left: 1px solid red;*/
+  height: 60vh;
+  width: .5vw;
+}
+
+#welcome {
+  position: absolute;
+  top: 3vh;
+  right: 1vw;
+  height: 4.5vh;
+  width: 16vw;
+  font-size: 1.5em;
+  color: #fafafa;
+  display: none;
+}
+
+
