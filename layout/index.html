@@ -6,24 +6,34 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>grojj</title>
   <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
   <header>
     <h1>Grojj.</h1>
-    <button id="showLogin" class="button">Login</button>
-    <div id="loginDiv">
-      <input type="text" placeholder="username">
-      <input type="text" placeholder="password">
-      <button class="button">Sign In</button>
-      <button class="button">Sign Up</button>
-    </div>
+    <button id="showLogin" class="button">Login or Sign Up</button>
+
     <nav>
       <div class="nav buttons">Search</div>
       <div class="nav buttons">myStoreFront</div>
       <div class="nav buttons">Messages</div>
     </nav>
   </header>
+  <div id="loginSignup">
+    <div id="login" class="loginModal">
+      <h1>Login:</h1>
+      <input type="text" placeholder="username">
+      <input type="text" placeholder="password">
+      <button class="modalButton">Login</button>
+    </div>
+    <div id="dividingLine"></div>
+    <div id="signup" class="loginModal">
+      <h1>Signup:</h1>
+      <input type="text" placeholder="username">
+      <input type="text" placeholder="signup">
+      <button class="modalButton">Sign Up</button>
+    </div>
+  </div>
+  <div id="welcome">Welcome, username!</div>
   <script type="text/javascript" src="./script.js" async defer></script>
 </body>
 </html>
