@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  background-color: #5bc0de;
+  padding: 6px;
+}
+
+
+header > h1 {
+  color: #fafafa;
+  text-shadow: 2px 2px 2px #222;
+  letter-spacing: 4px;
+}
+
+nav {
+  width: 100%;
+  background-color: #ADDFAD;
+}
+
+.buttons {
+  margin: 0 5vw;
+  position: relative;
+  left: 12vw;
+  text-align: center;
+  display: inline-block;
+  width: 15vw;
+}
