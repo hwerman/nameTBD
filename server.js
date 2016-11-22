@@ -11,8 +11,4 @@ app.use(logger('dev'));
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.get('/', (req, res, next) => {
-  res.send('haaaaaaaaaaay')
-})
-
 app.listen(PORT, () => {console.log('Listening')});

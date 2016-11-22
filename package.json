@@ -1,5 +1,5 @@
 {
-  "name": "bobby-king-react-template",
+  "name": "grojj",
   "version": "1.0.0",
   "description": "React application template using webpack",
   "main": "server.js",
@@ -16,12 +16,9 @@
     "type": "",
     "url": ""
   },
-  "author": "Bobby King",
-  "license": "SEE LICENSE IN LICENSE",
-  "bugs": {
-    "url": "https://github.com/gittheking/react_template/issues"
-  },
-  "homepage": "https://github.com/gittheking/react_template#readme",
+  "author": "Cecil Lee, Matt Paz, Daniel Pease, Hadas Werman",
+  "license": "MIT",
+  "homepage": "https://github.com/GA-Student-React-App/grojj/",
   "dependencies": {
     "body": "^5.1.0",
     "body-parser": "^1.15.2",
