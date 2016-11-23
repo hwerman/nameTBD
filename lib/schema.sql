@@ -1,15 +1,6 @@
-DROP TABLE IF EXISTS grojjstorefronts;
+DROP TABLE IF EXISTS grojjitems;
 
 BEGIN;
-
--- CREATE TABLE grojjstorefronts (
---   id SERIAL PRIMARY KEY,
---   address TEXT NOT NULL,
---   borough TEXT NOT NULL,
---   zipcode TEXT NOT NULL,
---   sellername VARCHAR NOT NULL,
---   sellerid TEXT NOT NULL
--- );
 
 CREATE TABLE grojjitems(
   id SERIAL PRIMARY KEY,
@@ -20,7 +11,5 @@ CREATE TABLE grojjitems(
   url TEXT,
   sellerid TEXT NOT NULL
 );
-
--- sellername, sellerid
 
 COMMIT;
