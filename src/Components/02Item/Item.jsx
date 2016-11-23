@@ -5,6 +5,7 @@ import '.../layout.content.css';
 class Item extends Component {
 
   render(){
+
     return (
       <div className="saleItem" id="itemOne">
             <p className="itemBox itemTitle">
