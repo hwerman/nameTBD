@@ -62,30 +62,30 @@
   background: #7eee8e;
 }
 
-.itemBox{
+.itemBox, .myItemBox {
   margin: 5px;
   font-size: 12px;
 }
 
-      .itemTitle{
+      .itemTitle, .myItemTitle {
         font-size: 36px;
       }
 
-      .itemImage{
+      .itemImage, .myItemImage {
         height: 120px;
         width: 180px;
         margin: 4px;
       }
 
-      .itemCondition{
+      .itemCondition, .myItemCondition {
         font-weight: bolder;
       }
 
-      .itemPrice{
+      .itemPrice, .myItemPrice {
         font-weight: bolder;
       }
 
-      .itemDescription{
+      .itemDescription, .myItemDescription {
         overflow: y;
       }
 
