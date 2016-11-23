@@ -56,8 +56,67 @@
 
 .saleItem{
   position: absolute;
-  height: 170px;
-  width: 170px;
+  height: 300px;
+  width: 300px;
   margin: 5px;
   background: yellow;
+}
+
+#itemOne{
+  color: black;
+}
+
+ul{
+  list-style-type: none;
+  display: block;
+}
+
+.itemBox{
+  margin: 5px;
+}
+
+.itemTitle{
+  font-size: 36px;
+}
+
+.itemImage{
+  max-height: 220px;
+  max-width: 280px;
+  margin: 4px;
+}
+
+.itemDescription{
+  overflow: y;
+}
+
+#storefrontAside {
+  margin-left: 4vh;
+  margin-right: 4vh;
+  color: #ffffff;
+}
+
+.username {
+  margin-left: 4vh;
+  margin-right: 4vh;
+  color: #ffffff;
+}
+
+address {
+  margin-left: 4vh;
+  margin-right: 4vh;
+  color: #ffffff;
+}
+
+#messageButton {
+  margin-left: 4vh;
+  margin-right: 4vh;
+  margin-bottom: 4vh;
+  margin-top: 8vh;
+}
+
+#garageSaleButton {
+  margin-left: 4vh;
+  margin-right: 4vh;
+  margin-bottom: 4vh;
+  margin-top: 8vh;
 }
