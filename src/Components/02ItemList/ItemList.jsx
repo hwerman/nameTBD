@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './ItemList.css';
-import '.../layout.content.css';
+import '.../layout/content.css';
 
 import Item from '../02Item/Item.jsx';
 
@@ -17,6 +17,7 @@ displayItems(collection){
     )
 }
 
+hi
   render(){
     return (
       <div className="rightDiv">
