@@ -8,9 +8,8 @@ function comparePassword (req, res, next) {
     .then((data) => {
       const match = bcrypt.compareSync(req.body.password, data.password);
       if (match) {
-        console.log('^^^^^^^^^^^', data);
-        var myToken = jwt.sign({ username: req.body.username }, 'taco3000');
-        res.status(200).json(myToken);  
+        const myToken = jwt.sign({ username: req.body.username}, process.env.secret);
+        res.status(200).json(myToken);
       } else {
         res.status(500).send('Login Failed');
       }
