@@ -1,14 +1,13 @@
-/** {
+* {
   margin: 0;
   padding: 0;
 }
-*/
+
 header{
   background-color: #5bc0de;
   padding: 6px;
   height: 18vh;
 }
-
 
 header > h1 {
   position: absolute;
