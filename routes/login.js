@@ -1,6 +1,7 @@
 const loginRouter = require('express').Router();
+const { comparePassword } = require('../models/user.js');
 
 loginRouter.route('/')
-  .post((req, res) => res.json('posted!'));
+  .post(comparePassword, (req, res) => res.json('user succesfully logged in'));
 
 module.exports = loginRouter;

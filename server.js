@@ -14,11 +14,13 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use(bodyParser.json());
-app.use(expressJWT({secret: 'taco3000'}).unless({path: ['/login', '/']}));
+app.use(expressJWT({secret: 'taco3000'}).unless({path: ['/login', '/api/items', '/signup']}));
 
-const testRouter = require('./routes/grojjTest.js');
+const apiRouter = require('./routes/api.js');
 const loginRouter = require('./routes/login.js');
-app.use('/', testRouter);
+const signupRouter = require('./routes/signup.js');
+app.use('/api/', apiRouter);
 app.use('/login', loginRouter);
+app.use('/signup', signupRouter);
 
 app.listen(PORT, () => {console.log('Listening')});

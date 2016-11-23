@@ -1,6 +1,6 @@
 BEGIN;
 
-INSERT INTO grojjitems(id, name, price, condition, likes ,url, sellerid) VALUES
+INSERT INTO grojjItems(item_id, name, price, condition, likes ,url, sellerid) VALUES
 
 (1, 'Red Vintage Armchair', '$', 'Barely Used', 0, '', 1),
 (2, 'I Love Lucy Mug', '$$', 'Used', 0, '',1 ),
@@ -12,5 +12,9 @@ INSERT INTO grojjitems(id, name, price, condition, likes ,url, sellerid) VALUES
 (8, 'Bugs Bunny Looney Tunz jersey', '$$$', 'New', 0, '', 3),
 (9, 'Hunger Games book trilogy', '$', 'Barely Used', 0, '', 4),
 (10, 'Game of Risk', '$$', 'Used', 0, '', 4);
+
+INSERT INTO grojjUsers (user_id, username, password) VALUES
+
+(1, 'test', 'test');
 
 COMMIT;
