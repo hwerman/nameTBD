@@ -47,9 +47,15 @@ header > h1 {
   height: 4.5vh;
   width: 8vw;
   font-size: 1em;
-  border: none;
+  border: 1px solid #fafafa;
   color: #fafafa;
-  background-color: #421C52;
+  background-color: #5bc0de;
+}
+
+.button:hover{
+  background-color: #fafafa;
+  color: #5bc0de;
+  transition: background-color 0.25s;
 }
 
 nav {
@@ -116,5 +122,3 @@ nav {
   color: #fafafa;
   display: none;
 }
-
-
