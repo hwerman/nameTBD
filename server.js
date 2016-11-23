@@ -11,4 +11,9 @@ app.use(logger('dev'));
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
+app.use(bodyParser.json());
+
+const testRouter = require('./routes/grojjTest.js');
+app.use('/', testRouter);
+
 app.listen(PORT, () => {console.log('Listening')});
