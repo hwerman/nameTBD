@@ -1,3 +1,7 @@
+#content {
+  display: none;
+}
+
 #mainCont{
   position: absolute;
   width: 95%;
