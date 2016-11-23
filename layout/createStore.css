@@ -1,0 +1,96 @@
+#createStore {
+  position: relative;
+  left: 20vw;
+  height: 100vh;
+  background-color: pink;
+  width: 60vw;
+}
+
+#createStore > input {
+  line-height: 40px;
+  border: none;
+  display: block;
+}
+
+#name,
+#address {
+  position: relative;
+  left: 15vw;
+  width: 30vw;
+}
+
+#address,
+#smallLocations,
+#directions,
+#date,
+#startEnd,
+#createStoreButton {
+  margin: 2vh 0;
+}
+
+#smallLocations {
+  position: relative;
+  left: 15vw;
+  margin: 0;
+}
+
+#smallLocations > select {
+  width: 15vw;
+}
+
+#smallLocations > input,
+#smallLocations > select {
+  height: 40px;
+  border: none;
+}
+
+#directions {
+  position: relative;
+  left: 15vw;
+  width: 30vw;
+}
+
+#date {
+  position: relative;
+  width: 30vw;
+  left: 15vw;
+}
+
+#startEnd {
+  position: relative;
+  left: 15vw;
+  display: inline
+}
+
+#startEnd > input[type=time] {
+  height: 40px;
+  width: 14.8vw;
+  border: none;
+}
+
+#createCancel{
+  height: 40px;
+  border: none;
+  position: relative;
+  width: 30vw;
+  left: 15vw;
+}
+
+#createCancel > button {
+  height: 40px;
+  border: none;
+  width: 14.7vw;
+  font-size: 1em;
+}
+
+#createStoreButton {
+  background-color: skyblue;
+}
+
+#cancelStoreButton {
+  background-color: red;
+}
+
+#createStoreButton:hover {
+  box-shadow: 2px 2px 2px #222;
+}

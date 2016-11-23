@@ -85,7 +85,7 @@
             $$
           </p>
 
-          <p class="itemBox" class="itemCondition"condition">Condition:
+          <p class="itemBox" class="itemCondition">Condition:
             ||
           </p>
 
@@ -104,6 +104,31 @@
         <div class="saleItem" id="itemEight">Hi</div>
         <div class="saleItem" id="itemNine">Hi</div>
 
+    </div>
+    <div id="createStore">
+      <input id="name"type="text" placeholder="Store Name" required>
+      <input id="address"type="text" placeholder="Street Address" required>
+      <div id="smallLocations">
+        <input id="zip"type="text" placeholder="ZIP" required>
+        <select name="borough" id="borough">
+          <option value="" selected disabled>Select Borough</option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Queens">Queens</option>
+          <option value="Bronx">Bronx</option>
+          <option value="Manhattan">Manhattan</option>
+          <option value="Staten Island">Staten Island</option>
+        </select>
+      </div>
+      <input id="directions" type="text" placeholder="Directions (optional)">
+      <input id="date" type="date">
+      <div id="startEnd">
+        <input id="startTime" type="time" value="02:00 PM">
+        <input id="endTime" type="time">
+      </div>
+      <div id="createCancel">
+        <button id="createStoreButton">Create Store!</button>
+        <button id="cancelStoreButton">Cancel!</button>
+      </div>
     </div>
   </main>
 
