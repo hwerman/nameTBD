@@ -14,6 +14,10 @@ function comparePassword (req, res, next) {
     .then(() => {
       next();
     })
+};
+
+function logOut (req, res, next) {
+  res.send('logging out');
 }
 
 module.exports = {
