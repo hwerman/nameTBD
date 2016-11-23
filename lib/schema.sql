@@ -1,11 +1,11 @@
-DROP TABLE IF EXISTS grojjitems;
-DROP TABLE IF EXISTS grojjusers;
-DROP TABLE IF EXISTS grojjaddresses;
+DROP TABLE IF EXISTS grojjItems;
+DROP TABLE IF EXISTS grojjUsers;
+DROP TABLE IF EXISTS grojjAddresses;
 
 BEGIN;
 
-CREATE TABLE grojjitems(
-  id SERIAL PRIMARY KEY,
+CREATE TABLE grojjItems(
+  item_id SERIAL PRIMARY KEY,
   name VARCHAR NOT NULL,
   price VARCHAR NOT NULL,
   condition VARCHAR NOT NULL,
@@ -14,12 +14,12 @@ CREATE TABLE grojjitems(
   sellerid TEXT NOT NULL
 );
 
-CREATE TABLE grojjusers(
-  sellerid SERIAL PRIMARY KEY,
-  sellerUname VARCHAR NOT NULL
-);
+CREATE TABLE grojjUsers(
+  user_id SERIAL PRIMARY KEY,
+  username VARCHAR NOT NULL,
+  password VARCHAR NOT NULL
 
-CREATE TABLE grojjaddresses(
+CREATE TABLE grojjAddresses(
   id SERIAL PRIMARY KEY,
   street VARCHAR NOT NULL,
   city TEXT NOT NULL,
