@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Item.css';
-import '.../layout.content.css';
+import '.../layout/content.css';
 
 class Item extends Component {
 

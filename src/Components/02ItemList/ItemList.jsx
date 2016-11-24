@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import './ItemList.css';
-import '.../layout.content.css';
 
 import Item from '../02Item/Item.jsx';
 

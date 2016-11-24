@@ -1,5 +1,9 @@
 import React { Component } from 'react'
 import './MyItem.css'
+<<<<<<< HEAD
+=======
+import '.../layout/content.css'
+>>>>>>> 0a113bdc304a49b6c25028132eb5b67a1f5a927f
 
 class MyItem extends Component {
   render() {
@@ -23,3 +27,8 @@ class MyItem extends Component {
       );
   }
 }
+<<<<<<< HEAD
+=======
+
+export default MyItem;
+>>>>>>> 0a113bdc304a49b6c25028132eb5b67a1f5a927f

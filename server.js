@@ -14,7 +14,7 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use(bodyParser.json());
-app.use(expressJWT({secret: 'taco3000'}).unless({path: ['/api/items', '/user/signup', '/user/login']}));
+app.use(expressJWT({secret: process.env.secret}).unless({path: ['/api/items', '/user/signup', '/user/login']}));
 
 const apiRouter = require('./routes/api.js');
 const userRouter = require('./routes/user.js');
