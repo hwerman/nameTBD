@@ -19,36 +19,19 @@ header > h1 {
   font-size: 3.5em;
 }
 
-#loginDiv {
-  position: absolute;
-  top: 3vh;
-  right: 1vw;
-  display: none;
-}
-
-#loginDiv > input[type=text] {
-  line-height: 4.5vh;
-  border: none;
-  padding: 0 1vw;
-  background-color: #E6F1F5;
-}
-
-body {
-  background-color: pink;
-}
-
-.button {
+header > button {
   position: relative;
-  top: 1px;
-  height: 4.5vh;
-  width: 8vw;
   font-size: 1em;
   border: 1px solid #fafafa;
   color: #fafafa;
   background-color: #5bc0de;
+  position: absolute;
+  top: 3vh;
+  right: 1vw;
+  width: 15vw;
 }
 
-.button:hover{
+header > button:hover{
   background-color: #fafafa;
   color: #5bc0de;
   transition: background-color 0.25s;
@@ -61,8 +44,8 @@ nav {
   width: 100%;
 }
 
-.nButtons {
-  color: red;
+nav > div {
+  color: #fafafa;
   margin: 0 5vw;
   position: relative;
   left: 12vw;
@@ -71,217 +54,8 @@ nav {
   width: 15vw;
 }
 
-.buttons:hover {
+nav > div:hover {
   background-color: #fafafa;
   transition: background-color 0.25s;
   color: #5bc0de;
-}
-
-#loginSignup {
-  position: relative;
-  left: 20vw;
-  height: 70vh;
-  width: 60vw;
-  background-color: pink;
-  display: none;
-}
-
-#login {
-  width: 29.45vw;
-  height: 70vh;
-}
-
-#signup {
-  border-left: .1vw solid grey;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 29.45vw;
-  height: 70vh;
-}
-
-.loginModal > h1 {
-  text-align: center;
-  width: 100%;
-}
-
-#dividingLine {
-  /*border-left: 1px solid red;*/
-  height: 60vh;
-  width: .5vw;
-}
-
-#welcome {
-  position: absolute;
-  top: 3vh;
-  right: 1vw;
-  height: 4.5vh;
-  width: 16vw;
-  font-size: 1.5em;
-  color: #fafafa;
-  display: none;
-}
-
-* {
-  /*font-family: 'Overlock', cursive;*/
-}
-
-#mainCont{
-  position: absolute;
-  width: 95%;
-  height: 95%;
-  background: #333333;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
-
-.leftAside{
-  float: left;
-  border: 1px solid #000000;
-  max-width: 30%;
-  max-height: 90%;
-  margin: 4vh;
-  -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
-  -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
-  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
-}
-
-#instructionsAside{
-  margin-left: 4vh;
-  margin-right: 4vh;
-  color: #ffffff;
-}
-
-#instructionsPara{
-  margin-left: 4vh;
-  margin-right: 4vh;
-  color: #ffffff;
-}
-
-#instructionsButton{
-  margin-left: 4vh;
-  margin-right: 4vh;
-  margin-bottom: 4vh;
-  margin-top: 8vh;
-}
-
-.rightDiv{
-  float: left;
-  width: 50%;
-  height: 90%;
-  margin: 4vh;
-  background: #ffffff;
-  border: solid 1px #282828;
-  -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
-  -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
-  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.saleItem{
-  position: relative;
-  align-self: flex-start;
-  height: 40%;
-  width: 28%;
-  margin: 2vh;
-  background: #7eee8e;
-}
-
-.itemBox, .myItemBox {
-  margin: 5px;
-  font-size: 12px;
-}
-
-      .itemTitle, .myItemTitle {
-        font-size: 36px;
-      }
-
-      .itemImage, .myItemImage {
-        height: 120px;
-        width: 180px;
-        margin: 4px;
-      }
-
-      .itemCondition, .myItemCondition {
-        font-weight: bolder;
-      }
-
-      .itemPrice, .myItemPrice {
-        font-weight: bolder;
-      }
-
-      .itemDescription, .myItemDescription {
-        overflow: y;
-      }
-
-ul{
-  list-style-type: none;
-  display: block;
-}
-
-
-#asideSellerMyStore{
-
-}
-
-.username{
-  font-size: 20px;
-  margin-left: 4vh;
-}
-
-#sellerMyStore{
-  color: #222;
-  margin-left: 4vh;
-}
-
-.userProfPic{
-  height: 100px;
-  width: 100px;
-  margin-left: 4vh;
-  margin-top: 4vh;
-  /*margin-bottom: 100px;*/
-  border-radius: 50%;
-}
-
-#addButton{
-  margin-left: 4vh;
-  margin-bottom: 4vh;
-}
-
-#storefrontAside {
-  margin-left: 4vh;
-  margin-right: 4vh;
-  color: #ffffff;
-}
-
-.username {
-  margin-left: 4vh;
-  margin-right: 4vh;
-  color: #ffffff;
-}
-
-address {
-  margin-left: 4vh;
-  margin-right: 4vh;
-  color: #222;
-  font-size: 18px;
-}
-
-#messageButton {
-  margin-left: 4vh;
-  margin-right: 4vh;
-  margin-bottom: 4vh;
-  margin-top: 8vh;
-}
-
-#garageSaleButton {
-  margin-left: 4vh;
-  margin-right: 4vh;
-  margin-bottom: 4vh;
-  margin-top: 8vh;
 }
