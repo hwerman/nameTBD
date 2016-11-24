@@ -13,11 +13,14 @@ class App extends Component {
 
   revealer(e) {
     let children = e.currentTarget.firstElementChild.parentNode.childNodes
-    console.log(children.length)
+    let test = Array.prototype.slice.call(e.currentTarget.firstElementChild.parentNode.childNodes)
 
-    for (let key in children) {
-      console.log(key)
+    for (let i = 0; i < test.length; i++) {
+      for (let key in test[i]) {
+        console.log(test[i][key])
+      }
     }
+
     e.currentTarget.nextSibling.style.display = 'block';
   }
 
