@@ -14,7 +14,7 @@ class App extends Component {
       loginFormPassword: '',
       signupFormUsername: '',
       signupFormPassword: '',
-      currentToken: 'hi',
+      currentToken: '',
     };
   }
 
@@ -123,6 +123,9 @@ class App extends Component {
         <header>
           <h1>Grojj.</h1>
           <button onClick={this.showLogin}>Login or Sign Up</button>
+          <Logout
+            logout={this.logout.bind(this)}
+          />
           <nav>
             <div className="nButton">Search
               <input type="text" placeholder="search"/>
@@ -139,15 +142,12 @@ class App extends Component {
                 postLogin={this.postLogin.bind(this)}
                 postSignup={this.postSignup.bind(this)}
               />
-              <TestLogin
-                testLogin={this.testLogin.bind(this)}
-              />
-              <Logout
-                logout={this.logout.bind(this)}
-              />
           </nav>
         </header>
         <main>
+          <TestLogin
+            testLogin={this.testLogin.bind(this)}
+          />
         </main>
         <footer>
           <div>copyright nonsense, about us</div>
