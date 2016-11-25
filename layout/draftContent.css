@@ -1,0 +1,93 @@
+#mainCont{
+  position: absolute;
+  width: 95%;
+  height: 95%;
+  background: #333333;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+
+#instructionsAside{
+  margin-left: 4vh;
+  margin-right: 4vh;
+  color: #ffffff;
+}
+
+#instructionsPara{
+  margin-left: 4vh;
+  margin-right: 4vh;
+  color: #ffffff;
+}
+
+#instructionsButton{
+  margin-left: 4vh;
+  margin-right: 4vh;
+  margin-bottom: 4vh;
+  margin-top: 8vh;
+}
+
+.rightDiv{
+  float: left;
+  width: 50%;
+  height: 90%;
+  margin: 4vh;
+  background: #ffffff;
+  border: solid 1px #282828;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.saleItem{
+  position: relative;
+  align-self: flex-start;
+  height: 40%;
+  width: 28%;
+  margin: 2vh;
+  background: #7eee8e;
+}
+
+.itemBox, .myItemBox {
+  margin: 5px;
+  font-size: 12px;
+}
+
+      .itemTitle, .myItemTitle {
+        font-size: 36px;
+      }
+
+      .itemImage, .myItemImage {
+        height: 120px;
+        width: 180px;
+        margin: 4px;
+      }
+
+      .itemCondition, .myItemCondition {
+        font-weight: bolder;
+      }
+
+      .itemPrice, .myItemPrice {
+        font-weight: bolder;
+      }
+
+      .itemDescription, .myItemDescription {
+        overflow: y;
+      }
+
+ul{
+  list-style-type: none;
+  display: block;
+}
+
+
+#asideSellerMyStore{
+
+}
+

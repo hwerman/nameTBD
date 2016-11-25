@@ -1,14 +1,13 @@
-/** {
+* {
   margin: 0;
   padding: 0;
 }
-*/
+
 header{
   background-color: #5bc0de;
   padding: 6px;
   height: 18vh;
 }
-
 
 header > h1 {
   position: absolute;
@@ -47,9 +46,15 @@ header > h1 {
   height: 4.5vh;
   width: 8vw;
   font-size: 1em;
-  border: none;
+  border: 1px solid #fafafa;
   color: #fafafa;
-  background-color: #421C52;
+  background-color: #5bc0de;
+}
+
+.button:hover{
+  background-color: #fafafa;
+  color: #5bc0de;
+  transition: background-color 0.25s;
 }
 
 nav {
@@ -69,7 +74,9 @@ nav {
 }
 
 .buttons:hover {
-  background-color: red;
+  background-color: #fafafa;
+  transition: background-color 0.25s;
+  color: #5bc0de;
 }
 
 #loginSignup {
@@ -116,5 +123,3 @@ nav {
   color: #fafafa;
   display: none;
 }
-
-

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html,
 body,
 .GMap {
@@ -13,4 +14,79 @@ body,
 }
 .UpdatedText {
   color: red;
+=======
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  background-color: #5bc0de;
+  padding: 6px;
+  height: 18vh;
+  display: block;
+}
+
+header > h1 {
+  position: absolute;
+  top: 1vh;
+  left: 5vw;
+  color: #fafafa;
+  text-shadow: 2px 2px 2px #222;
+  letter-spacing: 4px;
+  font-size: 3.5em;
+  display: block;
+}
+
+.nButton{
+  color: blue;
+}
+
+header > button {
+  position: relative;
+  font-size: 1em;
+  border: 1px solid #fafafa;
+  color: #fafafa;
+  background-color: #5bc0de;
+  position: absolute;
+  top: 3vh;
+  right: 1vw;
+  width: 15vw;
+  display: block;
+}
+
+header > button:hover{
+  background-color: #fafafa;
+  color: #5bc0de;
+  transition: background-color 0.25s;
+}
+
+nav {
+  position: relative;
+  top: 13vh;
+  font-size: 1.5em;
+  width: 100%;
+  display: block;
+}
+
+nav > div {
+  color: #fafafa;
+  margin: 0 5vw;
+  position: relative;
+  left: 12vw;
+  text-align: center;
+  display: inline-block;
+  width: 15vw;
+}
+
+nav > div:hover {
+  background-color: #fafafa;
+  transition: background-color 0.25s;
+  color: #5bc0de;
+}
+
+nav > div > button,
+nav > div > input {
+
+>>>>>>> 072aea6c354ca3f5daca7e878bae289b561344f6
 }

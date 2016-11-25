@@ -1,3 +1,22 @@
+#createStoreDiv{
+  position: relative;
+  left: 20vw;
+  height: 100vh;
+  width: 60vw;
+  background-color: #000000;
+}
+
+#createStoreHeading{
+  text-align: center;
+  color: #ffffff;
+}
+
+#createStoreDiv > input{
+  display: block;
+  line-height: 40px;
+  border: none;
+}
+
 #addItemDiv{
   position: relative;
   left: 20vw;
@@ -9,6 +28,7 @@
 #addItemHeading{
   text-align: center;
   color: #ffffff;
+
 }
 
 #addItemDiv > input{
@@ -17,21 +37,32 @@
   border: none;
 }
 
+.uname,
 .name,
+.address,
 .itemU{
   position: relative;
   left: 15vw;
   width: 30vw;
 }
 
+.uname,
 .name,
+.address,
 .smallLocations,
 .itemU,
 #desc,
-#createItemButton,
-#cancelItemButton{
+#directions,
+#date,
+#startEnd,
+#createStoreButton,
+#cancelStoreButton{
   margin: 2vh 0;
   padding: .5vh;
+  border-radius: .8vh;
+}
+
+.zip{
   border-radius: .8vh;
 }
 
@@ -51,10 +82,41 @@
   border: none;
 }
 
+#date{
+  position: relative;
+  width: 30vw;
+  left: 15vw;
+  border-radius: .8vh;
+}
+
 #desc{
   position: relative;
   left: 15vw;
   width: 30vw;
+}
+
+#directions{
+  position: relative;
+  left: 15vw;
+  width: 30vw;
+}
+
+#startEnd{
+  position: relative;
+  left: 15vw;
+  display: inline;
+  border-radius: .8vh;
+}
+
+#startEnd > input[type=time]{
+  height: 40px;
+  width: 14.8vw;
+  border: none;
+}
+
+#startTime,
+#endTime{
+  border-radius: .8vh;
 }
 
 .createOrCancel{
@@ -72,18 +134,18 @@
   font-size: 1em;
 }
 
-#createItemButton{
+#createStoreButton{
   background-color: skyblue;
 }
 
-#cancelItemButton{
+#cancelStoreButton{
   background-color: red;
 }
 
-#createItemButton:hover{
+#createStoreButton:hover{
   box-shadow: 2px 2px 2px #222;
 }
 
-#cancelItemButton:hover{
+#cancelStoreButton:hover{
   box-shadow: 2px 2px 2px #222;
 }
