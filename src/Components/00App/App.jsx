@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css'
+import './App.css';
 
 class App extends Component {
 
@@ -12,12 +12,7 @@ class App extends Component {
   }
 
   revealer(e) {
-    let children = e.currentTarget.firstElementChild.parentNode.childNodes
-    console.log(children.length)
-
-    for (let key in children) {
-      console.log(key)
-    }
+    console.log('revealing')
     e.currentTarget.nextSibling.style.display = 'block';
   }
 
@@ -30,6 +25,7 @@ class App extends Component {
       <div>
         <header>
           <h1>Grojj.</h1>
+          <h3 className="test">Test</h3>
           <button>Login or Sign Up</button>
           <nav>
             <div onMouseEnter={this.revealer} onMouseOut={this.hider}>Search
@@ -41,7 +37,6 @@ class App extends Component {
           </nav>
         </header>
         <main>
-
         </main>
         <footer>
           <div>copyright nonsense, about us</div>
