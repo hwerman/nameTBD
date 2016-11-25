@@ -1,0 +1,35 @@
+.leftAside{
+  float: left;
+  border: 1px solid #000000;
+  max-width: 30%;
+  max-height: 90%;
+  margin: 4vh;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+}
+
+.asideSub{
+  margin-left: 4vh;
+  margin-right: 4vh;
+  color: #ffffff;
+}
+
+.sellerUsername{
+  font-size: 20px;
+  margin-left: 4vh;
+}
+
+.sellerUserAddress{
+  margin-left: 4vh;
+  margin-right: 4vh;
+  color: #222;
+  font-size: 18px;
+}
+
+#messagesButton{
+  margin-left: 4vh;
+  margin-right: 4vh;
+  margin-bottom: 4vh;
+  margin-top: 8vh;
+}
