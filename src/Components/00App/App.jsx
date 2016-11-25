@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LoginSignup from '../01LoginSignup/LoginSignup.jsx';
 import './App.css';
 
 class App extends Component {
@@ -7,17 +8,46 @@ class App extends Component {
     super();
 
     this.state = {
-      searchForm: ''
+      loginFormUsername: '',
+      loginFormPassword: '',
+      signupFormUsername: '',
+      signupFormPassword: '',
     };
   }
 
-  revealer(e) {
-    console.log('revealing')
-    e.currentTarget.nextSibling.style.display = 'block';
+  showLogin() {
+    let showLogin = document.querySelector('#loginSignup');
+    showLogin.style.display = 'block';
+    console.log(showLogin);
   }
 
-  hider(e) {
-    e.currentTarget.nextSibling.style.display = 'none';
+  hideLogin() {
+    let showLogin = document.querySelector('#loginSignup');
+    showLogin.style.display = 'none';
+  }
+
+  trackLoginUsername(e) {
+    this.setState({
+      loginFormUsername: e.target.value
+    })
+  }
+
+  trackLoginPassword(e) {
+    this.setState({
+      loginFormPassword: e.target.value
+    })
+  }
+
+  trackSignupUsername(e) {
+    this.setState({
+      signupFormUsername: e.target.value
+    })
+  }
+
+  trackSignupPassword(e) {
+    this.setState({
+      signupFormPassword: e.target.value
+    })
   }
 
   render(){
@@ -25,15 +55,21 @@ class App extends Component {
       <div>
         <header>
           <h1>Grojj.</h1>
-          <h3 className="test">Test</h3>
-          <button>Login or Sign Up</button>
+          <button onClick={this.showLogin}>Login or Sign Up</button>
           <nav>
-            <div className="nButton" onMouseEnter={this.revealer} onMouseOut={this.hider}>Search
+            <div className="nButton">Search
               <input type="text" placeholder="search"/>
               <button>Go!</button>
             </div>
             <div className="nButton">myStoreFront</div>
             <div className="nButton">Messages</div>
+              <LoginSignup
+                hideLogin={this.hideLogin}
+                trackLoginUsername={this.trackLoginUsername.bind(this)}
+                trackLoginPassword={this.trackLoginPassword.bind(this)}
+                trackSignupUsername={this.trackSignupUsername.bind(this)}
+                trackSignupPassword={this.trackSignupPassword.bind(this)}
+              />
           </nav>
         </header>
         <main>

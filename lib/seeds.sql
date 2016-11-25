@@ -13,10 +13,6 @@ INSERT INTO grojjItems(item_id, name, price, condition, likes ,url, sellerid) VA
 (9, 'Hunger Games book trilogy', '$', 'Barely Used', 0, '', 4),
 (10, 'Game of Risk', '$$', 'Used', 0, '', 4);
 
-INSERT INTO grojjUsers (user_id, username, password) VALUES
-
-(1, 'test', 'test');
-
 INSERT INTO grojjusers(sellerid, sellerUname) VALUES
 (1, 'MeetDrew'),
 (2, 'Dolores45'),

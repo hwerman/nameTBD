@@ -19,9 +19,10 @@ CREATE TABLE grojjUsers(
   user_id SERIAL PRIMARY KEY,
   username VARCHAR NOT NULL,
   password VARCHAR NOT NULL
+);
 
 CREATE TABLE grojjAddresses(
-  id SERIAL PRIMARY KEY,
+  address_id SERIAL PRIMARY KEY,
   street VARCHAR NOT NULL,
   city TEXT NOT NULL,
   state TEXT NOT NULL DEFAULT 'NY',

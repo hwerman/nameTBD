@@ -70,9 +70,5 @@ nav > div:hover {
 
 nav > div > button,
 nav > div > input {
-  display: none;
-}
-
-.test {
-  font-size: 60px;
+  
 }
