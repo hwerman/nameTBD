@@ -1,0 +1,43 @@
+#loginSignup {
+  position: relative;
+  left: 20vw;
+  height: 70vh;
+  width: 60vw;
+  background-color: pink;
+  display: none;
+}
+
+#login {
+  width: 29.45vw;
+  height: 70vh;
+}
+
+#signup {
+  border-left: .1vw solid grey;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 29.45vw;
+  height: 70vh;
+}
+
+.loginModal > h1 {
+  text-align: center;
+  width: 100%;
+}
+
+#dividingLine {
+  height: 60vh;
+  width: .5vw;
+}
+
+#welcome {
+  position: absolute;
+  top: 3vh;
+  right: 1vw;
+  height: 4.5vh;
+  width: 16vw;
+  font-size: 1.5em;
+  color: #fafafa;
+  display: none;
+}
