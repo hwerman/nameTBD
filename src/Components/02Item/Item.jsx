@@ -1,30 +1,46 @@
-import React, { Component } from 'react';
-import './Item.css';
-import '.../layout/content.css';
+import React { Component } from 'react'
+import './Item.css'
+
+//props needed:
+// name
+// url
+// price
+// condition
+// description
+// likes
+// id
+
+//functions needed:
+// like button for each item
 
 class Item extends Component {
-
-  render(){
-
+  render() {
     return (
-      <div className="saleItem" id="itemOne">
-            <p className="itemBox itemTitle">
-            Sofa
-            </p>
-            <img className="itemImage" src="http://bachenterprises.net/wp-content/uploads/2016/02/couch-800.png"></img>
-            <p className="itemBox itemPrice">
-            Price: $$
-            </p>
-            <p className="itemBox itemCondition">
-            Condition: ||
-            </p>
-            <p className="itemBox itemDescription">
-            Description: This is an incredibly cozy blue couch. You know you want it.
-            </p>
+      <div className="rightDiv">
+        <div className="saleItem">
+          <p className="itemBox" className="itemTitle">
+            {this.props.name}
+          </p>
+          <img className="itemBox" className="itemImage"
+            src={this.props.url}>
+          </img>
+          <p className="itemBox" className="itemPrice">
+            {this.props.price}
+          </p>
+          <p className="itemBox" className="itemCondition">
+            {this.props.condition}
+          </p>
+          <p className="itemBox" className="itemDescription">
+            {this.props.description}
+          </p>
+          <p className="itemBox" className="itemLikes">
+            {this.props.likes}
+          </p>
+          <button onClick={() => this.props.likeFunc(this.props.id)}>Like This Item</button>
         </div>
+      </div>
     );
   }
-
 }
 
 export default Item;

@@ -1,27 +1,47 @@
 import React { Component } from 'react'
 import './MyItem.css'
-import '.../layout/content.css'
+
+//props needed:
+// name
+// url
+// price
+// condition
+// description
+// likes
+// id
+
+//functions needed:
+// for the edit button
+// for the delete button
 
 class MyItem extends Component {
   render() {
     return (
-        <div className="saleItem" id="itemOne">
-          <p className="myItemBox myItemTitle">
-          Sofa
+      <div className="rightDiv">
+        <div className="saleItem">
+          <p className="myStoreMyItems" className="myItemTitle">
+            {this.props.name}
           </p>
-          <img className="myItemImage" src="http://bachenterprises.net/wp-content/uploads/2016/02/couch-800.png"></img>
-          <p className="myItemBox myItemPrice">
-          Price: $$
+          <img className="myStoreMyItems" className="myItemImage"
+            src={this.props.url}>
+          </img>
+          <p className="myStoreMyItems" className="myItemPrice">
+            {this.props.price}
           </p>
-          <p className="myItemBox myItemCondition">
-          Condition: ||
+          <p className="myStoreMyItems" className="myItemCondition">
+            {this.props.condition}
           </p>
-          <p className="myItemBox myItemDescription">
-          Description: afdafaga.
+          <p className="myStoreMyItems" className="myItemDescription">
+            {this.props.description}
           </p>
-
+          <p className="myStoreMyItems" className="myItemLikes">
+            {this.props.likes}
+          </p>
+          <button onClick={() => this.props.editFunc(this.props.id)}>Edit Item</button>
+          <button onClick={() => this.props.deleteFunc(this.props.id)}>Delete Item</button>
         </div>
-      );
+      </div>
+    );
   }
 }
 
