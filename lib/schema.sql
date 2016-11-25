@@ -9,6 +9,7 @@ CREATE TABLE grojjItems(
   name VARCHAR NOT NULL,
   price VARCHAR NOT NULL,
   condition VARCHAR NOT NULL,
+  description VARCHAR,
   likes INT NOT NULL DEFAULT 0,
   url TEXT,
   sellerid TEXT NOT NULL
