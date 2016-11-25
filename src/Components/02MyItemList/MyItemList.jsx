@@ -1,26 +1,43 @@
 import React, { Component } from 'react';
+import './MyItemList.css'
 import MyItem from '../02MyItem/MyItem.jsx';
 
-class MyItemList extends Component {
+//functions needed:
+// function that selects specific item by index
+// function that will allow user to edit details of an item (need to pass down)
+// function that will allow user to delete an item (need to pass down)
 
-displayItems(collection){
-    return collection.map((item, index) =>
-        <article
-            key={index}
-            className={saleItem}
-            onClick={}>
-            <MyItem item={item} />
-        </article>
+class MyItemList extends Component{
+  renderItems(){
+    return this.props.items.map((item, index) =>
+      <MyItem
+        editFunc={this.props.editFunc}
+        deleteFunc={this.props.deleteFunc}
+        name={item.name}
+        url={item.url}
+        description={item.description}
+        price={item.price}
+        condition={item.condition}
+        likes={item.likes}
+        id={item.id}
+        key={index}
+      />
     )
-}
-
-  render(){
-    return (
-      <div className="rightDiv">
-            {this.displayItems(this.props.collection)}
-        </div>
-    );
   }
 }
 
+componentWillMount(){
+  this.props.getAllItems();
+}
+
+render(){
+  return(
+    <div className="rightDiv">
+      {this.renderItems()}
+    </div>
+  )
+}
+
+
 export default MyItemList;
+
