@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import LoginSignup from '../01LoginSignup/LoginSignup.jsx';
+import TestLogin from '../TestLogin/TestLogin.jsx';
+import Logout from '../01Logout/Logout.jsx';
 import './App.css';
 
 class App extends Component {
@@ -12,6 +14,7 @@ class App extends Component {
       loginFormPassword: '',
       signupFormUsername: '',
       signupFormPassword: '',
+      currentToken: 'hi',
     };
   }
 
@@ -52,11 +55,7 @@ class App extends Component {
     console.log(e.target.value)
   }
 
-  postLogin() {
-    console.log('logged in!')
-  }
-
-  postSignup(e) {
+  postSignup() {
     console.log(this.state.signupFormUsername, this.state.signupFormPassword)
     return fetch('/user/signup', {
       headers: {
@@ -70,8 +69,52 @@ class App extends Component {
     })
     .then(() => {
       console.log('signedup')
-    })
+    });
+  }
 
+  postLogin() {
+    return fetch('/user/login', {
+      headers: {
+        'Content-Type': 'application/JSON'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        'username': this.state.loginFormUsername,
+        'password': this.state.loginFormPassword
+      })
+    })
+    .then(r => r.json())
+    .then((data) => {
+      this.setState({
+        currentToken: data
+      })
+    })
+    .then( () => {
+      console.log('wtf', this.state.currentToken)
+    })
+    .catch(error => console.log(error))
+  }
+
+  logout() {
+    console.log('logging out')
+    this.setState({
+      currentToken: '',
+    })
+    console.log('logged out')
+  }
+
+  testLogin() {
+    return fetch('/api/items', {
+      headers: {
+        'Content-Type': 'application/JSON',
+        'Authorization': 'Bearer ' + this.state.currentToken
+      },
+    })
+    .then(r=> r.json())
+    .then((data) => {
+      console.log(data)
+    })
+    .catch(error => console.log(error))
   }
 
   render(){
@@ -93,8 +136,14 @@ class App extends Component {
                 trackLoginPassword={this.trackLoginPassword.bind(this)}
                 trackSignupUsername={this.trackSignupUsername.bind(this)}
                 trackSignupPassword={this.trackSignupPassword.bind(this)}
-                postLogin={this.postLogin}
+                postLogin={this.postLogin.bind(this)}
                 postSignup={this.postSignup.bind(this)}
+              />
+              <TestLogin
+                testLogin={this.testLogin.bind(this)}
+              />
+              <Logout
+                logout={this.logout.bind(this)}
               />
           </nav>
         </header>
