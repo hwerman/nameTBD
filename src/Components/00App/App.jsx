@@ -42,12 +42,36 @@ class App extends Component {
     this.setState({
       signupFormUsername: e.target.value
     })
+    console.log(e.target.value)
   }
 
   trackSignupPassword(e) {
     this.setState({
       signupFormPassword: e.target.value
     })
+    console.log(e.target.value)
+  }
+
+  postLogin() {
+    console.log('logged in!')
+  }
+
+  postSignup(e) {
+    console.log(this.state.signupFormUsername, this.state.signupFormPassword)
+    return fetch('/user/signup', {
+      headers: {
+        'Content-Type': 'application/JSON'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        'username': this.state.signupFormUsername,
+        'password': this.state.signupFormPassword
+      })
+    })
+    .then(() => {
+      console.log('signedup')
+    })
+
   }
 
   render(){
@@ -69,6 +93,8 @@ class App extends Component {
                 trackLoginPassword={this.trackLoginPassword.bind(this)}
                 trackSignupUsername={this.trackSignupUsername.bind(this)}
                 trackSignupPassword={this.trackSignupPassword.bind(this)}
+                postLogin={this.postLogin}
+                postSignup={this.postSignup.bind(this)}
               />
           </nav>
         </header>

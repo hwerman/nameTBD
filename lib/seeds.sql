@@ -13,19 +13,7 @@ INSERT INTO grojjItems(item_id, name, price, condition, likes ,url, sellerid) VA
 (9, 'Hunger Games book trilogy', '$', 'Barely Used', 0, '', 4),
 (10, 'Game of Risk', '$$', 'Used', 0, '', 4);
 
-INSERT INTO grojjusers(sellerid, sellerUname) VALUES
-(1, 'MeetDrew'),
-(2, 'Dolores45'),
-(3, 'IrwinForPresident2020'),
-(4, 'JoeyPNYC'),
-(5, 'Rach8'),
-(6, 'flexboxmaster'),
-(7, 'TreeHugger01'),
-(8, 'LoveLife17'),
-(9, 'Sabz'),
-(10, 'Kate08');
-
-INSERT INTO grojjaddresses(id, street, city, state, zip, latitude, longitude, sellerUname, sellerid) VALUES
+INSERT INTO grojjaddresses(address_id, street, city, state, zip, latitude, longitude, sellerUname, sellerid) VALUES
 
 (1, '180 Rivington St', 'New York', 'NY', '10002', '40.718789°', '-73.984037°', 'Dolores45', 2),
 (2, '420 Hudson St', 'New York', 'NY', '10014', '40.730321°', '-74.006565°', 'IrwinForPresident2020', 3),
