@@ -1,27 +1,42 @@
 import React, { Component } from 'react';
-
+import './ItemList.css';
 import Item from '../02Item/Item.jsx';
 
-class ItemList extends Component {
+//props needed:
+// function that selects item by index
+// function that gets all items
+// like function
 
-displayItems(collection){
-    return collection.map((item, index) =>
-        <article
-            key={index}
-            className={saleItem}
-            onClick={}>
-            <Item item={item} />
-        </article>
+class ItemList extends Component{
+  renderItems(){
+    return this.props.items.map((item, index) =>
+      <Item
+        likeFunc={this.props.likeFunc}
+        name={item.name}
+        url={item.url}
+        description={item.description}
+        price={item.price}
+        condition={item.condition}
+        likes={item.likes}
+        id={item.id}
+        key={index}
+      />
     )
-}
-
-  render(){
-    return (
-      <div className="rightDiv">
-            {this.displayItems(this.props.collection)}
-        </div>
-    );
   }
 }
 
+//is this needed?
+componentWillMount(){
+  this.props.getAllItems();
+}
+
+render(){
+  return(
+    <div className="rightDiv">
+      {this.renderItems()}
+    </div>
+  )
+}
+
 export default ItemList;
+

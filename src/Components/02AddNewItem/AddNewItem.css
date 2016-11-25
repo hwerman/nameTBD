@@ -1,0 +1,89 @@
+#addItemDiv{
+  position: relative;
+  left: 20vw;
+  height: 100vh;
+  width: 60vw;
+  background-color: #000000;
+}
+
+#addItemHeading{
+  text-align: center;
+  color: #ffffff;
+}
+
+#addItemDiv > input{
+  display: block;
+  line-height: 40px;
+  border: none;
+}
+
+.name,
+.itemU{
+  position: relative;
+  left: 15vw;
+  width: 30vw;
+}
+
+.name,
+.smallLocations,
+.itemU,
+#desc,
+#createItemButton,
+#cancelItemButton{
+  margin: 2vh 0;
+  padding: .5vh;
+  border-radius: .8vh;
+}
+
+.smallLocations{
+  position: relative;
+  left: 15vw;
+  border-radius: .8vh;
+}
+
+.smallLocations > select{
+  width: 15vw;
+}
+
+.smallLocations > input,
+.smallLocations > select{
+  height: 40px;
+  border: none;
+}
+
+#desc{
+  position: relative;
+  left: 15vw;
+  width: 30vw;
+}
+
+.createOrCancel{
+  height: 40px;
+  width: 30vw;
+  border: none;
+  position: relative;
+  left: 15vw;
+}
+
+.createOrCancel > button{
+  height: 40px;
+  width: 14.7vw;
+  border: none;
+  font-size: 1em;
+}
+
+#createItemButton{
+  background-color: skyblue;
+}
+
+#cancelItemButton{
+  background-color: red;
+}
+
+#createItemButton:hover{
+  box-shadow: 2px 2px 2px #222;
+}
+
+#cancelItemButton:hover{
+  box-shadow: 2px 2px 2px #222;
+}
