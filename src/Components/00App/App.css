@@ -21,6 +21,10 @@ header > h1 {
   display: block;
 }
 
+.nButton{
+  color: blue;
+}
+
 header > button {
   position: relative;
   font-size: 1em;

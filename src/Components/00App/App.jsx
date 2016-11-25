@@ -28,12 +28,12 @@ class App extends Component {
           <h3 className="test">Test</h3>
           <button>Login or Sign Up</button>
           <nav>
-            <div onMouseEnter={this.revealer} onMouseOut={this.hider}>Search
+            <div className="nButton" onMouseEnter={this.revealer} onMouseOut={this.hider}>Search
               <input type="text" placeholder="search"/>
               <button>Go!</button>
             </div>
-            <div>myStoreFront</div>
-            <div>Messages</div>
+            <div className="nButton">myStoreFront</div>
+            <div className="nButton">Messages</div>
           </nav>
         </header>
         <main>

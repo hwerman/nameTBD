@@ -1,0 +1,42 @@
+.leftAside{
+  float: left;
+  border: 1px solid #000000;
+  max-width: 30%;
+  max-height: 90%;
+  margin: 4vh;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+}
+
+.asideSub{
+  margin-left: 4vh;
+  margin-right: 4vh;
+  color: #ffffff;
+}
+
+.userProfPic{
+  height: 100px;
+  width: 100px;
+  margin-left: 4vh;
+  margin-top: 4vh;
+  /*margin-bottom: 100px;*/
+  border-radius: 50%;
+}
+
+#sellerMyStore{
+  color: #222;
+  margin-left: 4vh;
+}
+
+.sellerUserAddress{
+  margin-left: 4vh;
+  margin-right: 4vh;
+  color: #222;
+  font-size: 18px;
+}
+
+#addItemButton{
+  margin-left: 4vh;
+  margin-bottom: 4vh;
+}
