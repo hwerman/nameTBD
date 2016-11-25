@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import MyItemList from '../02MyItemList/MyItemList.jsx';
 
 class App extends Component {
 
@@ -7,7 +8,8 @@ class App extends Component {
     super();
 
     this.state = {
-      searchForm: ''
+      searchForm: '',
+      items: ''
     };
   }
 
@@ -18,6 +20,17 @@ class App extends Component {
 
   hider(e) {
     e.currentTarget.nextSibling.style.display = 'none';
+  }
+
+  findMyItems(){
+    fetch(`/api/items/`)
+    .then(r => r.json())
+    .then((data) => {
+      this.setState({
+        items: data
+      })
+    })
+    .catch(error => console.log('Error'));
   }
 
   render(){
@@ -41,6 +54,11 @@ class App extends Component {
         <footer>
           <div>copyright nonsense, about us</div>
         </footer>
+
+        <MyItemList
+          items={this.state.items}
+        />
+
       </div>
     );
   }
