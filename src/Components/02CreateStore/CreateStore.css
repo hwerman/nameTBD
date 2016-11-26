@@ -3,7 +3,7 @@
   left: 20vw;
   height: 100vh;
   width: 60vw;
-  background-color: #000000;
+  background-color: #0A1612;
   display: none;
 }
 
@@ -94,7 +94,6 @@
 .createOrCancel{
   height: 40px;
   width: 30vw;
-  border: none;
   position: relative;
   left: 15vw;
 }
@@ -102,18 +101,20 @@
 .createOrCancel > button{
   height: 40px;
   width: 14.7vw;
-  border: none;
   font-size: 1em;
+  border: 3px solid #0A1612;
 }
 
 #createStoreButton{
   position: absolute;
   left: 15vw;
-  background-color: skyblue;
+  background-color: #1A2930;
+  border: 3px solid #0A1612;
 }
 
 #cancelStoreButton{
-  background-color: red;
+  background-color: #1A2930;
+  border: 3px solid #0A1612;
 }
 
 #createStoreButton:hover{
