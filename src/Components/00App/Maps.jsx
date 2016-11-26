@@ -1,7 +1,21 @@
-import React, { Component} from 'react'
-import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps'
+import React, { Component} from 'react';
+import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps';
 
 class Map extends Component {
+
+  fetchGoogle() {
+    fetch(`https://maps.googleapis.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c`)
+    .then(r => r.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.warn(error);
+    })
+  }
+
+
+
   render() {
     const mapContainer = <div style={{height: '100%', width:'100%'}}></div>
 
@@ -26,15 +40,15 @@ class Map extends Component {
             ref = { (map) => {
               if (this.state.map != null)
                 return
-
               this.setState({
                 map: map
               })
             }}
-
           defaultZoom={15}
           defaultCenter={this.props.center}
-          // onDragend={this.mapMoved.bind(this)}
+
+          fetchGoogle={this.fetchGoogle.bind(this)}
+
           options={{streetViewControl: false, mapTypeControl: false}}>
           { markers }
         </GoogleMap>
@@ -56,4 +70,3 @@ export default Map;
 //at top of Map component import googleMapLoader, googlemap, and marker (which is the pins) from the npm google maps we installed
 
 //for api call video tutorial uses superagent, for that we need npm install -S superagent
-

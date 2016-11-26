@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 html,
 body,
 .GMap {
@@ -14,7 +14,8 @@ body,
 }
 .UpdatedText {
   color: red;
-=======
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -88,5 +89,5 @@ nav > div:hover {
 nav > div > button,
 nav > div > input {
 
->>>>>>> 072aea6c354ca3f5daca7e878bae289b561344f6
+
 }

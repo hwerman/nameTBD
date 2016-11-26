@@ -25,12 +25,9 @@
     "body-parser": "^1.15.2",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
-
-    "google-maps-react": "^1.0.19",
-
     "express-jwt": "^5.1.0",
+    "google-react-maps": "^1.1.20",
     "jsonwebtoken": "^7.1.9",
-
     "morgan": "^1.7.0",
     "path": "^0.12.7",
     "pg-promise": "^5.2.7",
