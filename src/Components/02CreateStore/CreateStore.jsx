@@ -30,7 +30,7 @@ class CreateStore extends Component {
           <input onChange={this.props.trackCSEndTime} id="endTime" type="time"></input>
         </div>
         <div className="createOrCancel">
-          <button id="createStoreButton">Create Store!</button>
+          <button onClick={this.props.postNewStorefront} id="createStoreButton">Create Store!</button>
           <button id="cancelStoreButton">Cancel!</button>
         </div>
     </div>
