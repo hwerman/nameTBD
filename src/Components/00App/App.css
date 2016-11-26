@@ -19,9 +19,10 @@ body,
 body {
   margin: 0;
   padding: 0;
+  background-color: #C5C1C0;
 }
 
-header{
+header {
   background-color: #0A1612;
   padding: 6px;
   height: 18vh;
@@ -39,7 +40,7 @@ header > h1 {
   display: block;
 }
 
-.nButton{
+.nButton {
   color: #F7CE3E;
   font-size: 14px;
 }
@@ -57,7 +58,7 @@ header > button {
   display: block;
 }
 
-header > button:hover{
+header > button:hover {
   background-color: #fafafa;
   color: #0A1612;
   transition: background-color 0.25s;
@@ -85,4 +86,9 @@ nav > div:hover {
   background-color: #fafafa;
   transition: background-color 0.25s;
   color: #0A1612;
+}
+
+footer {
+  background-color: #F7CE3E;
+
 }

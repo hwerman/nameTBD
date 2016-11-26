@@ -248,7 +248,7 @@ export default class App extends Component {
           />
         </main>
         <footer>
-          <div>Copyright</div>
+          <div></div>
         </footer>
       </div>
     )
