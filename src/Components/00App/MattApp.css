@@ -43,7 +43,7 @@ header > h1 {
 }
 
 .nButton {
-  color: #F7CE3E;
+  color: #fafafa;
   font-size: 14px;
 }
 
@@ -84,6 +84,8 @@ nav > div {
   width: 15vw;
 }
 
+
+
 .nButton:before{
   content: '';
   position: absolute;
@@ -100,11 +102,6 @@ nav > div {
   visibility: visible;
   transform: scaleX(1);
 }
-/*.nButton:hover {
-  background-color: #fafafa;
-  transition: background-color 0.25s;
-  color: #0A1612;
-}*/
 
 footer {
   background-color: #F7CE3E;
