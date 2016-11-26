@@ -4,6 +4,7 @@ import LoginSignup from '../01LoginSignup/LoginSignup.jsx';
 import TestLogin from '../TestLogin/TestLogin.jsx';
 import Logout from '../01Logout/Logout.jsx';
 import CreateStore from '../02CreateStore/CreateStore.jsx';
+import StorefrontDD from '../01StorefrontDD/StorefrontDD.jsx';
 import './App.css';
 
 export default class App extends Component {
@@ -235,13 +236,11 @@ export default class App extends Component {
             logout={this.logout.bind(this)}
           />
           <nav>
-            <div className="nButton">Search
-              <input type="text" placeholder="search"/>
-              <button>Go!</button>
-            </div>
-            <div className="nButton">myStoreFront</div>
+            <div className="nButton">Search</div>
+            <StorefrontDD />
             <div className="nButton">Messages</div>
               <LoginSignup
+                showLogin={this.showLogin}
                 hideLogin={this.hideLogin}
                 trackLoginUsername={this.trackLoginUsername.bind(this)}
                 trackLoginPassword={this.trackLoginPassword.bind(this)}
