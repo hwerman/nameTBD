@@ -13,7 +13,7 @@ class CreateStore extends Component {
   render(){
     return(
       <div id="createStoreDiv">
-        <h2 id="createStoreHeading">Create a storefront!</h2>
+        <h3 id="createStoreHeading">Create a storefront</h3>
           <input onChange={this.props.trackCS} className="name" type="text" placeholder="What would you like to call your storefront?" required></input>
           <input onChange={this.props.trackCS} className="address" type="text" placeholder="Enter your street address." required></input>
         <div className="smallLocations">
@@ -34,8 +34,8 @@ class CreateStore extends Component {
           <input onChange={this.props.trackCS} id="endTime" type="time"></input>
         </div>
         <div className="createOrCancel">
-          <button onClick={this.props.postNewStorefront} id="createStoreButton">Create Store!</button>
-          <button onClick={this.hideStoreButton} id="cancelStoreButton">Cancel!</button>
+          <button onClick={this.props.postNewStorefront} id="createStoreButton">Create Store</button>
+          <button onClick={this.hideStoreButton} id="cancelStoreButton">Cancel</button>
         </div>
     </div>
     )

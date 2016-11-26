@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './StorefrontDD.css'
+import './StorefrontDD.css';
+import '../00App/App.css';
 
 export default class StorefrontDD extends Component {
 
@@ -11,6 +12,7 @@ export default class StorefrontDD extends Component {
   render() {
     return(
       <div onClick={this.show}>Create Storefront</div>
+      <div className="nButton" id="sfButton" onClick={this.test}>Create Storefront</div>
     )
   }
 }

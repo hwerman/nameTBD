@@ -30,14 +30,14 @@ revealUploadForm() {
   uploadForm.style.display = 'block';
 }
 
-render(){
-  return(
-    <div className="rightDiv" id="rightDiv">
-      <h3>Click button to sell items!</h3>
-      <button id="uploadButton" onClick={this.revealUploadForm}>upload item!</button>
-    </div>
-  )
-}
+  render(){
+    return(
+      <div className="rightDiv" id="rightDiv">
+        <h3>Click button to sell items!</h3>
+        <button id="uploadButton" onClick={this.revealUploadForm}>upload item!</button>
+      </div>
+    )
+  }
 }
 
 
