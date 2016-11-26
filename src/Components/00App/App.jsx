@@ -12,6 +12,7 @@ export default class App extends Component {
 
     this.state = {
       address: 'time square address',
+      loggedIn: false,
       loginFormUsername: '',
       loginFormPassword: '',
       signupFormUsername: '',
@@ -23,7 +24,7 @@ export default class App extends Component {
         borough: '',
         zip: '',
         directions: '',
-        date: '',
+        sale_date: '',
         startTime: '',
         endTime: '',
       }
@@ -99,7 +100,12 @@ export default class App extends Component {
       })
     })
     .then( () => {
-      console.log('wtf', this.state.currentToken)
+      this.setState({
+        loggedIn: true,
+      })
+    })
+    .then( () => {
+      console.log('logged in')
     })
     .catch(error => console.log(error))
   }
@@ -107,6 +113,7 @@ export default class App extends Component {
   logout() {
     console.log('logging out')
     this.setState({
+      loggedIn: false,
       currentToken: '',
     })
     console.log('logged out')
@@ -122,6 +129,9 @@ export default class App extends Component {
     .then(r=> r.json())
     .then((data) => {
       console.log(data)
+    })
+    .then(() => {
+      console.log(this.state.loggedIn)
     })
     .catch(error => console.log(error))
   };
@@ -172,10 +182,10 @@ export default class App extends Component {
     e.persist();
     this.setState({
       createStorefront: {
-        date: e.target.value,
+        sale_date: e.target.value,
       }
     }, () => {
-      console.log(e.target.value)
+      console.log(typeof this.state.createStorefront.sale_date)
     })
   }
 
@@ -185,7 +195,7 @@ export default class App extends Component {
         startTime: e.target.value
       }
     }, () => {
-      console.log(this.state.createStorefront.startTime)
+      console.log(typeof this.state.createStorefront.startTime)
     })
   }
 
@@ -195,7 +205,7 @@ export default class App extends Component {
         endTime: e.target.value
       }
     }, () => {
-      console.log(this.state.createStorefront.endTime)
+      console.log(typeof this.state.createStorefront.endTime)
     })
   }
 

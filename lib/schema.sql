@@ -21,6 +21,18 @@ CREATE TABLE grojjUsers(
   password VARCHAR NOT NULL
 );
 
+CREATE TABLE grojjStorefronts(
+  storefront_id SERIAL PRIMARY KEY,
+  name VARCHAR NOT NULL,
+  address VARCHAR NOT NULL,
+  borough VARCHAR NOT NULL,
+  zip VARCHAR NOT NULL,
+  directions VARCHAR,
+  sale_date VARCHAR NOT NULL,
+  startTime VARCHAR NOT NULL,
+  endTime VARCHAR NOT NULL
+);
+
 CREATE TABLE grojjAddresses(
   address_id SERIAL PRIMARY KEY,
   street VARCHAR NOT NULL,
