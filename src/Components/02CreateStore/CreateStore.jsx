@@ -3,6 +3,11 @@ import './CreateStore.css';
 
 class CreateStore extends Component {
 
+  hideStoreButton() {
+    let createStoreDiv = document.querySelector('#createStoreDiv');
+    createStoreDiv.style.display = 'none';
+  }
+
   render(){
     return(
       <div id="createStoreDiv">
@@ -29,7 +34,7 @@ class CreateStore extends Component {
         </div>
         <div className="createOrCancel">
           <button onClick={this.props.postNewStorefront} id="createStoreButton">Create Store!</button>
-          <button id="cancelStoreButton">Cancel!</button>
+          <button onClick={this.hideStoreButton} id="cancelStoreButton">Cancel!</button>
         </div>
     </div>
     )
