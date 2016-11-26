@@ -1,0 +1,16 @@
+.rightDiv{
+  float: left;
+  width: 50%;
+  height: 90%;
+  margin: 4vh;
+  background: #ffffff;
+  border: solid 1px #282828;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

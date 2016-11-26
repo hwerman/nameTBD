@@ -1,0 +1,11 @@
+#logoutButton {
+  position: absolute;
+  font-size: 1em;
+  border: 1px solid #fafafa;
+  color: #fafafa;
+  background-color: #5bc0de;
+  top: 8vh;
+  right: 1vw;
+  width: 15vw;
+  display: block;
+}

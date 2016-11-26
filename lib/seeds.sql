@@ -13,23 +13,7 @@ INSERT INTO grojjItems(item_id, name, price, condition, likes ,url, sellerid) VA
 (9, 'Hunger Games book trilogy', '$', 'Barely Used', 0, '', 4),
 (10, 'Game of Risk', '$$', 'Used', 0, '', 4);
 
-INSERT INTO grojjUsers (user_id, username, password) VALUES
-
-(1, 'test', 'test');
-
-INSERT INTO grojjusers(sellerid, sellerUname) VALUES
-(1, 'MeetDrew'),
-(2, 'Dolores45'),
-(3, 'IrwinForPresident2020'),
-(4, 'JoeyPNYC'),
-(5, 'Rach8'),
-(6, 'flexboxmaster'),
-(7, 'TreeHugger01'),
-(8, 'LoveLife17'),
-(9, 'Sabz'),
-(10, 'Kate08');
-
-INSERT INTO grojjaddresses(id, street, city, state, zip, latitude, longitude, sellerUname, sellerid) VALUES
+INSERT INTO grojjaddresses(address_id, street, city, state, zip, latitude, longitude, sellerUname, sellerid) VALUES
 
 (1, '180 Rivington St', 'New York', 'NY', '10002', '40.718789°', '-73.984037°', 'Dolores45', 2),
 (2, '420 Hudson St', 'New York', 'NY', '10014', '40.730321°', '-74.006565°', 'IrwinForPresident2020', 3),
@@ -41,5 +25,9 @@ INSERT INTO grojjaddresses(id, street, city, state, zip, latitude, longitude, se
 (8, '85 Livingston St', 'Brooklyn', 'NY', '11201', '40.691588°', '-73.990549°', 'Sabz', 9),
 (9, '8666 23rd Ave', 'Brooklyn', 'NY', '11214', '40.59941°', '-73.993082°', 'Kate08', 10),
 (10, '243 W 54th St', 'New York', 'NY', '10019', '40.764522°', '-73.983276°', 'MeetDrew', 1);
+
+INSERT INTO grojjStorefronts (storefront_id, name, address, borough, zip, directions, sale_date, startTime, endTime) VALUES
+
+(1, 'irwin', '123 ga street', 'Brooklyn', '11104', 'left at the tree', '2016-11-30', '03:00 PM', '20:00');
 
 COMMIT;
