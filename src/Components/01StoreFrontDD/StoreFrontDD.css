@@ -1,4 +1,17 @@
-button {
-  position: absolute;
-  top: 50vh;
+.nButton{
+  color: blue;
+  font-size: 14px;
+  color: #fafafa;
+  margin: 0 5vw;
+  position: relative;
+  left: 12vw;
+  text-align: center;
+  display: inline-block;
+  width: 15vw;
+}
+
+div:hover {
+  background-color: #fafafa;
+  transition: background-color 0.25s;
+  color: #5bc0de;
 }

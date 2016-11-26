@@ -176,8 +176,6 @@ export default class App extends Component {
         endTime: this.state.createStorefront.endTime
       })
     })
-<<<<<<< HEAD
-
   };
 
   trackCSStartTime(e) {
@@ -231,13 +229,11 @@ export default class App extends Component {
         items: data
       })
     })
-    .catch(error => console.log('Error'));
-=======
+    .catch(error => console.log('Error'))
     .then(r=> r.json())
     .then(() => {
       console.log('storefront posted')
     })
->>>>>>> e036030c6e5e6d5eefb907cdd946ba86a7c642a9
   }
 
   render(){

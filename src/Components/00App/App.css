@@ -41,6 +41,7 @@ header > h1 {
 
 .nButton{
   color: blue;
+  font-size: 14px;
 }
 
 header > button {
@@ -73,7 +74,7 @@ nav {
 nav > div {
   color: #fafafa;
   margin: 0 5vw;
-  position: relative;
+  position: absolute;
   left: 12vw;
   text-align: center;
   display: inline-block;
