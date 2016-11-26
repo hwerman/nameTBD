@@ -3,13 +3,14 @@
   left: 20vw;
   height: 100vh;
   width: 60vw;
-  background-color: #000000;
+  background-color: #0A1612;
   display: none;
 }
 
 #createStoreHeading{
   text-align: center;
-  color: #ffffff;
+  color: #C5C1C0;
+  padding-top: 30px;
 }
 
 #createStoreDiv > input{
@@ -47,11 +48,10 @@
 .smallLocations{
   position: relative;
   left: 15vw;
-  border-radius: .8vh;
 }
 
 .smallLocations > select{
-  width: 15vw;
+  width: 17vw;
 }
 
 .smallLocations > input,
@@ -64,7 +64,6 @@
   position: relative;
   width: 30vw;
   left: 15vw;
-  border-radius: .8vh;
 }
 
 #directions{
@@ -77,12 +76,11 @@
   position: relative;
   left: 15vw;
   display: inline;
-  border-radius: .8vh;
 }
 
 #startEnd > input[type=time]{
   height: 40px;
-  width: 14.8vw;
+  width: 15vw;
   border: none;
 }
 
@@ -94,26 +92,31 @@
 .createOrCancel{
   height: 40px;
   width: 30vw;
-  border: none;
   position: relative;
   left: 15vw;
 }
 
 .createOrCancel > button{
   height: 40px;
-  width: 14.7vw;
-  border: none;
+  width: 15vw;
   font-size: 1em;
+  border: 3px solid #0A1612;
 }
 
 #createStoreButton{
-  position: absolute;
-  left: 15vw;
-  background-color: skyblue;
+  position: relative;
+  color: #C5C1C0;
+  border: 3px solid #1A2930;
+  color: #0A1612;
+  background-color: #F7CE3E;
 }
 
 #cancelStoreButton{
-  background-color: red;
+  position: absolute;
+  left: 15vw;
+  border: 3px solid #1A2930;
+  color: #0A1612;
+  background-color: #F7CE3E;
 }
 
 #createStoreButton:hover{

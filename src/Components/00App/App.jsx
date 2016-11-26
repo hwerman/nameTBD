@@ -12,6 +12,8 @@ export default class App extends Component {
     super();
 
     this.state = {
+      searchForm: '',
+      items: '',
       address: 'time square address',
       loggedIn: false,
       loginFormUsername: '',
@@ -28,7 +30,8 @@ export default class App extends Component {
         sale_date: '',
         startTime: '',
         endTime: '',
-      }
+      },
+      storefronts: []
     };
   }
 
@@ -173,6 +176,37 @@ export default class App extends Component {
         endTime: this.state.createStorefront.endTime
       })
     })
+  };
+
+  trackCSStartTime(e) {
+    this.setState({
+      createStorefront: {
+        startTime: e.target.value
+      }
+    })
+  };
+
+  trackCSEndTime(e) {
+    this.setState({
+      createStorefront: {
+
+        endTime: e.target.value
+      }
+    }, () => {
+      console.log(this.state.createStorefront.endTime, typeof this.state.createStorefront.endTime)
+    })
+  };
+
+  findMyItems(){
+    fetch(`/api/items/`)
+    .then(r => r.json())
+    .then((data) => {
+      this.setState({
+        items: data
+      })
+    })
+    .catch(error => console.log('Error'))
+    .catch(error => console.log('Error'))
     .then(r=> r.json())
     .then(() => {
       console.log('storefront posted')
@@ -180,19 +214,6 @@ export default class App extends Component {
   }
 
   render(){
-    const location = {
-      lat: 40.7575285,
-      lng: -73.9884469
-    }
-
-    const markers = [
-      {
-        location:{
-          lat: 40.7575285,
-          lng: -73.9884469
-        }
-      }
-    ]
     return (
       <div>
         <header>
@@ -227,7 +248,7 @@ export default class App extends Component {
           />
         </main>
         <footer>
-          <div>copyright nonsense, about us</div>
+          <div></div>
         </footer>
       </div>
     )
