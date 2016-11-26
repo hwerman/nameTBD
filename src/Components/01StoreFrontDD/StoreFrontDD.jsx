@@ -11,7 +11,7 @@ export default class StorefrontDD extends Component {
 
   render() {
     return(
-      <div className="nButton" onClick={this.test}>Create Storefront</div>
+      <div className="nButton" id="sfButton" onClick={this.test}>Create Storefront</div>
     )
   }
 }

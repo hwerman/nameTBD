@@ -1,6 +1,4 @@
 .nButton{
-  color: blue;
-  font-size: 14px;
   color: #fafafa;
   margin: 0 5vw;
   position: relative;
@@ -10,8 +8,8 @@
   width: 15vw;
 }
 
-div:hover {
+#sfButton : hover {
   background-color: #fafafa;
   transition: background-color 0.25s;
-  color: #5bc0de;
+  color: #000000;
 }

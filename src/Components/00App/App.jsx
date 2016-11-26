@@ -31,6 +31,7 @@ export default class App extends Component {
         startTime: '',
         endTime: '',
       },
+      storefronts: []
     };
   }
 
@@ -196,30 +197,6 @@ export default class App extends Component {
     })
   };
 
-  postNewStorefront() {
-    console.log('clicked!');
-    return fetch('/api/storefront', {
-      headers: {
-        'Content-Type': 'application/JSON'
-      },
-      method: 'POST',
-      body: JSON.stringify({
-        name: this.state.createStorefront.name,
-        address: this.state.createStorefront.address,
-        borough: this.state.createStorefront.borough,
-        zip: this.state.createStorefront.zip,
-        directions: this.state.createStorefront.directions,
-        sale_date: this.state.createStorefront.sale_date,
-        startTime: this.state.createStorefront.startTime,
-        endTime: this.state.createStorefront.endTime
-      })
-    })
-    .then(r => r.json())
-    .then((data) => {
-      console.log(data)
-    })
-  }
-
   findMyItems(){
     fetch(`/api/items/`)
     .then(r => r.json())
@@ -228,11 +205,8 @@ export default class App extends Component {
         items: data
       })
     })
-<<<<<<< HEAD
     .catch(error => console.log('Error'))
-=======
-    .catch(error => console.log('Error'));
->>>>>>> master
+    .catch(error => console.log('Error'))
     .then(r=> r.json())
     .then(() => {
       console.log('storefront posted')
@@ -274,9 +248,8 @@ export default class App extends Component {
           />
         </main>
         <footer>
-          <div>copyright nonsense, about us</div>
+          <div>Copyright</div>
         </footer>
-        />
       </div>
     )
   }
