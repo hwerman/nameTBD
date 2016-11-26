@@ -36,6 +36,13 @@ export default class App extends Component {
         startTime: '',
         endTime: '',
       },
+      createItem: {
+        name: '',
+        image_url: '',
+        condition: '',
+        price: '',
+        description: '',
+      },
       storefronts: []
     };
   }
@@ -143,7 +150,7 @@ export default class App extends Component {
     .catch(error => console.log(error))
   };
 
-  trackCS(e) {
+  trackCreateStore(e) {
     let fieldsArr = e.target.parentElement.parentElement.childNodes;
     this.setState({
       createStorefront: {
@@ -161,8 +168,20 @@ export default class App extends Component {
     })
   }
 
-  trackCreateItem() {
-    console.log('track here')
+  trackCreateItem(e) {
+    let fieldsArr = e.target.parentElement.childNodes;
+    console.log(fieldsArr[3])
+    this.setState({
+      createItem: {
+        name: fieldsArr[1].value,
+        image_url: fieldsArr[2].value,
+        condition: fieldsArr[3].children[0].value,
+        price: fieldsArr[3].children[1].value,
+        description: fieldsArr[4].value
+      },
+    }, () => {
+      console.log(this.state)
+    })
   }
 
   postNewStorefront() {
@@ -190,46 +209,6 @@ export default class App extends Component {
         unitedState: 'NY',
         currentUser: this.state.currentUser
       })
-    })
-  };
-
-  trackCSStartTime(e) {
-    this.setState({
-      createStorefront: {
-        startTime: e.target.value
-      }
-    })
-  };
-
-  trackCSEndTime(e) {
-    this.setState({
-      createStorefront: {
-
-        endTime: e.target.value
-      }
-    }, () => {
-      console.log(this.state.createStorefront.endTime, typeof this.state.createStorefront.endTime)
-    })
-  };
-
-  findMyItems(){
-    fetch(`/api/items/`)
-    .then(r => r.json())
-    .then((data) => {
-      this.setState({
-        items: data
-      })
-    })
-    .catch(error => console.log('Error'))
-    .catch(error => console.log('Error'))
-    .then(r=> r.json())
-    .then(() => {
-      this.setState({
-        currentStorefront: this.state.createStorefront.name,
-      })
-    })
-    .then(() => {
-      console.log('posted')
     })
   };
 
@@ -268,14 +247,16 @@ export default class App extends Component {
           />
           <CreateStore
             postNewStorefront={this.postNewStorefront.bind(this)}
-            trackCS={this.trackCS.bind(this)}
+            trackCreateStore={this.trackCreateStore.bind(this)}
           />
         <AsideSMyStore
         />
         <MyItemList
 
         />
-        <AddNewItem />
+        <AddNewItem
+          trackCreateItem={this.trackCreateItem.bind(this)}
+        />
         </main>
         <footer>
           <div></div>

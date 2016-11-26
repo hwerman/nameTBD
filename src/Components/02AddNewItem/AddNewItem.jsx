@@ -8,23 +8,23 @@ class AddNewItem extends Component {
     return(
       <div id="addItemDiv">
         <h2 id="addItemHeading">Add an item!</h2>
-          <input className="name" type="text" placeholder="What is the name of your item?" required></input>
-          <input className="itemU" type="text" placeholder="Enter a link to an image of your item." required></input>
+          <input onChange={this.props.trackCreateItem} className="name" type="text" placeholder="What is the name of your item?" required></input>
+          <input onChange={this.props.trackCreateItem} className="itemU" type="text" placeholder="Enter a link to an image of your item." required></input>
         <div className="smallLocations">
-          <select name="condi" className="condi">
+          <select onChange={this.props.trackCreateItem} name="condi" className="condi">
             <option value="" defaultValue disabled>Select Condition</option>
             <option value="Used">Used</option>
             <option value="BarelyUsed">Barely Used</option>
             <option value="New">New</option>
           </select>
-          <select name="price" id="price">
+          <select onChange={this.props.trackCreateItem} name="price" id="price">
             <option value="" defaultValue disabled>Select Price Bracket</option>
             <option value="One">$</option>
             <option value="Two">$$</option>
             <option value="Three">$$$</option>
           </select>
         </div>
-        <input id="desc" type="text" placeholder="Description of Item" required></input>
+        <input onChange={this.props.trackCreateItem} id="desc" type="text" placeholder="Description of Item" required></input>
         <div className="createOrCancel">
           <button id="createItemButton">Add Item</button>
           <button id="cancelItemButton">Cancel</button>
