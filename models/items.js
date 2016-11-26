@@ -10,7 +10,7 @@ function getAllItems(req, res, next) {
 };
 
 function addNewItem(req, res, next) {
-  db.none('INSERT INTO grojjItems (name, price, condition, likes, url, currentUser, currentStorefront) VALUES ($/name/, $/price/, $/condition/, $/likes/, $/url/, $/currentUser/, $/currentStorefront/);', req.body)
+  db.none('INSERT INTO grojjItems (name, image_url, condition, price, description, likes, currentUser, currentStorefront) VALUES ($/name/, $/image_url/, $/condition/, $/price/, $/description/, $/likes/, $/currentUser/, $/currentStorefront/);', req.body)
     .then(() => {
       next()
   })

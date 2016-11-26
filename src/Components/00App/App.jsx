@@ -210,10 +210,38 @@ export default class App extends Component {
         currentUser: this.state.currentUser
       })
     })
+    .then(() => {
+      this.setState({
+        currentStorefront: this.state.createStorefront.name
+      })
+    })
+    .then(() => {
+      console.log(this.state)
+    })
   };
 
   postNewItem() {
-    console.log('new item posted!');
+    console.log('post item before');
+    return fetch('/api/item', {
+      headers: {
+        'Content-Type': 'application/JSON',
+        'Authorization': 'Bearer ' + this.state.currentToken
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        name: this.state.createItem.name,
+        image_url: this.state.createItem.image_url,
+        condition: this.state.createItem.condition,
+        price: this.state.createItem.price,
+        description: this.state.createItem.description,
+        likes: 0,
+        currentUser: this.state.currentUser,
+        currentStorefront: this.state.currentStorefront
+      }),
+    })
+    .then(()=> {
+      console.log('post item after')
+    })
   };
 
   render(){
@@ -255,6 +283,7 @@ export default class App extends Component {
 
         />
         <AddNewItem
+          postNewItem={this.postNewItem.bind(this)}
           trackCreateItem={this.trackCreateItem.bind(this)}
         />
         </main>

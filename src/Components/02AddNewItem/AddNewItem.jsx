@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import './AddNewItem.css';
 
-//functions needed to capture inputs for each new storefront
 
 class AddNewItem extends Component {
+
+  hideNewItem() {
+    console.log('clicked')
+    let newItem = document.querySelector('#addItemDiv')
+    newItem.style.display = 'none';
+  }
+
   render(){
     return(
       <div id="addItemDiv">
@@ -26,8 +32,8 @@ class AddNewItem extends Component {
         </div>
         <input onChange={this.props.trackCreateItem} id="desc" type="text" placeholder="Description of Item" required></input>
         <div className="createOrCancel">
-          <button id="createItemButton">Add Item</button>
-          <button id="cancelItemButton">Cancel</button>
+          <button onClick={this.props.postNewItem} id="createItemButton">Add Item</button>
+          <button onClick={this.hideNewItem} id="cancelItemButton">Cancel</button>
         </div>
       </div>
     )
