@@ -233,13 +233,10 @@ export default class App extends Component {
     })
   };
 
-<<<<<<< HEAD
-=======
   postNewItem() {
     console.log('new item posted!');
   };
 
->>>>>>> ca570c2b7b4f3a94dee5b923ebf819376d9003df
   render(){
     return (
       <div>
