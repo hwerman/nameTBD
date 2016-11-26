@@ -30,7 +30,9 @@
     "jsonwebtoken": "^7.1.9",
     "morgan": "^1.7.0",
     "path": "^0.12.7",
-    "pg-promise": "^5.2.7"
+    "pg-promise": "^5.2.7",
+    "react-google-maps": "^4.11.0",
+    "react-google-maps-loader": "^2.0.1"
   },
   "devDependencies": {
     "babel": "^6.5.2",

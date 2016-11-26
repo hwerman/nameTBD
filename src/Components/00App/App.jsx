@@ -2,25 +2,14 @@ import React, { Component } from 'react';
 
 import ReactDOM from 'react-dom';
 
-import {
-  Map,
-  KmlLayer,
-  DataLayer,
-  Feature,
-  InfoWindow,
-  CustomOverlay,
-  Marker,
-  MapControl,
-  SearchBox
-} from 'google-react-maps';
-// import Map from './Maps.jsx';
+
+import Map from './Maps.jsx';
+
+
 // import Places from './Places.jsx';
 // import superagent from 'superagent';
 // import './normalize.css';
 // import style from './App.css';
-
-
-
 
 import LoginSignup from '../01LoginSignup/LoginSignup.jsx';
 import TestLogin from '../TestLogin/TestLogin.jsx';
@@ -144,46 +133,58 @@ class App extends Component {
 
   }
 
+
+   componentWillMount() {
+     const body = document.getElementsByTagName('body')[0];
+     const script = document.createElement("script");
+
+      script.type = 'text/javascript';
+      script.className = 'container';
+
+      script.src = "http://maps.google.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c";
+      script.async= true;
+
+      body.appendChild(script);
+      script.onload = () => {
+          console.log(document.querySelector('.container'));
+          ReactDOM.render( <script />,
+            document.querySelector('.container')
+          );
+      };
+
+    // console.log(script)
+    }
+
+
+
   render(){
+
+    const location = {
+      lat: 40.7575285,
+      lng: -73.9884469
+    }
+//Below is where you create your pins/markers
+    const markers = [
+      {
+        location:{
+          lat: 40.7575285,
+          lng: -73.9884469
+        }
+      }
+    ]
+
 
     return (
       <div>
 
-       <Map
-        api-key='https://maps.googleapis.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c'
-        onMount={(map, maps) => {
-          this.map = map; //Store the google map instance for custom actions. (Outside the react components.)
-          this.maps = maps; //Store a reference to the google maps javascript api in case we need some of it's helper methods.
-        }}
-        optionsConstructor={function(maps) {
-          //Options Constructor always has a this context of the options object. To override the default options do the following:
-          Object.assign(this, {
-            zoom : 4,
-            mapTypeId : maps.MapTypeId.ROADMAP,
-            disableDefaultUI: true,
-            zoomControl : true,
-            zoomControlOptions : {
-                position: maps.ControlPosition.LEFT_CENTER
-            },
-            keyboardShortcuts : true,
-            panControl: true,
-            panControlOptions : {
-                position : maps.ControlPosition.BOTTOM_RIGHT
-            },
-            mapTypeId : maps.MapTypeId.HYBRID,
-            mapTypeControl : true,
-            mapTypeControlOptions : {
-                position: maps.ControlPosition.LEFT_BOTTOM
-            },
-            fullscreenControlOptions : {
-                position: maps.ControlPosition.RIGHT_BOTTOM
-            },
-            fullscreenControl: true
-          });
-        }}
-        >
+        <div style={{width:300, height:600, background: 'pink'}}>
 
-      </Map>
+          <Map
+            center={location}
+            markers={markers}
+          />
+
+        </div>
 
         <header>
           <h1>Grojj.</h1>
@@ -208,8 +209,14 @@ class App extends Component {
                 postSignup={this.postSignup.bind(this)}
               />
           </nav>
+
+
         </header>
         <main>
+
+
+
+
           <TestLogin
             testLogin={this.testLogin.bind(this)}
           />
