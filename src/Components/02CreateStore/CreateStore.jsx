@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './CreateStore.css';
 
-//functions needed to capture inputs for each new storefront
-
 class CreateStore extends Component {
 
   render(){
