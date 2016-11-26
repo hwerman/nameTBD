@@ -5,6 +5,9 @@ import TestLogin from '../TestLogin/TestLogin.jsx';
 import Logout from '../01Logout/Logout.jsx';
 import CreateStore from '../02CreateStore/CreateStore.jsx';
 import StorefrontDD from '../01StorefrontDD/StorefrontDD.jsx';
+import AsideSMyStore from '../02AsideSmyStore/AsideSMyStore.jsx';
+import MyItemList from '../02MyItemList/MyItemList.jsx';
+import AddNewItem from '../02AddNewItem/AddNewItem.jsx';
 import './App.css';
 
 export default class App extends Component {
@@ -19,6 +22,8 @@ export default class App extends Component {
       signupFormUsername: '',
       signupFormPassword: '',
       currentToken: '',
+      currentUser: '',
+      currentStorefront: '',
       createStorefront: {
         name: '',
         address: '',
@@ -97,16 +102,13 @@ export default class App extends Component {
     .then(r => r.json())
     .then((data) => {
       this.setState({
-        currentToken: data
-      })
-    })
-    .then( () => {
-      this.setState({
+        currentToken: data,
         loggedIn: true,
+        currentUser: this.state.loginFormUsername
       })
     })
     .then( () => {
-      console.log('logged in')
+      console.log(this.state)
     })
     .catch(error => console.log(error))
   }
@@ -116,6 +118,7 @@ export default class App extends Component {
     this.setState({
       loggedIn: false,
       currentToken: '',
+      currentUser: '',
     })
     console.log('logged out');
   };
@@ -132,14 +135,13 @@ export default class App extends Component {
       console.log(data)
     })
     .then(() => {
-      console.log(this.state.loggedIn)
+      console.log(this.state)
     })
     .catch(error => console.log(error))
   };
 
   trackCS(e) {
     let fieldsArr = e.target.parentElement.parentElement.childNodes;
-    console.log(fieldsArr);
     this.setState({
       createStorefront: {
         name: fieldsArr[1].value,
@@ -149,14 +151,25 @@ export default class App extends Component {
         directions: fieldsArr[4].value,
         sale_date: fieldsArr[5].value,
         startTime: fieldsArr[6].children[0].value,
-        endTime: fieldsArr[6].children[1].value
+        endTime: fieldsArr[6].children[1].value,
       },
     }, () => {
-      console.log(this.state.createStorefront)
+      console.log(this.state)
     })
   }
 
+  trackCreateItem() {
+    console.log('track here')
+  }
+
   postNewStorefront() {
+    let userItemList = document.querySelector('#rightDiv')
+    userItemList.style.display = 'flex';
+    let createStorefront = document.querySelector('#createStoreDiv');
+    createStorefront.style.display = 'none';
+    let reveal = document.querySelector('#asideSellerMyStore');
+    reveal.style.display = 'block';
+
     return fetch('/api/storefront', {
       headers: {
         'Content-Type': 'application/JSON'
@@ -170,29 +183,47 @@ export default class App extends Component {
         directions: this.state.createStorefront.directions,
         sale_date: this.state.createStorefront.sale_date,
         startTime: this.state.createStorefront.startTime,
-        endTime: this.state.createStorefront.endTime
+        endTime: this.state.createStorefront.endTime,
+        unitedState: 'NY',
+        currentUser: this.state.currentUser
       })
     })
     .then(r=> r.json())
     .then(() => {
-      console.log('storefront posted')
+      this.setState({
+        currentStorefront: this.state.createStorefront.name,
+      })
+    })
+    .then(() => {
+      console.log('posted')
     })
   }
 
-  render(){
-    const location = {
-      lat: 40.7575285,
-      lng: -73.9884469
-    }
+  // postNewItem() {
+  //   return fetch('/api/item', {
+  //     headers: {
+  //       'Content-Type': 'application/JSON',
+  //       'Authorization': 'Bearer ' + this.state.currentToken
+  //     },
+  //     method: 'GET',
+  //     body: JSON.stringify({
+  //       name: this.state.createStorefront.name,
+  //       address: this.state.createStorefront.address,
+  //       borough: this.state.createStorefront.borough,
+  //       zip: this.state.createStorefront.zip,
+  //       directions: this.state.createStorefront.directions,
+  //       sale_date: this.state.createStorefront.sale_date,
+  //       startTime: this.state.createStorefront.startTime,
+  //       endTime: this.state.createStorefront.endTime,
+  //       unitedState: 'NY',
+  //       currentUser: this.state.currentUser
+  //     })
+  //   })
+  //   .then(r=> r.json())
+  // }
 
-    const markers = [
-      {
-        location:{
-          lat: 40.7575285,
-          lng: -73.9884469
-        }
-      }
-    ]
+  render(){
+
     return (
       <div>
         <header>
@@ -225,6 +256,12 @@ export default class App extends Component {
             postNewStorefront={this.postNewStorefront.bind(this)}
             trackCS={this.trackCS.bind(this)}
           />
+        <AsideSMyStore
+        />
+        <MyItemList
+
+        />
+        <AddNewItem />
         </main>
         <footer>
           <div>copyright nonsense, about us</div>

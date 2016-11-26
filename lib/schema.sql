@@ -13,7 +13,8 @@ CREATE TABLE grojjItems(
   description VARCHAR,
   likes INT NOT NULL DEFAULT 0,
   url TEXT,
-  sellerid TEXT NOT NULL
+  currentUser TEXT NOT NULL,
+  currentStorefront TEXT NOT NULL,
 );
 
 CREATE TABLE grojjUsers(
@@ -31,7 +32,9 @@ CREATE TABLE grojjStorefronts(
   directions VARCHAR,
   sale_date VARCHAR NOT NULL,
   startTime VARCHAR NOT NULL,
-  endTime VARCHAR NOT NULL
+  endTime VARCHAR NOT NULL,
+  unitedState VARCHAR NOT NULL,
+  currentUser VARCHAR NOT NULL
 );
 
 CREATE TABLE grojjAddresses(

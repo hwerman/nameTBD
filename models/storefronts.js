@@ -10,7 +10,8 @@ function getAllStorefronts(req, res, next) {
 };
 
 function addNewStorefront(req, res, next) {
-  db.none('INSERT INTO grojjStorefronts (name, address, borough, zip, directions, sale_date, startTime, endTime) VALUES ($/name/, $/address/, $/borough/, $/zip/, $/directions/, $/sale_date/, $/startTime/, $/endTime/);', req.body)
+  console.log(req.body)
+  db.none('INSERT INTO grojjStorefronts (name, address, borough, zip, directions, sale_date, startTime, endTime, unitedState, currentUser) VALUES ($/name/, $/address/, $/borough/, $/zip/, $/directions/, $/sale_date/, $/startTime/, $/endTime/, $/unitedState/, $/currentUser/);', req.body)
     .then(() => {
       next()
   })
