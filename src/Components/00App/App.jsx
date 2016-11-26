@@ -6,7 +6,6 @@ import Logout from '../01Logout/Logout.jsx';
 import CreateStore from '../02CreateStore/CreateStore.jsx';
 import StorefrontDD from '../01StorefrontDD/StorefrontDD.jsx';
 import './App.css';
-import MyItemList from '../02MyItemList/MyItemList.jsx';
 
 export default class App extends Component {
   constructor() {
@@ -206,6 +205,7 @@ export default class App extends Component {
   trackCSEndTime(e) {
     this.setState({
       createStorefront: {
+
         endTime: e.target.value
       }
     }, () => {
@@ -215,6 +215,26 @@ export default class App extends Component {
 
   postNewStorefront() {
     console.log('clicked!');
+    return fetch('/api/storefront', {
+      headers: {
+        'Content-Type': 'application/JSON'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        name: this.state.createStorefront.name,
+        address: this.state.createStorefront.address,
+        borough: this.state.createStorefront.borough,
+        zip: this.state.createStorefront.zip,
+        directions: this.state.createStorefront.directions,
+        sale_date: this.state.createStorefront.sale_date,
+        startTime: this.state.createStorefront.startTime,
+        endTime: this.state.createStorefront.endTime
+      })
+    })
+    .then(r => r.json())
+    .then((data) => {
+      console.log(data)
+    })
   }
 
   findMyItems(){
@@ -285,8 +305,6 @@ export default class App extends Component {
         <footer>
           <div>copyright nonsense, about us</div>
         </footer>
-        <MyItemList
-          items={this.state.items}
         />
       </div>
     )

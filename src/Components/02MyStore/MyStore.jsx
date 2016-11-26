@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './MyStore.css';
 import AsideSMyStore from '../02AsideSMyStore/AsideSMyStore.jsx'
-import MyItemList from '../02MyItemList/MyItemList.jsx'
 
 class MyStore extends Component {
 
@@ -9,7 +8,6 @@ class MyStore extends Component {
     return(
       <div>
         <AsideSMyStore />
-        <MyItemList />
       </div>
     )
   }
