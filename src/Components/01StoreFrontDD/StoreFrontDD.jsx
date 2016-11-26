@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './StorefrontDD.css';
-import '../00App/App.css';
 
 export default class StorefrontDD extends Component {
 
