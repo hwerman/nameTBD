@@ -31,7 +31,6 @@ export default class App extends Component {
         startTime: '',
         endTime: '',
       },
-      storefronts: [],
     };
   }
 
@@ -229,7 +228,11 @@ export default class App extends Component {
         items: data
       })
     })
+<<<<<<< HEAD
     .catch(error => console.log('Error'))
+=======
+    .catch(error => console.log('Error'));
+>>>>>>> master
     .then(r=> r.json())
     .then(() => {
       console.log('storefront posted')
@@ -237,19 +240,6 @@ export default class App extends Component {
   }
 
   render(){
-    const location = {
-      lat: 40.7575285,
-      lng: -73.9884469
-    }
-
-    const markers = [
-      {
-        location:{
-          lat: 40.7575285,
-          lng: -73.9884469
-        }
-      }
-    ]
     return (
       <div>
         <header>
