@@ -12,9 +12,9 @@ CREATE TABLE grojjItems(
   condition VARCHAR NOT NULL,
   description VARCHAR,
   likes INT NOT NULL DEFAULT 0,
-  url TEXT,
-  currentUser TEXT NOT NULL,
-  currentStorefront TEXT NOT NULL,
+  image_url VARCHAR NOT NULL,
+  currentUser VARCHAR NOT NULL,
+  currentStorefront VARCHAR NOT NULL
 );
 
 CREATE TABLE grojjUsers(
