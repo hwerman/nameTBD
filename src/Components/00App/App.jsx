@@ -26,7 +26,11 @@ export default class App extends Component {
 
 =======
       address: 'time square address',
+<<<<<<< HEAD
 >>>>>>> 156e5d039d93da6e0751485b0cf12cf4178e8031
+=======
+      loggedIn: false,
+>>>>>>> 91177887b67502bffee93f45085b8f8e091e6e1c
       loginFormUsername: '',
       loginFormPassword: '',
       signupFormUsername: '',
@@ -38,7 +42,7 @@ export default class App extends Component {
         borough: '',
         zip: '',
         directions: '',
-        date: '',
+        sale_date: '',
         startTime: '',
         endTime: '',
       }
@@ -114,7 +118,12 @@ export default class App extends Component {
       })
     })
     .then( () => {
-      console.log('wtf', this.state.currentToken)
+      this.setState({
+        loggedIn: true,
+      })
+    })
+    .then( () => {
+      console.log('logged in')
     })
     .catch(error => console.log(error))
   }
@@ -122,6 +131,7 @@ export default class App extends Component {
   logout() {
     console.log('logging out')
     this.setState({
+      loggedIn: false,
       currentToken: '',
     })
     console.log('logged out')
@@ -137,6 +147,9 @@ export default class App extends Component {
     .then(r=> r.json())
     .then((data) => {
       console.log(data)
+    })
+    .then(() => {
+      console.log(this.state.loggedIn)
     })
     .catch(error => console.log(error))
   };
@@ -187,22 +200,21 @@ export default class App extends Component {
     e.persist();
     this.setState({
       createStorefront: {
-        date: e.target.value,
+        sale_date: e.target.value,
       }
     }, () => {
-      console.log(e.target.value)
+      console.log(this.state.createStorefront.sale_date, typeof this.state.createStorefront.sale_date)
     })
-  }
+
+  };
 
   trackCSStartTime(e) {
     this.setState({
       createStorefront: {
         startTime: e.target.value
       }
-    }, () => {
-      console.log(this.state.createStorefront.startTime)
     })
-  }
+  };
 
   trackCSEndTime(e) {
     this.setState({
@@ -210,8 +222,12 @@ export default class App extends Component {
         endTime: e.target.value
       }
     }, () => {
-      console.log(this.state.createStorefront.endTime)
+      console.log(this.state.createStorefront.endTime, typeof this.state.createStorefront.endTime)
     })
+  };
+
+  postNewStorefront() {
+    console.log('clicked!');
   }
 
   findMyItems(){
@@ -278,6 +294,7 @@ export default class App extends Component {
             trackCSDate={this.trackCSDate.bind(this)}
             trackCSStartTime={this.trackCSStartTime.bind(this)}
             trackCSEndTime={this.trackCSEndTime.bind(this)}
+            postNewStorefront={this.postNewStorefront.bind(this)}
           />
         </main>
         <footer>
