@@ -212,27 +212,6 @@ export default class App extends Component {
     })
   };
 
-  findMyItems(){
-    fetch(`/api/items/`)
-    .then(r => r.json())
-    .then((data) => {
-      this.setState({
-        items: data
-      })
-    })
-    .catch(error => console.log('Error'))
-    .catch(error => console.log('Error'))
-    .then(r=> r.json())
-    .then(() => {
-      this.setState({
-        currentStorefront: this.state.createStorefront.name,
-      })
-    })
-    .then(() => {
-      console.log('posted')
-    })
-  };
-
   postNewItem() {
     console.log('new item posted!');
   };
@@ -283,4 +262,3 @@ export default class App extends Component {
       </div>
     )
   }
-}
