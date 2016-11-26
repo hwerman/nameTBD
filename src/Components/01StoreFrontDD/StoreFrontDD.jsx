@@ -4,12 +4,13 @@ import './StorefrontDD.css'
 export default class StorefrontDD extends Component {
 
   test() {
-    console.log('test')
+    let createStore = document.querySelector('#createStoreDiv');
+    createStore.style.display = 'block';
   }
 
   render() {
     return(
-      <button onClick={this.test}>test</button>
+      <div onClick={this.test}>Create Storefront</div>
     )
   }
 }
