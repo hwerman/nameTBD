@@ -117,7 +117,7 @@ export default class App extends Component {
       loggedIn: false,
       currentToken: '',
     })
-    console.log('logged out')
+    console.log('logged out');
   };
 
   testLogin() {
@@ -137,80 +137,46 @@ export default class App extends Component {
     .catch(error => console.log(error))
   };
 
-  trackCSName(e) {
+  trackCS(e) {
+    let fieldsArr = e.target.parentElement.parentElement.childNodes;
+    console.log(fieldsArr);
     this.setState({
       createStorefront: {
-        name: e.target.value,
-      }
-    })
-  };
-
-  trackCSAddress(e) {
-    this.setState({
-      createStorefront: {
-        address: e.target.value,
-      }
-    })
-  };
-
-  trackCSBorough(e) {
-    this.setState({
-      createStorefront: {
-        borough: e.target.value,
-      }
-    })
-  }
-
-  trackCSZip(e) {
-    if(Number(e.target.value) && e.target.value.length <= 5 && Number(e.target.value) > 0) {
-      this.setState({
-        createStorefront: {
-          zip: e.target.value,
-        }
-      })
-    }
-  }
-
-  trackCSDirections(e) {
-    this.setState({
-      createStorefront: {
-        directions: e.target.value,
-      }
-    })
-  }
-
-  trackCSDate(e) {
-    e.persist();
-    this.setState({
-      createStorefront: {
-        sale_date: e.target.value,
-      }
+        name: fieldsArr[1].value,
+        address: fieldsArr[2].value,
+        borough: fieldsArr[3].children[0].value,
+        zip: fieldsArr[3].children[1].value,
+        directions: fieldsArr[4].value,
+        sale_date: fieldsArr[5].value,
+        startTime: fieldsArr[6].children[0].value,
+        endTime: fieldsArr[6].children[1].value
+      },
     }, () => {
-      console.log(this.state.createStorefront.sale_date, typeof this.state.createStorefront.sale_date)
+      console.log(this.state.createStorefront)
     })
-
-  };
-
-  trackCSStartTime(e) {
-    this.setState({
-      createStorefront: {
-        startTime: e.target.value
-      }
-    })
-  };
-
-  trackCSEndTime(e) {
-    this.setState({
-      createStorefront: {
-        endTime: e.target.value
-      }
-    }, () => {
-      console.log(this.state.createStorefront.endTime, typeof this.state.createStorefront.endTime)
-    })
-  };
+  }
 
   postNewStorefront() {
-    console.log('clicked!');
+    return fetch('/api/storefront', {
+      headers: {
+        'Content-Type': 'application/JSON'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        name: this.state.createStorefront.name,
+        address: this.state.createStorefront.address,
+        borough: this.state.createStorefront.borough,
+        zip: this.state.createStorefront.zip,
+        directions: this.state.createStorefront.directions,
+        sale_date: this.state.createStorefront.sale_date,
+        startTime: this.state.createStorefront.startTime,
+        endTime: this.state.createStorefront.endTime
+      })
+    })
+    .then(r=> r.json())
+    .then(() => {
+      console.log('storefront posted')
+    })
   }
 
   render(){
@@ -256,15 +222,8 @@ export default class App extends Component {
             testLogin={this.testLogin.bind(this)}
           />
           <CreateStore
-            trackCSName={this.trackCSName.bind(this)}
-            trackCSAddress={this.trackCSAddress.bind(this)}
-            trackCSBorough={this.trackCSBorough.bind(this)}
-            trackCSZip={this.trackCSZip.bind(this)}
-            trackCSDirections={this.trackCSDirections.bind(this)}
-            trackCSDate={this.trackCSDate.bind(this)}
-            trackCSStartTime={this.trackCSStartTime.bind(this)}
-            trackCSEndTime={this.trackCSEndTime.bind(this)}
             postNewStorefront={this.postNewStorefront.bind(this)}
+            trackCS={this.trackCS.bind(this)}
           />
         </main>
         <footer>
