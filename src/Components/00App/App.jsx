@@ -185,19 +185,18 @@ export default class App extends Component {
         sale_date: e.target.value,
       }
     }, () => {
-      console.log(typeof this.state.createStorefront.sale_date)
+      console.log(this.state.createStorefront.sale_date, typeof this.state.createStorefront.sale_date)
     })
-  }
+
+  };
 
   trackCSStartTime(e) {
     this.setState({
       createStorefront: {
         startTime: e.target.value
       }
-    }, () => {
-      console.log(typeof this.state.createStorefront.startTime)
     })
-  }
+  };
 
   trackCSEndTime(e) {
     this.setState({
@@ -205,8 +204,12 @@ export default class App extends Component {
         endTime: e.target.value
       }
     }, () => {
-      console.log(typeof this.state.createStorefront.endTime)
+      console.log(this.state.createStorefront.endTime, typeof this.state.createStorefront.endTime)
     })
+  };
+
+  postNewStorefront() {
+    console.log('clicked!');
   }
 
   render(){
@@ -262,6 +265,7 @@ export default class App extends Component {
             trackCSDate={this.trackCSDate.bind(this)}
             trackCSStartTime={this.trackCSStartTime.bind(this)}
             trackCSEndTime={this.trackCSEndTime.bind(this)}
+            postNewStorefront={this.postNewStorefront.bind(this)}
           />
         </main>
         <footer>

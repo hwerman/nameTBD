@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS grojjItems;
 DROP TABLE IF EXISTS grojjUsers;
 DROP TABLE IF EXISTS grojjAddresses;
+DROP TABLE IF EXISTS grojjStorefronts;
 
 BEGIN;
 
@@ -39,7 +40,7 @@ CREATE TABLE grojjAddresses(
   city TEXT NOT NULL,
   state TEXT NOT NULL DEFAULT 'NY',
   zip VARCHAR NOT NULL,
-  Latitude VARCHAR NOT NULL,
+  latitude VARCHAR NOT NULL,
   longitude VARCHAR NOT NULL,
   sellerUname VARCHAR NOT NULL,
   sellerid TEXT NOT NULL

@@ -26,4 +26,8 @@ INSERT INTO grojjaddresses(address_id, street, city, state, zip, latitude, longi
 (9, '8666 23rd Ave', 'Brooklyn', 'NY', '11214', '40.59941°', '-73.993082°', 'Kate08', 10),
 (10, '243 W 54th St', 'New York', 'NY', '10019', '40.764522°', '-73.983276°', 'MeetDrew', 1);
 
+INSERT INTO grojjStorefronts (storefront_id, name, address, borough, zip, directions, sale_date, startTime, endTime) VALUES
+
+(1, 'irwin', '123 ga street', 'Brooklyn', '11104', 'left at the tree', '2016-11-30', '03:00 PM', '20:00');
+
 COMMIT;
