@@ -12,25 +12,10 @@ export default class App extends Component {
     super();
 
     this.state = {
-<<<<<<< HEAD
-<<<<<<< HEAD
       searchForm: '',
-      items: ''
-=======
-
-      address: 'time square address'
-
->>>>>>> fd0490d9b7c55d4bf663b58383449e6aea59185b
-    };
-
-
-=======
+      items: '',
       address: 'time square address',
-<<<<<<< HEAD
->>>>>>> 156e5d039d93da6e0751485b0cf12cf4178e8031
-=======
       loggedIn: false,
->>>>>>> 91177887b67502bffee93f45085b8f8e091e6e1c
       loginFormUsername: '',
       loginFormPassword: '',
       signupFormUsername: '',
@@ -45,7 +30,8 @@ export default class App extends Component {
         sale_date: '',
         startTime: '',
         endTime: '',
-      }
+      },
+      storefronts: [],
     };
   }
 
@@ -300,17 +286,9 @@ export default class App extends Component {
         <footer>
           <div>copyright nonsense, about us</div>
         </footer>
-<<<<<<< HEAD
-
-<<<<<<< HEAD
         <MyItemList
           items={this.state.items}
         />
-
-=======
->>>>>>> fd0490d9b7c55d4bf663b58383449e6aea59185b
-=======
->>>>>>> 156e5d039d93da6e0751485b0cf12cf4178e8031
       </div>
     )
   }

@@ -26,9 +26,9 @@ class MyItemList extends Component{
   }
 }
 
-componentWillMount(){
-  this.props.getAllItems();
-}
+// componentWillMount(){
+//   this.props.getAllItems();
+// }
 
 render(){
   return(
