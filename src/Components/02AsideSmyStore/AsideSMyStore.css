@@ -1,6 +1,7 @@
 .leftAside{
   float: left;
   border: 1px solid #000000;
+  background-color: #000000;
   max-width: 30%;
   max-height: 90%;
   margin: 4vh;
@@ -13,7 +14,7 @@
 .asideSub{
   margin-left: 4vh;
   margin-right: 4vh;
-  color: #ffffff;
+  color: #C5C1C0;
 }
 
 .userProfPic{
@@ -26,15 +27,14 @@
 }
 
 #sellerMyStore{
-  color: #222;
+  color: #C5C1C0;
   margin-left: 4vh;
-
 }
 
 .sellerUserAddress{
   margin-left: 4vh;
   margin-right: 4vh;
-  color: #222;
+  color: #0A1612;
   font-size: 18px;
 }
 

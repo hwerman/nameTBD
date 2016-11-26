@@ -36,11 +36,12 @@ export default class App extends Component {
         startTime: '',
         endTime: '',
       },
-      storefronts: []
-    };
+      storefronts: [],
+    }
   }
 
-  showLogin() {
+
+  showLogin(){
     let showLogin = document.querySelector('#loginSignup');
     showLogin.style.display = 'block';
   }
@@ -204,7 +205,6 @@ export default class App extends Component {
   trackCSEndTime(e) {
     this.setState({
       createStorefront: {
-
         endTime: e.target.value
       }
     }, () => {
@@ -262,3 +262,5 @@ export default class App extends Component {
       </div>
     )
   }
+}
+
