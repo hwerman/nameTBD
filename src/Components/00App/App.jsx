@@ -1,111 +1,18 @@
 import React, { Component } from 'react';
-
 import ReactDOM from 'react-dom';
-import Map from './Maps.jsx';
-// import Places from './Places.jsx';
-// import superagent from 'superagent';
-// import './normalize.css';
-// import style from './App.css';
-
-// class GMap extends React.Component {
-//   constructor() {
-//     super();
-
-//    this.state = { zoom: 10 };
-
-//   }
-
-
-//   static propTypes() {
-//     initialCenter: React.PropTypes.objectOf(React.PropTypes.number).isRequired
-//   }
-
-//   render() {
-//     return <div className="GMap">
-//       <div className='UpdatedText'>
-//         <p>Current Zoom: { this.state.zoom }</p>
-//       </div>
-//       <div className='GMap-canvas' ref="mapCanvas">
-//       </div>
-//     </div>
-//   }
-
-//   componentDidMount() {
-//     // create the map, marker and infoWindow after the component has
-//     // been rendered because we need to manipulate the DOM for Google =(
-//     this.map = this.createMap()
-//     this.marker = this.createMarker()
-//     this.infoWindow = this.createInfoWindow()
-
-//     // have to define google maps event listeners here too
-//     // because we can't add listeners on the map until its created
-//     google.maps.event.addListener(this.map, 'zoom_changed', ()=> this.handleZoomChange())
-//   }
-
-//   // clean up event listeners when component unmounts
-//   componentDidUnMount() {
-//     google.maps.event.clearListeners(map, 'zoom_changed')
-//   }
-
-//   createMap() {
-//     let mapOptions = {
-//       zoom: this.state.zoom,
-//       center: this.mapCenter()
-//     }
-//     return new google.maps.Map(this.refs.mapCanvas, mapOptions)
-//   }
-
-//   mapCenter() {
-//     return new google.maps.LatLng(
-//       this.props.initialCenter.lat,
-//       this.props.initialCenter.lng
-//     )
-//   }
-
-//   createMarker() {
-//     return new google.maps.Marker({
-//       position: this.mapCenter(),
-//       map: this.map
-//     })
-//   }
-
-//   createInfoWindow() {
-//     let contentString = "<div class='InfoWindow'>I'm a Window that contains Info Yay</div>"
-//     return new google.maps.InfoWindow({
-//       map: this.map,
-//       anchor: this.marker,
-//       content: contentString
-//     })
-//   }
-
-//   handleZoomChange() {
-//     this.setState({
-//       zoom: this.map.getZoom()
-//     })
-//   }
-// }
-
-// var initialCenter = { lng: -90.1056957, lat: 29.9717272 }
-
-// ReactDOM.render(<GMap initialCenter={initialCenter} />, document.getElementById('root-container'));
-
-
-
-
-
 import LoginSignup from '../01LoginSignup/LoginSignup.jsx';
 import TestLogin from '../TestLogin/TestLogin.jsx';
 import Logout from '../01Logout/Logout.jsx';
+import CreateStore from '../02CreateStore/CreateStore.jsx';
 import './App.css';
 import MyItemList from '../02MyItemList/MyItemList.jsx';
 
-class App extends Component {
-
-
+export default class App extends Component {
   constructor() {
     super();
 
     this.state = {
+<<<<<<< HEAD
 <<<<<<< HEAD
       searchForm: '',
       items: ''
@@ -117,18 +24,30 @@ class App extends Component {
     };
 
 
+=======
+      address: 'time square address',
+>>>>>>> 156e5d039d93da6e0751485b0cf12cf4178e8031
       loginFormUsername: '',
       loginFormPassword: '',
       signupFormUsername: '',
       signupFormPassword: '',
       currentToken: '',
+      createStorefront: {
+        name: '',
+        address: '',
+        borough: '',
+        zip: '',
+        directions: '',
+        date: '',
+        startTime: '',
+        endTime: '',
+      }
     };
   }
 
   showLogin() {
     let showLogin = document.querySelector('#loginSignup');
     showLogin.style.display = 'block';
-    console.log(showLogin);
   }
 
   hideLogin() {
@@ -146,21 +65,19 @@ class App extends Component {
     this.setState({
       loginFormPassword: e.target.value
     })
-  }
+  };
 
   trackSignupUsername(e) {
     this.setState({
       signupFormUsername: e.target.value
     })
-    console.log(e.target.value)
-  }
+  };
 
   trackSignupPassword(e) {
     this.setState({
       signupFormPassword: e.target.value
     })
-    console.log(e.target.value)
-  }
+  };
 
   postSignup() {
     console.log(this.state.signupFormUsername, this.state.signupFormPassword)
@@ -208,7 +125,7 @@ class App extends Component {
       currentToken: '',
     })
     console.log('logged out')
-  }
+  };
 
   testLogin() {
     return fetch('/api/items', {
@@ -222,7 +139,79 @@ class App extends Component {
       console.log(data)
     })
     .catch(error => console.log(error))
+  };
 
+  trackCSName(e) {
+    this.setState({
+      createStorefront: {
+        name: e.target.value,
+      }
+    })
+  };
+
+  trackCSAddress(e) {
+    this.setState({
+      createStorefront: {
+        address: e.target.value,
+      }
+    })
+  };
+
+  trackCSBorough(e) {
+    this.setState({
+      createStorefront: {
+        borough: e.target.value,
+      }
+    })
+  }
+
+  trackCSZip(e) {
+    if(Number(e.target.value) && e.target.value.length <= 5 && Number(e.target.value) > 0) {
+      this.setState({
+        createStorefront: {
+          zip: e.target.value,
+        }
+      })
+    }
+  }
+
+  trackCSDirections(e) {
+    this.setState({
+      createStorefront: {
+        directions: e.target.value,
+      }
+    })
+  }
+
+  trackCSDate(e) {
+    e.persist();
+    this.setState({
+      createStorefront: {
+        date: e.target.value,
+      }
+    }, () => {
+      console.log(e.target.value)
+    })
+  }
+
+  trackCSStartTime(e) {
+    this.setState({
+      createStorefront: {
+        startTime: e.target.value
+      }
+    }, () => {
+      console.log(this.state.createStorefront.startTime)
+    })
+  }
+
+  trackCSEndTime(e) {
+    this.setState({
+      createStorefront: {
+        endTime: e.target.value
+      }
+    }, () => {
+      console.log(this.state.createStorefront.endTime)
+    })
   }
 
   findMyItems(){
@@ -241,7 +230,7 @@ class App extends Component {
       lat: 40.7575285,
       lng: -73.9884469
     }
-//Below is where you create your pins/markers
+
     const markers = [
       {
         location:{
@@ -252,20 +241,6 @@ class App extends Component {
     ]
     return (
       <div>
-
-
-          <div style={{width:300, height:600, background: 'red'}}>
-
-             <Map center={location} markers={markers} />
-
-            <p>Location: { this.state.address }</p>
-
-          </div>
-
-
-
-
-
         <header>
           <h1>Grojj.</h1>
           <button onClick={this.showLogin}>Login or Sign Up</button>
@@ -294,10 +269,21 @@ class App extends Component {
           <TestLogin
             testLogin={this.testLogin.bind(this)}
           />
+          <CreateStore
+            trackCSName={this.trackCSName.bind(this)}
+            trackCSAddress={this.trackCSAddress.bind(this)}
+            trackCSBorough={this.trackCSBorough.bind(this)}
+            trackCSZip={this.trackCSZip.bind(this)}
+            trackCSDirections={this.trackCSDirections.bind(this)}
+            trackCSDate={this.trackCSDate.bind(this)}
+            trackCSStartTime={this.trackCSStartTime.bind(this)}
+            trackCSEndTime={this.trackCSEndTime.bind(this)}
+          />
         </main>
         <footer>
           <div>copyright nonsense, about us</div>
         </footer>
+<<<<<<< HEAD
 
 <<<<<<< HEAD
         <MyItemList
@@ -306,11 +292,9 @@ class App extends Component {
 
 =======
 >>>>>>> fd0490d9b7c55d4bf663b58383449e6aea59185b
+=======
+>>>>>>> 156e5d039d93da6e0751485b0cf12cf4178e8031
       </div>
-
-      )
+    )
   }
 }
-
-
-export default App;
