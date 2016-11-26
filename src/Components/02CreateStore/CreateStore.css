@@ -107,6 +107,8 @@
 }
 
 #createStoreButton{
+  position: absolute;
+  left: 15vw;
   background-color: skyblue;
 }
 
