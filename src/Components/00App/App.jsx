@@ -231,30 +231,11 @@ export default class App extends Component {
     .then(() => {
       console.log('posted')
     })
-  }
+  };
 
-  // postNewItem() {
-  //   return fetch('/api/item', {
-  //     headers: {
-  //       'Content-Type': 'application/JSON',
-  //       'Authorization': 'Bearer ' + this.state.currentToken
-  //     },
-  //     method: 'GET',
-  //     body: JSON.stringify({
-  //       name: this.state.createStorefront.name,
-  //       address: this.state.createStorefront.address,
-  //       borough: this.state.createStorefront.borough,
-  //       zip: this.state.createStorefront.zip,
-  //       directions: this.state.createStorefront.directions,
-  //       sale_date: this.state.createStorefront.sale_date,
-  //       startTime: this.state.createStorefront.startTime,
-  //       endTime: this.state.createStorefront.endTime,
-  //       unitedState: 'NY',
-  //       currentUser: this.state.currentUser
-  //     })
-  //   })
-  //   .then(r=> r.json())
-  // }
+  postNewItem() {
+    console.log('new item posted!');
+  };
 
   render(){
     return (
