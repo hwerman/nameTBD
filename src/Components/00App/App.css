@@ -82,7 +82,7 @@ nav > div {
   width: 15vw;
 }
 
-nav > div:hover {
+.nButton:hover {
   background-color: #fafafa;
   transition: background-color 0.25s;
   color: #0A1612;
