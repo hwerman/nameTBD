@@ -31,7 +31,6 @@ export default class App extends Component {
         startTime: '',
         endTime: '',
       },
-      storefronts: [],
     };
   }
 
@@ -176,8 +175,6 @@ export default class App extends Component {
         endTime: this.state.createStorefront.endTime
       })
     })
-<<<<<<< HEAD
-
   };
 
   trackCSStartTime(e) {
@@ -232,28 +229,13 @@ export default class App extends Component {
       })
     })
     .catch(error => console.log('Error'));
-=======
     .then(r=> r.json())
     .then(() => {
       console.log('storefront posted')
     })
->>>>>>> e036030c6e5e6d5eefb907cdd946ba86a7c642a9
   }
 
   render(){
-    const location = {
-      lat: 40.7575285,
-      lng: -73.9884469
-    }
-
-    const markers = [
-      {
-        location:{
-          lat: 40.7575285,
-          lng: -73.9884469
-        }
-      }
-    ]
     return (
       <div>
         <header>
