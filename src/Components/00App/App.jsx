@@ -24,9 +24,17 @@ export default class App extends Component {
       signupFormUsername: '',
       signupFormPassword: '',
       currentToken: '',
-      currentUser: 'test',
+      currentUser: '',
       hasStorefront: false,
-      currentStorefront: '',
+      currentStorefront: {
+        name: '',
+        address: '',
+        borough: '',
+        directions: '',
+        endTime: '',
+        startTime: '',
+        zip: ''
+      },
       createStorefront: {
         name: '',
         address: '',
@@ -71,13 +79,22 @@ export default class App extends Component {
     })
     .then(r=> r.json())
     .then((data) => {
-      console.log(data[0].name)
-      if(data) {
-        this.setState({
-          hasStorefront: true,
-          currentStorefront: data[0].name,
-        })
-      }
+      console.log(data[0])
+      this.setState({
+        hasStorefront: true,
+        currentStorefront: {
+          name: data[0].name,
+          address: data[0].address,
+          borough: data[0].borough,
+          directions: data[0].directions,
+          endTime: data[0].endtime,
+          startTime: data[0].starttime,
+          zip: data[0].zip,
+        }
+      })
+    })
+    .then( () => {
+      console.log(this.state)
     })
   }
 
@@ -155,9 +172,18 @@ export default class App extends Component {
       currentToken: '',
       currentUser: '',
       hasStorefront: false,
-      currentStorefront: '',
+      currentStorefront: {
+        name: '',
+        address: '',
+        borough: '',
+        directions: '',
+        endTime: '',
+        startTime: '',
+        zip: ''
+      }
+    }, () => {
+      console.log(this.state)
     })
-    console.log(this.state);
   };
 
   testLogin() {
@@ -213,6 +239,7 @@ export default class App extends Component {
     let reveal = document.querySelector('#asideSellerMyStore');
     reveal.style.display = 'block';
 
+    console.log('posting')
     return fetch('/api/storefront', {
       headers: {
         'Content-Type': 'application/JSON'
@@ -233,8 +260,20 @@ export default class App extends Component {
     })
     .then(() => {
       this.setState({
-        currentStorefront: this.state.createStorefront.name
+        currentStorefront: {
+          name: this.state.createStorefront.name,
+          address: this.state.createStorefront.address,
+          borough: this.state.createStorefront.borough,
+          zip: this.state.createStorefront.zip,
+          directions: this.state.createStorefront.directions,
+          sale_date: this.state.createStorefront.sale_date,
+          startTime: this.state.createStorefront.startTime,
+          endTime: this.state.createStorefront.endTime,
+        }
       })
+    })
+    .then(() => {
+      console.log(this.state)
     })
   };
 
@@ -253,7 +292,9 @@ export default class App extends Component {
         description: this.state.createItem.description,
         likes: 0,
         currentUser: this.state.currentUser,
-        currentStorefront: this.state.currentStorefront
+        currentStorefront: {
+          name: this.state.currentStorefront.name
+        }
       }),
     })
   };
