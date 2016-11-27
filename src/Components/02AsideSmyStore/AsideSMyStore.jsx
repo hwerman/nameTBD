@@ -3,6 +3,12 @@ import './AsideSMyStore.css';
 
 class AsideSMyStore extends Component {
 
+  editStorefront() {
+    console.log('edit store front')
+    let editForm = document.querySelector('#editStoreDiv');
+    editForm.style.display = 'block';
+  }
+
   render(){
     return (
       <div>
@@ -13,8 +19,8 @@ class AsideSMyStore extends Component {
           <div>date: {this.props.currentStorefront.sale_date}</div>
           <div>start time: {this.props.currentStorefront.startTime}</div>
           <div>end time: {this.props.currentStorefront.endTime}</div>
-          <button>edit</button>
-          <button>delete</button>
+          <button onClick={this.editStorefront} id="editButton">edit</button>
+          <button id="deleteButton">delete</button>
         </aside>
       </div>
     );
