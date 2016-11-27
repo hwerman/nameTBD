@@ -11,7 +11,6 @@ class ItemList extends Component{
   renderItems(){
     return this.props.items.map((item, index) =>
       <Item
-        likeFunc={this.props.likeFunc}
         name={item.name}
         url={item.url}
         description={item.description}
@@ -23,11 +22,6 @@ class ItemList extends Component{
       />
     )
   }
-}
-
-//is this needed?
-componentWillMount(){
-  this.props.getAllItems();
 }
 
 render(){

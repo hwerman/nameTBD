@@ -336,10 +336,6 @@ export default class App extends Component {
   };
 
   putEditStorefront() {
-<<<<<<< HEAD
-    console.log('put edit storefront')
-  }
-=======
     console.log('put edit storefront before')
     return fetch('/api/storefronts', {
       headers: {
@@ -378,9 +374,21 @@ export default class App extends Component {
       this.hideEditForm();
     })
   };
->>>>>>> master
 
-
+  deleteStorefront(id) {
+    fetch('/api/storefronts/${id}', {
+      method: 'DELETE'
+    })
+    .then(() => {
+      const storefronts = this.state.storefronts.filter((sale) => {
+        return sale.id !== id;
+      })
+      this.setState({
+        storefronts: storefronts
+      })
+    })
+    .catch(error => console.log(error))
+  };
 
   render(){
     return (
@@ -428,7 +436,9 @@ export default class App extends Component {
             currentStorefront={this.state.currentStorefront}
             currentUser={this.state.currentUser}
           />
-          <MyItemList />
+          <MyItemList
+
+          />
           <AddNewItem
             postNewItem={this.postNewItem.bind(this)}
             trackCreateItem={this.trackCreateItem.bind(this)}

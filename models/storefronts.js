@@ -7,7 +7,7 @@ function editOneStorefront(req, res, next) {
       next();
     })
     .catch(error => console.log(error))
-}
+};
 
 function getOneStorefront(req, res, next) {
   db.many('SELECT * FROM grojjStorefronts WHERE grojjStorefronts.currentUser = $/currentUser/;', req.body)
@@ -16,7 +16,7 @@ function getOneStorefront(req, res, next) {
       next();
     })
   .catch((error) => console.log(error));
-}
+};
 
 function getAllStorefronts(req, res, next) {
   db.many('SELECT * FROM grojjStorefronts')
@@ -35,9 +35,18 @@ function addNewStorefront(req, res, next) {
   .catch((error) => console.log(error));
 };
 
+function deleteStorefront(req, res, next) {
+  db.none('DELETE FROM grojjStorefronts WHERE id = $1;', [req.params.id])
+  .then(() => {
+      next()
+  })
+  .catch((error) => console.log(error));
+};
+
 module.exports = {
   getAllStorefronts,
   addNewStorefront,
   getOneStorefront,
   editOneStorefront,
+  deleteStorefront
 }

@@ -5,7 +5,8 @@ const { getAllItems,
 const { getAllStorefronts,
         addNewStorefront,
         getOneStorefront,
-        editOneStorefront
+        editOneStorefront,
+        deleteStorefront,
       } = require('../models/storefronts.js');
 
 apiRouter.route('/items')
@@ -19,9 +20,12 @@ apiRouter.route('/storefronts')
   .put(editOneStorefront, (req, res) => res.json({message: 'storefront successfully edited'}));
 
 apiRouter.route('/storefront')
-  .post(addNewStorefront, (req, res) => res.json({message: 'storefront successfully added'}))
+  .post(addNewStorefront, (req, res) => res.json({message: 'storefront successfully added'}));
 
 apiRouter.route('/myStorefront')
   .post(getOneStorefront, (req, res) => res.json(res.storefront));
+
+apiRouter.route('/storefronts/:id')
+  .delete(deleteStorefront, (req, res) => res.json({message: 'storefront successfully deleted'}));
 
 module.exports = apiRouter;
