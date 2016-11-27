@@ -7,13 +7,12 @@
   -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
   -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
   box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
-  display: none;
 }
 
 .asideSub{
   margin-left: 4vh;
   margin-right: 4vh;
-  color: #ffffff;
+  color: #222;
 }
 
 .userProfPic{
