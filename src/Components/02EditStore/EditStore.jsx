@@ -32,7 +32,7 @@ class EditStore extends Component {
           <input onChange={this.props.trackEditStore} id="endTime" type="time"></input>
         </div>
         <div className="editOrCancel">
-          <button onClick={this.props.postNewStorefront} id="editStoreButton">Edit Store</button>
+          <button onClick={this.props.putEditStorefront} id="editStoreButton">Edit Store</button>
           <button onClick={this.hideEditForm} id="editStoreButton">Cancel</button>
         </div>
     </div>
