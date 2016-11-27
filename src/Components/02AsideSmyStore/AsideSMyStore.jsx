@@ -15,6 +15,7 @@ class AsideSMyStore extends Component {
         <aside className="leftAside" id="asideSellerMyStore">
           <h1 className="asideSub">Welcome, {this.props.currentUser}!</h1>
           <h2 id="sellerMyStore">Your Storefront:</h2>
+          <div>name: {this.props.currentStorefront.name}</div>
           <div>address: {this.props.currentStorefront.address}</div>
           <div>date: {this.props.currentStorefront.sale_date}</div>
           <div>start time: {this.props.currentStorefront.startTime}</div>

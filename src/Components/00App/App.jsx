@@ -78,6 +78,11 @@ export default class App extends Component {
     showLogin.style.display = 'none';
   }
 
+  hideEditForm() {
+    let editStoreDiv = document.querySelector('#editStoreDiv');
+    editStoreDiv.style.display = 'none';
+  }
+
   getOneStorefront() {
     return fetch('/api/myStorefront', {
       method: 'POST',
@@ -364,13 +369,11 @@ export default class App extends Component {
         }
       })
     })
-    .then(() => {
+    .then( () => {
       this.getOneStorefront();
+      this.hideEditForm();
     })
-    .then(() => {
-      console.log('put edit storefront after ', this.state)
-    })
-  }
+  };
 
 
 
@@ -414,6 +417,7 @@ export default class App extends Component {
           <EditStore
             putEditStorefront={this.putEditStorefront.bind(this)}
             trackEditStore={this.trackEditStore.bind(this)}
+            hideEditForm={this.hideEditForm.bind(this)}
           />
           <AsideSMyStore
             currentStorefront={this.state.currentStorefront}
