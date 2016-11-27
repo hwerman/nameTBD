@@ -8,6 +8,7 @@ import StorefrontDD from '../01StorefrontDD/StorefrontDD.jsx';
 import AsideSMyStore from '../02AsideSmyStore/AsideSMyStore.jsx';
 import MyItemList from '../02MyItemList/MyItemList.jsx';
 import AddNewItem from '../02AddNewItem/AddNewItem.jsx';
+import EditStore from '../02EditStore/EditStore.jsx';
 import './MattApp.css';
 // import './App.css';
 
@@ -37,6 +38,16 @@ export default class App extends Component {
         zip: ''
       },
       createStorefront: {
+        name: '',
+        address: '',
+        borough: '',
+        zip: '',
+        directions: '',
+        sale_date: '',
+        startTime: '',
+        endTime: '',
+      },
+      editStorefront: {
         name: '',
         address: '',
         borough: '',
@@ -85,6 +96,7 @@ export default class App extends Component {
         hasStorefront: true,
         currentStorefront: {
           name: data[0].name,
+          sale_date: data[0].sale_date,
           address: data[0].address,
           borough: data[0].borough,
           directions: data[0].directions,
@@ -232,6 +244,24 @@ export default class App extends Component {
     })
   }
 
+  trackEditStore(e) {
+    let fieldsArr = e.target.parentElement.parentElement.childNodes;
+    this.setState({
+      editStorefront: {
+        name: fieldsArr[1].value,
+        address: fieldsArr[2].value,
+        borough: fieldsArr[3].children[0].value,
+        zip: fieldsArr[3].children[1].value,
+        directions: fieldsArr[4].value,
+        sale_date: fieldsArr[5].value,
+        startTime: fieldsArr[6].children[0].value,
+        endTime: fieldsArr[6].children[1].value,
+      },
+    }, () => {
+      console.log(this.state)
+    })
+  }
+
   postNewStorefront() {
     let userItemList = document.querySelector('#rightDiv')
     userItemList.style.display = 'flex';
@@ -300,6 +330,44 @@ export default class App extends Component {
     })
   };
 
+  putEditStorefront() {
+    console.log('put edit storefront')
+    // return fetch('/api/storefront', {
+    //   headers: {
+    //     'Content-Type': 'application/JSON'
+    //   },
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     name: this.state.createStorefront.name,
+    //     address: this.state.createStorefront.address,
+    //     borough: this.state.createStorefront.borough,
+    //     zip: this.state.createStorefront.zip,
+    //     directions: this.state.createStorefront.directions,
+    //     sale_date: this.state.createStorefront.sale_date,
+    //     startTime: this.state.createStorefront.startTime,
+    //     endTime: this.state.createStorefront.endTime,
+    //     unitedState: 'NY',
+    //     currentUser: this.state.currentUser
+    //   })
+    // })
+    // .then(() => {
+    //   this.setState({
+    //     currentStorefront: {
+    //       name: this.state.createStorefront.name,
+    //       address: this.state.createStorefront.address,
+    //       borough: this.state.createStorefront.borough,
+    //       zip: this.state.createStorefront.zip,
+    //       directions: this.state.createStorefront.directions,
+    //       sale_date: this.state.createStorefront.sale_date,
+    //       startTime: this.state.createStorefront.startTime,
+    //       endTime: this.state.createStorefront.endTime,
+    //     }
+    //   })
+    // })
+  }
+
+
+
   render(){
     return (
       <div>
@@ -337,6 +405,7 @@ export default class App extends Component {
             postNewStorefront={this.postNewStorefront.bind(this)}
             trackCreateStore={this.trackCreateStore.bind(this)}
           />
+<<<<<<< HEAD
         <AsideSMyStore
           currentStorefront={this.state.currentStorefront}
           currentUser={this.state.currentUser}
@@ -349,6 +418,21 @@ export default class App extends Component {
           postNewItem={this.postNewItem.bind(this)}
           trackCreateItem={this.trackCreateItem.bind(this)}
         />
+=======
+          <EditStore
+            putEditStorefront={this.putEditStorefront.bind(this)}
+            trackEditStore={this.trackEditStore.bind(this)}
+          />
+          <AsideSMyStore
+            currentStorefront={this.state.currentStorefront}
+            currentUser={this.state.currentUser}
+          />
+          <MyItemList />
+          <AddNewItem
+            postNewItem={this.postNewItem.bind(this)}
+            trackCreateItem={this.trackCreateItem.bind(this)}
+          />
+>>>>>>> master
         </main>
         <footer>
           <div></div>
