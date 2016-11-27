@@ -16,6 +16,8 @@ import TestLogin from '../TestLogin/TestLogin.jsx';
 import Logout from '../01Logout/Logout.jsx';
 import './App.css';
 
+
+
 class App extends Component {
 
 
@@ -30,6 +32,7 @@ class App extends Component {
       signupFormUsername: '',
       signupFormPassword: '',
       currentToken: '',
+
     };
   }
 
@@ -143,14 +146,15 @@ class App extends Component {
 
       script.src = "http://maps.google.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c";
       script.async= true;
+      script.defer= true;
 
       body.appendChild(script);
-      script.onload = () => {
-          console.log(document.querySelector('.container'));
-          ReactDOM.render( <script />,
-            document.querySelector('.container')
-          );
-      };
+      // script.onload = () => {
+      //     console.log(document.querySelector('.container'));
+      //     ReactDOM.render( <script />,
+      //       document.querySelector('.container')
+      //     );
+      // };
 
     // console.log(script)
     }
@@ -173,6 +177,21 @@ class App extends Component {
       }
     ]
 
+    const script = document.querySelector('.container');
+
+    script.onload = () => {
+          console.log(document.querySelector('.container'));
+          ReactDOM.render( <script />,
+            document.querySelector('.container')
+          );
+      };
+
+    // const body = document.getElementsByTagName('body');
+
+    // body.onload = () => {
+    //       console.log(document.querySelector('.container'));
+    //       componentWillMount();
+    //   };
 
     return (
       <div>
@@ -213,7 +232,7 @@ class App extends Component {
 
         </header>
         <main>
-
+        <script> </script>
 
 
 
@@ -234,3 +253,5 @@ class App extends Component {
 
 
 export default App;
+
+

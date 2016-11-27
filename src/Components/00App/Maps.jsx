@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps'
-
+// import { GoogleMap } from 'google-map-react';
 
 class Map extends Component {
 
@@ -25,6 +25,7 @@ class Map extends Component {
     containerElement = { mapContainer }
     googleMapElement = {
         <GoogleMap
+          // apiKey={AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3cY} // set if you need stats etc ...
           defaultZoom={15}
           defaultCenter={this.props.center}
           options={{streetViewControl: false, mapTypeControl: false}}>
@@ -32,10 +33,12 @@ class Map extends Component {
           { markers }
         </GoogleMap>
       } />
+
       )
   }
 }
 export default Map;
+
 //import in app.js with <Map />
 //import Map from './components/Map'
 //cd to root level in directory then npm i -S react-google-maps
