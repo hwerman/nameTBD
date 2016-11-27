@@ -347,9 +347,9 @@ export default class App extends Component {
             trackCreateItem={this.trackCreateItem.bind(this)}
           />
         </main>
-        <footer>
-          <div></div>
-        </footer>
+        {/* <footer>
+          <p>Grojj 2016</p>
+        </footer> */}
       </div>
     )
   }
