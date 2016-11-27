@@ -58,6 +58,7 @@ header > button {
   right: 1vw;
   width: 15vw;
   display: block;
+  border-radius: 8px;
 }
 
 header > button:hover {
