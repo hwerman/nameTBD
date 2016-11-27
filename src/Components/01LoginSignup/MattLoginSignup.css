@@ -1,0 +1,61 @@
+#loginSignup {
+  position: relative;
+  top: 20vh;
+  left: 20vw;
+  height: 70vh;
+  width: 60vw;
+  background: #fff;
+  background: -moz-linear-gradient(#fff, #999);
+  background: -webkit-linear-gradient(#fff, #999);
+  background: -o-linear-gradient(#fff, #999);
+  display: none;
+}
+
+#login {
+  width: 29.45vw;
+  height: 70vh;
+}
+
+#signup {
+  border-left: .1vw solid #999;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 29.45vw;
+  height: 70vh;
+}
+
+.loginModal > h1 {
+  text-align: center;
+  width: 100%;
+  color: #222;
+  /*font-size: .8em;*/
+}
+
+#dividingLine {
+  height: 40vh;
+  width: .5vw;
+  /*color: #323232;*/
+}
+
+#loginSignupCancel{
+  position: absolute;
+  margin-top: 40vh;
+  margin-left: 9vw;
+}
+
+.modalButton{
+  border: 1px solid #999;
+  width: 15vw;
+  font-size: .5em;
+  letter-spacing: 1.5px;
+  color: #fafafa;
+  border-radius: 8px;
+}
+
+.modalButton:hover{
+  color: #222;
+  background: #fafafa;
+  transition: background .5s ease-in;
+  cursor: pointer;
+}
