@@ -24,7 +24,8 @@ export default class App extends Component {
       signupFormUsername: '',
       signupFormPassword: '',
       currentToken: '',
-      currentUser: '',
+      currentUser: 'test',
+      hasStorefront: false,
       currentStorefront: '',
       createStorefront: {
         name: '',
@@ -57,6 +58,29 @@ export default class App extends Component {
     showLogin.style.display = 'none';
   }
 
+  getOneStorefront() {
+    return fetch('/api/myStorefront', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/JSON',
+        'Authorization': 'Bearer ' + this.state.currentToken
+      },
+      body: JSON.stringify({
+        currentUser: this.state.currentUser
+      })
+    })
+    .then(r=> r.json())
+    .then((data) => {
+      console.log(data[0].name)
+      if(data) {
+        this.setState({
+          hasStorefront: true,
+          currentStorefront: data[0].name,
+        })
+      }
+    })
+  }
+
   trackLoginUsername(e) {
     this.setState({
       loginFormUsername: e.target.value
@@ -82,7 +106,6 @@ export default class App extends Component {
   };
 
   postSignup() {
-    console.log(this.state.signupFormUsername, this.state.signupFormPassword)
     return fetch('/user/signup', {
       headers: {
         'Content-Type': 'application/JSON'
@@ -94,7 +117,7 @@ export default class App extends Component {
       })
     })
     .then(() => {
-      console.log('signedup')
+      console.log(this.state)
     });
   }
 
@@ -120,17 +143,21 @@ export default class App extends Component {
     .then( () => {
       console.log(this.state)
     })
+    .then( () => {
+      this.getOneStorefront();
+    })
     .catch(error => console.log(error))
   }
 
   logout() {
-    console.log('logging out')
     this.setState({
       loggedIn: false,
       currentToken: '',
       currentUser: '',
+      hasStorefront: false,
+      currentStorefront: '',
     })
-    console.log('logged out');
+    console.log(this.state);
   };
 
   testLogin() {
@@ -141,9 +168,6 @@ export default class App extends Component {
       },
     })
     .then(r=> r.json())
-    .then((data) => {
-      console.log(data)
-    })
     .then(() => {
       console.log(this.state)
     })
@@ -170,7 +194,6 @@ export default class App extends Component {
 
   trackCreateItem(e) {
     let fieldsArr = e.target.parentElement.childNodes;
-    console.log(fieldsArr[3])
     this.setState({
       createItem: {
         name: fieldsArr[1].value,
@@ -179,8 +202,6 @@ export default class App extends Component {
         price: fieldsArr[3].children[1].value,
         description: fieldsArr[4].value
       },
-    }, () => {
-      console.log(this.state)
     })
   }
 
@@ -215,13 +236,9 @@ export default class App extends Component {
         currentStorefront: this.state.createStorefront.name
       })
     })
-    .then(() => {
-      console.log(this.state)
-    })
   };
 
   postNewItem() {
-    console.log('post item before');
     return fetch('/api/item', {
       headers: {
         'Content-Type': 'application/JSON',
@@ -239,9 +256,6 @@ export default class App extends Component {
         currentStorefront: this.state.currentStorefront
       }),
     })
-    .then(()=> {
-      console.log('post item after')
-    })
   };
 
   render(){
@@ -255,7 +269,11 @@ export default class App extends Component {
           />
           <nav>
             <div className="nButton">Search</div>
-            <StorefrontDD />
+            <StorefrontDD
+              loggedIn={this.state.loggedIn}
+              currentUser={this.state.currentUser}
+              hasStorefront={this.state.hasStorefront}
+            />
             <div className="nButton">Messages</div>
               <LoginSignup
                 showLogin={this.showLogin}
