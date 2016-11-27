@@ -278,6 +278,9 @@ export default class App extends Component {
             trackCreateStore={this.trackCreateStore.bind(this)}
           />
         <AsideSMyStore
+          currentStorefront={this.state.currentStorefront}
+          currentUser={this.state.currentUser}
+
         />
         <MyItemList
 
