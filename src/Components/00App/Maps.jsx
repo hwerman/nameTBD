@@ -32,7 +32,7 @@ class Map extends Component {
               })
             }}
 
-          defaultZoom={15}
+          defaultZoom={7}
           defaultCenter={this.props.center}
           // onDragend={this.mapMoved.bind(this)}
           options={{streetViewControl: false, mapTypeControl: false}}>

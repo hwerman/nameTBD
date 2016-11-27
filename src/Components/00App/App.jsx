@@ -5,13 +5,22 @@ import TestLogin from '../TestLogin/TestLogin.jsx';
 import Logout from '../01Logout/Logout.jsx';
 import CreateStore from '../02CreateStore/CreateStore.jsx';
 import StorefrontDD from '../01StorefrontDD/StorefrontDD.jsx';
+import AsideSMyStore from '../02AsideSmyStore/AsideSMyStore.jsx';
+import MyItemList from '../02MyItemList/MyItemList.jsx';
+import AddNewItem from '../02AddNewItem/AddNewItem.jsx';
+import Map from './Maps.jsx';
 import './App.css';
+
+
+
 
 export default class App extends Component {
   constructor() {
     super();
 
     this.state = {
+      searchForm: '',
+      items: '',
       address: 'time square address',
       loggedIn: false,
       loginFormUsername: '',
@@ -19,6 +28,17 @@ export default class App extends Component {
       signupFormUsername: '',
       signupFormPassword: '',
       currentToken: '',
+      currentUser: '',
+      hasStorefront: false,
+      currentStorefront: {
+        name: '',
+        address: '',
+        borough: '',
+        directions: '',
+        endTime: '',
+        startTime: '',
+        zip: ''
+      },
       createStorefront: {
         name: '',
         address: '',
@@ -28,7 +48,15 @@ export default class App extends Component {
         sale_date: '',
         startTime: '',
         endTime: '',
-      }
+      },
+      createItem: {
+        name: '',
+        image_url: '',
+        condition: '',
+        price: '',
+        description: '',
+      },
+      storefronts: []
     };
   }
 
@@ -40,6 +68,38 @@ export default class App extends Component {
   hideLogin() {
     let showLogin = document.querySelector('#loginSignup');
     showLogin.style.display = 'none';
+  }
+
+  getOneStorefront() {
+    return fetch('/api/myStorefront', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/JSON',
+        'Authorization': 'Bearer ' + this.state.currentToken
+      },
+      body: JSON.stringify({
+        currentUser: this.state.currentUser
+      })
+    })
+    .then(r=> r.json())
+    .then((data) => {
+      console.log(data[0])
+      this.setState({
+        hasStorefront: true,
+        currentStorefront: {
+          name: data[0].name,
+          address: data[0].address,
+          borough: data[0].borough,
+          directions: data[0].directions,
+          endTime: data[0].endtime,
+          startTime: data[0].starttime,
+          zip: data[0].zip,
+        }
+      })
+    })
+    .then( () => {
+      console.log(this.state)
+    })
   }
 
   trackLoginUsername(e) {
@@ -67,7 +127,6 @@ export default class App extends Component {
   };
 
   postSignup() {
-    console.log(this.state.signupFormUsername, this.state.signupFormPassword)
     return fetch('/user/signup', {
       headers: {
         'Content-Type': 'application/JSON'
@@ -79,7 +138,7 @@ export default class App extends Component {
       })
     })
     .then(() => {
-      console.log('signedup')
+      console.log(this.state)
     });
   }
 
@@ -97,27 +156,38 @@ export default class App extends Component {
     .then(r => r.json())
     .then((data) => {
       this.setState({
-        currentToken: data
-      })
-    })
-    .then( () => {
-      this.setState({
+        currentToken: data,
         loggedIn: true,
+        currentUser: this.state.loginFormUsername
       })
     })
     .then( () => {
-      console.log('logged in')
+      console.log(this.state)
+    })
+    .then( () => {
+      this.getOneStorefront();
     })
     .catch(error => console.log(error))
   }
 
   logout() {
-    console.log('logging out')
     this.setState({
       loggedIn: false,
       currentToken: '',
+      currentUser: '',
+      hasStorefront: false,
+      currentStorefront: {
+        name: '',
+        address: '',
+        borough: '',
+        directions: '',
+        endTime: '',
+        startTime: '',
+        zip: ''
+      }
+    }, () => {
+      console.log(this.state)
     })
-    console.log('logged out');
   };
 
   testLogin() {
@@ -128,18 +198,14 @@ export default class App extends Component {
       },
     })
     .then(r=> r.json())
-    .then((data) => {
-      console.log(data)
-    })
     .then(() => {
-      console.log(this.state.loggedIn)
+      console.log(this.state)
     })
     .catch(error => console.log(error))
   };
 
-  trackCS(e) {
+  trackCreateStore(e) {
     let fieldsArr = e.target.parentElement.parentElement.childNodes;
-    console.log(fieldsArr);
     this.setState({
       createStorefront: {
         name: fieldsArr[1].value,
@@ -149,14 +215,35 @@ export default class App extends Component {
         directions: fieldsArr[4].value,
         sale_date: fieldsArr[5].value,
         startTime: fieldsArr[6].children[0].value,
-        endTime: fieldsArr[6].children[1].value
+        endTime: fieldsArr[6].children[1].value,
       },
     }, () => {
-      console.log(this.state.createStorefront)
+      console.log(this.state)
+    })
+  }
+
+  trackCreateItem(e) {
+    let fieldsArr = e.target.parentElement.childNodes;
+    this.setState({
+      createItem: {
+        name: fieldsArr[1].value,
+        image_url: fieldsArr[2].value,
+        condition: fieldsArr[3].children[0].value,
+        price: fieldsArr[3].children[1].value,
+        description: fieldsArr[4].value
+      },
     })
   }
 
   postNewStorefront() {
+    let userItemList = document.querySelector('#rightDiv')
+    userItemList.style.display = 'flex';
+    let createStorefront = document.querySelector('#createStoreDiv');
+    createStorefront.style.display = 'none';
+    let reveal = document.querySelector('#asideSellerMyStore');
+    reveal.style.display = 'block';
+
+    console.log('posting')
     return fetch('/api/storefront', {
       headers: {
         'Content-Type': 'application/JSON'
@@ -170,31 +257,108 @@ export default class App extends Component {
         directions: this.state.createStorefront.directions,
         sale_date: this.state.createStorefront.sale_date,
         startTime: this.state.createStorefront.startTime,
-        endTime: this.state.createStorefront.endTime
+        endTime: this.state.createStorefront.endTime,
+        unitedState: 'NY',
+        currentUser: this.state.currentUser
       })
     })
-    .then(r=> r.json())
     .then(() => {
-      console.log('storefront posted')
+      this.setState({
+        currentStorefront: {
+          name: this.state.createStorefront.name,
+          address: this.state.createStorefront.address,
+          borough: this.state.createStorefront.borough,
+          zip: this.state.createStorefront.zip,
+          directions: this.state.createStorefront.directions,
+          sale_date: this.state.createStorefront.sale_date,
+          startTime: this.state.createStorefront.startTime,
+          endTime: this.state.createStorefront.endTime,
+        }
+      })
     })
-  }
+    .then(() => {
+      console.log(this.state)
+    })
+  };
+
+  postNewItem() {
+    return fetch('/api/item', {
+      headers: {
+        'Content-Type': 'application/JSON',
+        'Authorization': 'Bearer ' + this.state.currentToken
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        name: this.state.createItem.name,
+        image_url: this.state.createItem.image_url,
+        condition: this.state.createItem.condition,
+        price: this.state.createItem.price,
+        description: this.state.createItem.description,
+        likes: 0,
+        currentUser: this.state.currentUser,
+        currentStorefront: {
+          name: this.state.currentStorefront.name
+        }
+      }),
+    })
+  };
+
+   componentWillMount() {
+     const body = document.getElementsByTagName('body')[0];
+     const script = document.createElement("script");
+
+      script.type = 'text/javascript';
+      script.className = 'container';
+
+      script.src = "http://maps.google.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c";
+      script.async= true;
+      script.defer= true;
+
+      body.appendChild(script);
+      // script.onload = () => {
+      //     console.log(document.querySelector('.container'));
+      //     ReactDOM.render( <script />,
+      //       document.querySelector('.container')
+      //     );
+      // };
+
+    // console.log(script)
+    }
 
   render(){
-    // const location = {
-    //   lat: 40.7575285,
-    //   lng: -73.9884469
-    // }
 
-    // const markers = [
-    //   {
-    //     location:{
-    //       lat: 40.7575285,
-    //       lng: -73.9884469
-    //     }
-    //   }
-    // ]
+  const location = {
+    lat: 40.7575285,
+    lng: -73.9884469
+  }
+
+    const markers = [
+      {
+        location:{
+          lat: 40.7575285,
+          lng: -73.9884469
+        }
+      }
+    ]
+
+
+  const script = document.querySelector('.container');
+
+    script.onload = () => {
+          console.log(document.querySelector('.container'));
+          ReactDOM.render( <script />,
+            document.querySelector('.container')
+          );
+      };
+
+
     return (
       <div>
+
+           <div style={{width:500, height:400, background: 'red'}}>
+          <Map center={location} markers={markers} />
+        </div>
+
         <header>
           <h1>Grojj.</h1>
           <button onClick={this.showLogin}>Login or Sign Up</button>
@@ -203,7 +367,11 @@ export default class App extends Component {
           />
           <nav>
             <div className="nButton">Search</div>
-            <StorefrontDD />
+            <StorefrontDD
+              loggedIn={this.state.loggedIn}
+              currentUser={this.state.currentUser}
+              hasStorefront={this.state.hasStorefront}
+            />
             <div className="nButton">Messages</div>
               <LoginSignup
                 showLogin={this.showLogin}
@@ -223,11 +391,20 @@ export default class App extends Component {
           />
           <CreateStore
             postNewStorefront={this.postNewStorefront.bind(this)}
-            trackCS={this.trackCS.bind(this)}
+            trackCreateStore={this.trackCreateStore.bind(this)}
+          />
+          <AsideSMyStore
+            currentStorefront={this.state.currentStorefront}
+            currentUser={this.state.currentUser}
+          />
+          <MyItemList />
+          <AddNewItem
+            postNewItem={this.postNewItem.bind(this)}
+            trackCreateItem={this.trackCreateItem.bind(this)}
           />
         </main>
         <footer>
-          <div>copyright nonsense, about us</div>
+          <div></div>
         </footer>
       </div>
     )

@@ -8,12 +8,13 @@ BEGIN;
 CREATE TABLE grojjItems(
   item_id SERIAL PRIMARY KEY,
   name VARCHAR NOT NULL,
-  price VARCHAR NOT NULL,
+  image_url VARCHAR NOT NULL,
   condition VARCHAR NOT NULL,
+  price VARCHAR NOT NULL,
   description VARCHAR,
   likes INT NOT NULL DEFAULT 0,
-  url TEXT,
-  sellerid TEXT NOT NULL
+  currentUser VARCHAR NOT NULL,
+  currentStorefront VARCHAR NOT NULL
 );
 
 CREATE TABLE grojjUsers(
@@ -31,7 +32,9 @@ CREATE TABLE grojjStorefronts(
   directions VARCHAR,
   sale_date VARCHAR NOT NULL,
   startTime VARCHAR NOT NULL,
-  endTime VARCHAR NOT NULL
+  endTime VARCHAR NOT NULL,
+  unitedState VARCHAR NOT NULL,
+  currentUser VARCHAR NOT NULL
 );
 
 CREATE TABLE grojjAddresses(

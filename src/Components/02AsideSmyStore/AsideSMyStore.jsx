@@ -6,20 +6,15 @@ class AsideSMyStore extends Component {
   render(){
     return (
       <div>
-        <aside class="leftAside" id="asideSellerMyStore">
-            <h1 className="asideSub">
-              Welcome, {this.props.sellerUsername}!
-            </h1>
-            <img
-              className="userProfPic"
-              src={this.props.userProfPicURL}>
-            </img>
-            <h2 id="sellerMyStore">Your Storefront:</h2>
-            <address className="sellerUserAddress">
-              {this.props.sellerUserAddress}</address>
-            <button id="addItemButton" onClick={}>
-              ADD AN ITEM
-            </button>
+        <aside className="leftAside" id="asideSellerMyStore">
+          <h1 className="asideSub">Welcome, {this.props.currentUser}!</h1>
+          <h2 id="sellerMyStore">Your Storefront:</h2>
+          <div>address: {this.props.currentStorefront.address}</div>
+          <div>date: {this.props.currentStorefront.sale_date}</div>
+          <div>start time: {this.props.currentStorefront.startTime}</div>
+          <div>end time: {this.props.currentStorefront.endTime}</div>
+          <button>edit</button>
+          <button>delete</button>
         </aside>
       </div>
     );
