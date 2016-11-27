@@ -78,6 +78,11 @@ export default class App extends Component {
     showLogin.style.display = 'none';
   }
 
+  hideEditForm() {
+    let editStoreDiv = document.querySelector('#editStoreDiv');
+    editStoreDiv.style.display = 'none';
+  }
+
   getOneStorefront() {
     return fetch('/api/myStorefront', {
       method: 'POST',
@@ -331,8 +336,49 @@ export default class App extends Component {
   };
 
   putEditStorefront() {
+<<<<<<< HEAD
     console.log('put edit storefront')
   }
+=======
+    console.log('put edit storefront before')
+    return fetch('/api/storefronts', {
+      headers: {
+        'Content-Type': 'application/JSON'
+      },
+      method: 'PUT',
+      body: JSON.stringify({
+        name: this.state.editStorefront.name,
+        address: this.state.editStorefront.address,
+        borough: this.state.editStorefront.borough,
+        zip: this.state.editStorefront.zip,
+        directions: this.state.editStorefront.directions,
+        sale_date: this.state.editStorefront.sale_date,
+        startTime: this.state.editStorefront.startTime,
+        endTime: this.state.editStorefront.endTime,
+        unitedState: 'NY',
+        currentUser: this.state.currentUser
+      })
+    })
+    .then(() => {
+      this.setState({
+        currentStorefront: {
+          name: this.state.createStorefront.name,
+          address: this.state.createStorefront.address,
+          borough: this.state.createStorefront.borough,
+          zip: this.state.createStorefront.zip,
+          directions: this.state.createStorefront.directions,
+          sale_date: this.state.createStorefront.sale_date,
+          startTime: this.state.createStorefront.startTime,
+          endTime: this.state.createStorefront.endTime,
+        }
+      })
+    })
+    .then( () => {
+      this.getOneStorefront();
+      this.hideEditForm();
+    })
+  };
+>>>>>>> master
 
 
 
@@ -376,6 +422,7 @@ export default class App extends Component {
           <EditStore
             putEditStorefront={this.putEditStorefront.bind(this)}
             trackEditStore={this.trackEditStore.bind(this)}
+            hideEditForm={this.hideEditForm.bind(this)}
           />
           <AsideSMyStore
             currentStorefront={this.state.currentStorefront}

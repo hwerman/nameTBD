@@ -1,5 +1,14 @@
 const db = require('../lib/db');
 
+function editOneStorefront(req, res, next) {
+  console.log(req.body)
+  db.none('UPDATE grojjStorefronts SET name = $/name/, address = $/address/, borough = $/borough/, zip = $/zip/, directions = $/directions/, sale_date = $/sale_date/, starttime = $/startTime/, endtime = $/endTime/, unitedState = $/unitedState/, currentuser = $/currentUser/ WHERE grojjStorefronts.currentUser = $/currentUser/;', req.body)
+    .then(() => {
+      next();
+    })
+    .catch(error => console.log(error))
+}
+
 function getOneStorefront(req, res, next) {
   db.many('SELECT * FROM grojjStorefronts WHERE grojjStorefronts.currentUser = $/currentUser/;', req.body)
     .then((storefront) => {
@@ -30,4 +39,5 @@ module.exports = {
   getAllStorefronts,
   addNewStorefront,
   getOneStorefront,
+  editOneStorefront,
 }
