@@ -337,7 +337,6 @@ export default class App extends Component {
             postNewStorefront={this.postNewStorefront.bind(this)}
             trackCreateStore={this.trackCreateStore.bind(this)}
           />
-<<<<<<< HEAD
         <AsideSMyStore
           currentStorefront={this.state.currentStorefront}
           currentUser={this.state.currentUser}
@@ -350,17 +349,6 @@ export default class App extends Component {
           postNewItem={this.postNewItem.bind(this)}
           trackCreateItem={this.trackCreateItem.bind(this)}
         />
-=======
-          <AsideSMyStore
-            currentStorefront={this.state.currentStorefront}
-            currentUser={this.state.currentUser}
-          />
-          <MyItemList />
-          <AddNewItem
-            postNewItem={this.postNewItem.bind(this)}
-            trackCreateItem={this.trackCreateItem.bind(this)}
-          />
->>>>>>> master
         </main>
         <footer>
           <div></div>
