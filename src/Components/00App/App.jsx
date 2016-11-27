@@ -17,17 +17,22 @@ export default class App extends Component {
     super();
 
     this.state = {
-      searchForm: '',
-      items: '',
-      address: 'time square address',
       loggedIn: false,
+      currentUser: '',
+      hasStorefront: false,
+      currentToken: '',
+      loginForm: {
+        username: '',
+        password: ''
+      },
+      signupForm: {
+        username: '',
+        password: ''
+      },
       loginFormUsername: '',
       loginFormPassword: '',
       signupFormUsername: '',
       signupFormPassword: '',
-      currentToken: '',
-      currentUser: '',
-      hasStorefront: false,
       currentStorefront: {
         name: '',
         address: '',
@@ -116,29 +121,25 @@ export default class App extends Component {
     })
   }
 
-  trackLoginUsername(e) {
+  trackLoginForm(e) {
+    let fieldsArr = e.target.parentElement;
     this.setState({
-      loginFormUsername: e.target.value
+      loginForm: {
+        username: fieldsArr.childNodes[1].value,
+        password: fieldsArr.childNodes[3].value
+      }
     })
   }
 
-  trackLoginPassword(e) {
+  trackSignupForm(e) {
+    let fieldsArr = e.target.parentElement;
     this.setState({
-      loginFormPassword: e.target.value
+      signupForm: {
+        username: fieldsArr.childNodes[1].value,
+        password: fieldsArr.childNodes[3].value
+      }
     })
-  };
-
-  trackSignupUsername(e) {
-    this.setState({
-      signupFormUsername: e.target.value
-    })
-  };
-
-  trackSignupPassword(e) {
-    this.setState({
-      signupFormPassword: e.target.value
-    })
-  };
+  }
 
   postSignup() {
     return fetch('/user/signup', {
@@ -147,8 +148,16 @@ export default class App extends Component {
       },
       method: 'POST',
       body: JSON.stringify({
-        'username': this.state.signupFormUsername,
-        'password': this.state.signupFormPassword
+        'username': this.state.signupForm.username,
+        'password': this.state.signupForm.password
+      })
+    })
+    .then(() => {
+      this.setState({
+        signupForm: {
+          'username': '',
+          'password': ''
+        }
       })
     })
     .then(() => {
@@ -163,8 +172,8 @@ export default class App extends Component {
       },
       method: 'POST',
       body: JSON.stringify({
-        'username': this.state.loginFormUsername,
-        'password': this.state.loginFormPassword
+        'username': this.state.loginForm.username,
+        'password': this.state.loginForm.password
       })
     })
     .then(r => r.json())
@@ -172,14 +181,18 @@ export default class App extends Component {
       this.setState({
         currentToken: data,
         loggedIn: true,
-        currentUser: this.state.loginFormUsername
+        currentUser: this.state.loginForm.username,
+        loginForm: {
+          'username': '',
+          'password': ''
+        }
       })
     })
     .then( () => {
-      console.log(this.state)
+      this.getOneStorefront();
     })
     .then( () => {
-      this.getOneStorefront();
+      console.log(this.state)
     })
     .catch(error => console.log(error))
   }
@@ -397,10 +410,8 @@ export default class App extends Component {
               <LoginSignup
                 showLogin={this.showLogin}
                 hideLogin={this.hideLogin}
-                trackLoginUsername={this.trackLoginUsername.bind(this)}
-                trackLoginPassword={this.trackLoginPassword.bind(this)}
-                trackSignupUsername={this.trackSignupUsername.bind(this)}
-                trackSignupPassword={this.trackSignupPassword.bind(this)}
+                trackLoginForm={this.trackLoginForm.bind(this)}
+                trackSignupForm={this.trackSignupForm.bind(this)}
                 postLogin={this.postLogin.bind(this)}
                 postSignup={this.postSignup.bind(this)}
               />
