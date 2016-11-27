@@ -332,38 +332,6 @@ export default class App extends Component {
 
   putEditStorefront() {
     console.log('put edit storefront')
-    // return fetch('/api/storefront', {
-    //   headers: {
-    //     'Content-Type': 'application/JSON'
-    //   },
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     name: this.state.createStorefront.name,
-    //     address: this.state.createStorefront.address,
-    //     borough: this.state.createStorefront.borough,
-    //     zip: this.state.createStorefront.zip,
-    //     directions: this.state.createStorefront.directions,
-    //     sale_date: this.state.createStorefront.sale_date,
-    //     startTime: this.state.createStorefront.startTime,
-    //     endTime: this.state.createStorefront.endTime,
-    //     unitedState: 'NY',
-    //     currentUser: this.state.currentUser
-    //   })
-    // })
-    // .then(() => {
-    //   this.setState({
-    //     currentStorefront: {
-    //       name: this.state.createStorefront.name,
-    //       address: this.state.createStorefront.address,
-    //       borough: this.state.createStorefront.borough,
-    //       zip: this.state.createStorefront.zip,
-    //       directions: this.state.createStorefront.directions,
-    //       sale_date: this.state.createStorefront.sale_date,
-    //       startTime: this.state.createStorefront.startTime,
-    //       endTime: this.state.createStorefront.endTime,
-    //     }
-    //   })
-    // })
   }
 
 
