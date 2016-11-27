@@ -8,7 +8,8 @@ import StorefrontDD from '../01StorefrontDD/StorefrontDD.jsx';
 import AsideSMyStore from '../02AsideSmyStore/AsideSMyStore.jsx';
 import MyItemList from '../02MyItemList/MyItemList.jsx';
 import AddNewItem from '../02AddNewItem/AddNewItem.jsx';
-import './App.css';
+import './MattApp.css';
+// import './App.css';
 
 export default class App extends Component {
   constructor() {
@@ -25,7 +26,16 @@ export default class App extends Component {
       signupFormPassword: '',
       currentToken: '',
       currentUser: '',
-      currentStorefront: '',
+      hasStorefront: false,
+      currentStorefront: {
+        name: '',
+        address: '',
+        borough: '',
+        directions: '',
+        endTime: '',
+        startTime: '',
+        zip: ''
+      },
       createStorefront: {
         name: '',
         address: '',
@@ -57,6 +67,38 @@ export default class App extends Component {
     showLogin.style.display = 'none';
   }
 
+  getOneStorefront() {
+    return fetch('/api/myStorefront', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/JSON',
+        'Authorization': 'Bearer ' + this.state.currentToken
+      },
+      body: JSON.stringify({
+        currentUser: this.state.currentUser
+      })
+    })
+    .then(r=> r.json())
+    .then((data) => {
+      console.log(data[0])
+      this.setState({
+        hasStorefront: true,
+        currentStorefront: {
+          name: data[0].name,
+          address: data[0].address,
+          borough: data[0].borough,
+          directions: data[0].directions,
+          endTime: data[0].endtime,
+          startTime: data[0].starttime,
+          zip: data[0].zip,
+        }
+      })
+    })
+    .then( () => {
+      console.log(this.state)
+    })
+  }
+
   trackLoginUsername(e) {
     this.setState({
       loginFormUsername: e.target.value
@@ -82,7 +124,6 @@ export default class App extends Component {
   };
 
   postSignup() {
-    console.log(this.state.signupFormUsername, this.state.signupFormPassword)
     return fetch('/user/signup', {
       headers: {
         'Content-Type': 'application/JSON'
@@ -94,7 +135,7 @@ export default class App extends Component {
       })
     })
     .then(() => {
-      console.log('signedup')
+      console.log(this.state)
     });
   }
 
@@ -120,17 +161,30 @@ export default class App extends Component {
     .then( () => {
       console.log(this.state)
     })
+    .then( () => {
+      this.getOneStorefront();
+    })
     .catch(error => console.log(error))
   }
 
   logout() {
-    console.log('logging out')
     this.setState({
       loggedIn: false,
       currentToken: '',
       currentUser: '',
+      hasStorefront: false,
+      currentStorefront: {
+        name: '',
+        address: '',
+        borough: '',
+        directions: '',
+        endTime: '',
+        startTime: '',
+        zip: ''
+      }
+    }, () => {
+      console.log(this.state)
     })
-    console.log('logged out');
   };
 
   testLogin() {
@@ -141,9 +195,6 @@ export default class App extends Component {
       },
     })
     .then(r=> r.json())
-    .then((data) => {
-      console.log(data)
-    })
     .then(() => {
       console.log(this.state)
     })
@@ -170,7 +221,6 @@ export default class App extends Component {
 
   trackCreateItem(e) {
     let fieldsArr = e.target.parentElement.childNodes;
-    console.log(fieldsArr[3])
     this.setState({
       createItem: {
         name: fieldsArr[1].value,
@@ -179,8 +229,6 @@ export default class App extends Component {
         price: fieldsArr[3].children[1].value,
         description: fieldsArr[4].value
       },
-    }, () => {
-      console.log(this.state)
     })
   }
 
@@ -192,6 +240,7 @@ export default class App extends Component {
     let reveal = document.querySelector('#asideSellerMyStore');
     reveal.style.display = 'block';
 
+    console.log('posting')
     return fetch('/api/storefront', {
       headers: {
         'Content-Type': 'application/JSON'
@@ -212,7 +261,16 @@ export default class App extends Component {
     })
     .then(() => {
       this.setState({
-        currentStorefront: this.state.createStorefront.name
+        currentStorefront: {
+          name: this.state.createStorefront.name,
+          address: this.state.createStorefront.address,
+          borough: this.state.createStorefront.borough,
+          zip: this.state.createStorefront.zip,
+          directions: this.state.createStorefront.directions,
+          sale_date: this.state.createStorefront.sale_date,
+          startTime: this.state.createStorefront.startTime,
+          endTime: this.state.createStorefront.endTime,
+        }
       })
     })
     .then(() => {
@@ -221,7 +279,6 @@ export default class App extends Component {
   };
 
   postNewItem() {
-    console.log('post item before');
     return fetch('/api/item', {
       headers: {
         'Content-Type': 'application/JSON',
@@ -236,11 +293,10 @@ export default class App extends Component {
         description: this.state.createItem.description,
         likes: 0,
         currentUser: this.state.currentUser,
-        currentStorefront: this.state.currentStorefront
+        currentStorefront: {
+          name: this.state.currentStorefront.name
+        }
       }),
-    })
-    .then(()=> {
-      console.log('post item after')
     })
   };
 
@@ -255,7 +311,11 @@ export default class App extends Component {
           />
           <nav>
             <div className="nButton">Search</div>
-            <StorefrontDD />
+            <StorefrontDD
+              loggedIn={this.state.loggedIn}
+              currentUser={this.state.currentUser}
+              hasStorefront={this.state.hasStorefront}
+            />
             <div className="nButton">Messages</div>
               <LoginSignup
                 showLogin={this.showLogin}
@@ -277,15 +337,15 @@ export default class App extends Component {
             postNewStorefront={this.postNewStorefront.bind(this)}
             trackCreateStore={this.trackCreateStore.bind(this)}
           />
-        <AsideSMyStore
-        />
-        <MyItemList
-
-        />
-        <AddNewItem
-          postNewItem={this.postNewItem.bind(this)}
-          trackCreateItem={this.trackCreateItem.bind(this)}
-        />
+          <AsideSMyStore
+            currentStorefront={this.state.currentStorefront}
+            currentUser={this.state.currentUser}
+          />
+          <MyItemList />
+          <AddNewItem
+            postNewItem={this.postNewItem.bind(this)}
+            trackCreateItem={this.trackCreateItem.bind(this)}
+          />
         </main>
         <footer>
           <div></div>

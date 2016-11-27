@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import './MyItemList.css'
 
-//functions needed:
-// function that selects specific item by index
-// function that will allow user to edit details of an item (need to pass down)
-// function that will allow user to delete an item (need to pass down)
-
 class MyItemList extends Component{
   // renderItems(){
   //   return this.props.items.map((item, index) =>
@@ -34,7 +29,7 @@ revealUploadForm() {
     return(
       <div className="rightDiv" id="rightDiv">
         <h3>Click button to sell items!</h3>
-        <button id="uploadButton" onClick={this.revealUploadForm}>upload item!</button>
+        <button id="addItemButton" onClick={this.revealUploadForm}>Add item!</button>
       </div>
     )
   }

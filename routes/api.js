@@ -3,7 +3,8 @@ const { getAllItems,
         addNewItem
       } = require('../models/items.js');
 const { getAllStorefronts,
-        addNewStorefront
+        addNewStorefront,
+        getOneStorefront
       } = require('../models/storefronts.js');
 
 apiRouter.route('/items')
@@ -17,5 +18,8 @@ apiRouter.route('/storefronts')
 
 apiRouter.route('/storefront')
   .post(addNewStorefront, (req, res) => res.json({message: 'storefront successfully added'}));
+
+apiRouter.route('/myStorefront')
+.post(getOneStorefront, (req, res) => res.json(res.storefront))
 
 module.exports = apiRouter;
