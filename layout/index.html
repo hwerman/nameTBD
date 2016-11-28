@@ -8,9 +8,13 @@
   <link rel="stylesheet" href="./nav.css">
   <link rel="stylesheet" href="./content.css">
 
+
   <link rel="stylesheet" href="./sellerForms.css">
   <link href="https://fonts.googleapis.com/css?family=Overlock:400,400i,700,700i,900,900i" rel="stylesheet">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+
+  <link rel="stylesheet" href="./createStore.css">
 
 </head>
 <body>
@@ -41,18 +45,32 @@
     <div id="welcome">Welcome, username!</div>
 
   <main>
-    <h3>Most Popular Items</h3>
-    <section class="popItems" id="popItemOne">
-      <img>
-    </section>
-    <section class="popItems" id="popItemTwo">
-      <img>
-    </section>
-    <section class="popItems" id="popItemThree">
-      <img>
-    </section>
-    <div id="map">
+    <div id="createStore">
+      <input id="name"type="text" placeholder="Store Name" required>
+      <input id="address"type="text" placeholder="Street Address" required>
+      <div id="smallLocations">
+        <input id="zip"type="text" placeholder="ZIP" required>
+        <select name="borough" id="borough">
+          <option value="" selected disabled>Select Borough</option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Queens">Queens</option>
+          <option value="Bronx">Bronx</option>
+          <option value="Manhattan">Manhattan</option>
+          <option value="Staten Island">Staten Island</option>
+        </select>
+      </div>
+      <input id="directions" type="text" placeholder="Directions (optional)">
+      <input id="date" type="date">
+      <div id="startEnd">
+        <input id="startTime" type="time" value="02:00 PM">
+        <input id="endTime" type="time">
+      </div>
+      <div id="createCancel">
+        <button id="createStoreButton">Create Store!</button>
+        <button id="cancelStoreButton">Cancel!</button>
+      </div>
     </div>
+
     <div id="mainCont">
 <!--       <aside class="leftAside" id="asideOne">
         <h2 id="instructionsAside">Instructions</h2>
@@ -273,6 +291,9 @@
         </div>
     </div> -->
 
+ <!-- --><!-- -->
+      <aside class="leftAside" id="asideSellerMyStore">
+
  <!-- //VIEW: SELLER VIEW - VIEWING SELLER'S MY STORE'
  -->
  <aside class="leftAside" id="asideSellerMyStore">
@@ -424,6 +445,7 @@
 <!--  //VIEW: SELLER VIEW - VIEWING SELLER'S MY STORE'
  -->
   <aside class="leftAside" id="asideSellerMyStore">
+
         <h2 id="sellerMyStore">My Storefront</h2>
         <p class="username">My username gigi6789</p>
         <img class="userProfPic" src="http://i.imgur.com/YktXsgS.jpg">
@@ -432,140 +454,177 @@
       </aside>
       <div class="rightDiv">
         <div class="saleItem" id="itemOne">
-            <p class="itemBox" class="itemTitle">
+            <p class="myItemBox" class="myItemTitle">
             Sofa
             </p>
-            <img class="itemImage" src="http://davidnaylor.org/temp/d-ne700.png">
-            <p class="itemBox" class="itemPrice">
+            <img class="myItemImage" src="http://davidnaylor.org/temp/d-ne700.png">
+            <p class="myItemBox" class="myItemPrice">
             Price: $$
             </p>
-            <p class="itemBox" class="itemCondition">
+            <p class="myItemBox" class="myItemCondition">
             Condition: ||
             </p>
-            <p class="itemBox" class="itemDescription">
+            <p class="myItemBox" class="myItemDescription">
             Description: This is an incredibly cozy blue couch. You know you want it.
             </p>
+            <button>Edit</button>
+            <button>Delete</button>
         </div>
         <div class="saleItem" id="itemTwo">
-            <p class="itemBox" class="itemTitle">
+            <p class="myItemBox" class="myItemTitle">
             Sofa
             </p>
             <img class="itemImage" src="http://davidnaylor.org/temp/d-ne700.png">
-            <p class="itemBox" class="itemPrice">
+            <p class="myItemBox" class="myItemPrice">
             Price: $$
             </p>
-            <p class="itemBox" class="itemCondition">
+            <p class="myItemBox" class="myItemCondition">
             Condition: ||
             </p>
-            <p class="itemBox" class="itemDescription">
+            <p class="myItemBox" class="myItemDescription">
             Description: This is an incredibly cozy blue couch. You know you want it.
             </p>
+            <button>Edit</button>
+            <button>Delete</button>
         </div>
         <div class="saleItem" id="itemThree">
-            <p class="itemBox" class="itemTitle">
+            <p class="myItemBox" class="myItemTitle">
             Sofa
             </p>
             <img class="itemImage" src="http://davidnaylor.org/temp/d-ne700.png">
-            <p class="itemBox" class="itemPrice">
+            <p class="myItemBox" class="myItemPrice">
             Price: $$
             </p>
-            <p class="itemBox" class="itemCondition">
+            <p class="myItemBox" class="myItemCondition">
             Condition: ||
             </p>
-            <p class="itemBox" class="itemDescription">
+            <p class="myItemBox" class="myItemDescription">
             Description: This is an incredibly cozy blue couch. You know you want it.
             </p>
+            <button>Edit</button>
+            <button>Delete</button>
         </div>
         <div class="saleItem" id="itemFour">
-            <p class="itemBox" class="itemTitle">
+            <p class="myItemBox" class="myItemTitle">
             Sofa
             </p>
             <img class="itemImage" src="http://davidnaylor.org/temp/d-ne700.png">
-            <p class="itemBox" class="itemPrice">
+            <p class="myItemBox" class="myItemPrice">
             Price: $$
             </p>
-            <p class="itemBox" class="itemCondition">
+            <p class="myItemBox" class="myItemCondition">
             Condition: ||
             </p>
-            <p class="itemBox" class="itemDescription">
+            <p class="myItemBox" class="myItemDescription">
             Description: This is an incredibly cozy blue couch. You know you want it.
             </p>
+            <button>Edit</button>
+            <button>Delete</button>
         </div>
         <div class="saleItem" id="itemFive">
-            <p class="itemBox" class="itemTitle">
+            <p class="myItemBox" class="myItemTitle">
             Sofa
             </p>
             <img class="itemImage" src="http://davidnaylor.org/temp/d-ne700.png">
-            <p class="itemBox" class="itemPrice">
+            <p class="myItemBox" class="myItemPrice">
             Price: $$
             </p>
-            <p class="itemBox" class="itemCondition">
+            <p class="myItemBox" class="myItemCondition">
             Condition: ||
             </p>
-            <p class="itemBox" class="itemDescription">
+            <p class="myItemBox" class="myItemDescription">
             Description: This is an incredibly cozy blue couch. You know you want it.
             </p>
+            <button>Edit</button>
+            <button>Delete</button>
+
         </div>
         <div class="saleItem" id="itemSix">
-            <p class="itemBox" class="itemTitle">
+            <p class="myItemBox" class="myItemTitle">
             Sofa
             </p>
             <img class="itemImage" src="http://davidnaylor.org/temp/d-ne700.png">
-            <p class="itemBox" class="itemPrice">
+            <p class="myItemBox" class="myItemPrice">
             Price: $$
             </p>
-            <p class="itemBox" class="itemCondition">
+            <p class="myItemBox" class="myItemCondition">
             Condition: ||
             </p>
-            <p class="itemBox" class="itemDescription">
+            <p class="myItemBox" class="myItemDescription">
             Description: This is an incredibly cozy blue couch. You know you want it.
             </p>
+            <button>Edit</button>
+            <button>Delete</button>
         </div>
         <div class="saleItem" id="itemSeven">
-            <p class="itemBox" class="itemTitle">
+            <p class="myItemBox" class="myItemTitle">
             Sofa
             </p>
             <img class="itemImage" src="http://davidnaylor.org/temp/d-ne700.png">
-            <p class="itemBox" class="itemPrice">
+            <p class="myItemBox" class="myItemPrice">
             Price: $$
             </p>
-            <p class="itemBox" class="itemCondition">
+            <p class="myItemBox" class="myItemCondition">
             Condition: ||
             </p>
-            <p class="itemBox" class="itemDescription">
+            <p class="myItemBox" class="myItemDescription">
             Description: This is an incredibly cozy blue couch. You know you want it.
             </p>
+            <button>Edit</button>
+            <button>Delete</button>
         </div>
         <div class="saleItem" id="itemEight">
-            <p class="itemBox" class="itemTitle">
+            <p class="myItemBox" class="myItemTitle">
             Sofa
             </p>
             <img class="itemImage" src="http://davidnaylor.org/temp/d-ne700.png">
-            <p class="itemBox" class="itemPrice">
+            <p class="myItemBox" class="myItemPrice">
             Price: $$
             </p>
-            <p class="itemBox" class="itemCondition">
+            <p class="myItemBox" class="myItemCondition">
             Condition: ||
             </p>
-            <p class="itemBox" class="itemDescription">
+            <p class="myItemBox" class="myItemDescription">
             Description: This is an incredibly cozy blue couch. You know you want it.
             </p>
+            <button>Edit</button>
+            <button>Delete</button>
         </div>
-        <div class="saleItem" id="itemNine">
-            <p class="itemBox" class="itemTitle">
-            Sofa
-            </p>
-            <img class="itemImage" src="http://davidnaylor.org/temp/d-ne700.png">
-            <p class="itemBox" class="itemPrice">
-            Price: $$
-            </p>
-            <p class="itemBox" class="itemCondition">
-            Condition: ||
-            </p>
-            <p class="itemBox" class="itemDescription">
-            Description: This is an incredibly cozy blue couch. You know you want it.
-            </p>
+
+
+    <div id="content">
+      <h3>Most Popular Items</h3>
+      <section class="popItems" id="popItemOne">
+        <img>
+      </section>
+      <section class="popItems" id="popItemTwo">
+        <img>
+      </section>
+      <section class="popItems" id="popItemThree">
+        <img>
+      </section>
+      <div id="map">
+      </div>
+      <div id="mainCont">
+        <aside class="leftAside">
+          <h2 id="instructionsAside">Instructions</h2>
+          <p id="instructionsPara">Click on a pin to view details about a garage sale.</p>
+          <button id="instructionsButton">Filler</button>
+        </aside>
+        <div class="rightDiv">
+          <div class="saleItem" id="itemOne">Hi</div>
+          <div class="saleItem" id="itemTwo">Hi</div>
+          <div class="saleItem" id="itemThree">Hi</div>
+          <div class="saleItem" id="itemFour">Hi</div>
+          <div class="saleItem" id="itemFive">Hi</div>
+          <div class="saleItem" id="itemSix">Hi</div>
+          <div class="saleItem" id="itemSeven">Hi</div>
+          <div class="saleItem" id="itemEight">Hi</div>
+          <div class="saleItem" id="itemNine">Hi</div>
         </div>
+      </div>
+
+
     </div>
 
   </main>

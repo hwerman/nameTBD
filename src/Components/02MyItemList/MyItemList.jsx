@@ -1,43 +1,38 @@
 import React, { Component } from 'react';
-import './MyItemList.css'
-import MyItem from '../02MyItem/MyItem.jsx';
+import MyItem from '../02MyItem/MyItem.jsx'
+import './MyItemList.css';
 
-//functions needed:
-// function that selects specific item by index
-// function that will allow user to edit details of an item (need to pass down)
-// function that will allow user to delete an item (need to pass down)
+export default class MyItemList extends Component{
 
-class MyItemList extends Component{
-  renderItems(){
-    return this.props.items.map((item, index) =>
-      <MyItem
-        editFunc={this.props.editFunc}
-        deleteFunc={this.props.deleteFunc}
-        name={item.name}
-        url={item.url}
-        description={item.description}
-        price={item.price}
-        condition={item.condition}
-        likes={item.likes}
-        id={item.id}
-        key={index}
-      />
+  revealUploadForm() {
+    let uploadForm = document.querySelector('#addItemDiv');
+    uploadForm.style.display = 'block';
+  }
+
+  renderItems() {
+    return this.props.storefrontItems.map((item, i) =>
+      <div key={item.item_id}>
+        <MyItem
+          name={item.name}
+          url={item.image_url}
+          condition={item.condition}
+          price={item.price}
+          description={item.description}
+          likes={item.likes}
+        />
+      </div>
+    )
+  }
+
+  render(){
+    return(
+      <div className="rightDiv">
+        <h3>Click button to sell items!</h3>
+        <button id="addItemButton" onClick={this.revealUploadForm}>Add item!</button>
+        <div>
+          {this.renderItems()}
+        </div>
+      </div>
     )
   }
 }
-
-componentWillMount(){
-  this.props.getAllItems();
-}
-
-render(){
-  return(
-    <div className="rightDiv">
-      {this.renderItems()}
-    </div>
-  )
-}
-
-
-export default MyItemList;
-

@@ -14,9 +14,6 @@ function comparePassword (req, res, next) {
         res.status(500).send('Login Failed');
       }
     })
-    .then(() => {
-      next();
-    })
 };
 
 function logOut (req, res, next) {

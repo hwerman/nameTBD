@@ -1,9 +1,11 @@
+
 #loginSignup {
   position: relative;
+  top: 20vh;
   left: 20vw;
   height: 70vh;
   width: 60vw;
-  background-color: pink;
+  background-color: #0A1612;
   display: none;
 }
 
@@ -13,7 +15,7 @@
 }
 
 #signup {
-  border-left: .1vw solid grey;
+  border-left: .1vw solid #F7CE3E;
   position: absolute;
   top: 0;
   left: 50%;
@@ -21,9 +23,10 @@
   height: 70vh;
 }
 
-.loginModal > h1 {
+.loginModal > h3 {
   text-align: center;
   width: 100%;
+  font-family: 'Raleway', cursive;
 }
 
 #dividingLine {
@@ -31,13 +34,19 @@
   width: .5vw;
 }
 
-#welcome {
+#loginSignupCancel{
+  position: absolute;
+  margin-top: 40vh;
+  margin-left: 9vw;
+}
+
+/*#welcome {
   position: absolute;
   top: 3vh;
   right: 1vw;
   height: 4.5vh;
   width: 16vw;
   font-size: 1.5em;
-  color: #fafafa;
+  color: #F7CE3E;
   display: none;
-}
+}*/

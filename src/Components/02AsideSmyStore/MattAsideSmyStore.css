@@ -1,30 +1,22 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway);
 
-
 .leftAside{
-  /*float: left;*/
-  position: absolute;
-  border: 1px solid #000;
-  max-width: 30%;
+  float: left;
+  border: 1px solid #000000;
+  max-width: 50%;
   max-height: 90%;
-  height: 51vh;
   margin: 4vh;
   -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
   -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
   box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
-  font-family: 'Raleway', sans-serif;
-  line-height: 2em;
-}
-
-.leftAside > div{
-  margin-left: .5vh;
-  font-style: italic;
+  font-family: monospace;s
 }
 
 .asideSub{
-  margin-left: .5vh;
+  margin-left: 4vh;
   margin-right: 4vh;
   color: #222;
+  font-family: impact;
 }
 
 .userProfPic{
@@ -38,7 +30,7 @@
 
 #sellerMyStore{
   color: #222;
-  margin-left: .5vh;
+  margin-left: 4vh;
 
 }
 
@@ -47,26 +39,6 @@
   margin-right: 4vh;
   color: #222;
   font-size: 18px;
-}
-
-#editButton, #deleteButton{
-  margin-left: 12px;
-  letter-spacing: 2px;
-  cursor: pointer;
-  border-radius: 6px;
-  border: none;
-}
-#editButton{
-  background: #394149;
-  color: #fafafa;
-}
-#deleteButton {
-  background: #d9534f;
-  color: #fafafa;
-}
-
-#editButton:hover, #deleteButton:hover{
-  box-shadow: 0 0 3px gray;
 }
 
 #addItemButton{

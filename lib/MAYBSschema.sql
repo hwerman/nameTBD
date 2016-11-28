@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS grojjItems;
 DROP TABLE IF EXISTS grojjUsers;
-DROP TABLE IF EXISTS grojjAddresses;
 DROP TABLE IF EXISTS grojjStorefronts;
+DROP TABLE IF EXISTS grojjAddresses;
 
 BEGIN;
 
@@ -19,6 +19,7 @@ CREATE TABLE grojjItems(
 
 CREATE TABLE grojjUsers(
   user_id SERIAL PRIMARY KEY,
+  userimage_url VARCHAR NOT NULL,
   username VARCHAR NOT NULL UNIQUE,
   password VARCHAR NOT NULL UNIQUE
 );

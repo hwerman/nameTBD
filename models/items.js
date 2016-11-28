@@ -10,14 +10,24 @@ function getAllItems(req, res, next) {
 };
 
 function addNewItem(req, res, next) {
-  db.none('INSERT INTO grojjItems (name, price, condition, likes, url, sellerid) VALUES ($/name/, $/price/, $/condition/, $/likes/, $/url/, $/sellerid/);', req.body)
+  db.none('INSERT INTO grojjItems (name, image_url, condition, price, description, likes, currentUser, currentStorefront) VALUES ($/name/, $/image_url/, $/condition/, $/price/, $/description/, $/likes/, $/currentUser/, $/currentStorefront/);', req.body)
     .then(() => {
       next()
   })
   .catch((error) => console.log(error));
 };
 
+function getStorefrontItems(req, res, next) {
+  db.many('SELECT * FROM grojjItems WHERE grojjItems.currentStorefront = $/currentStorefront/;', req.body)
+    .then((storefrontItems) => {
+      res.storefrontItems = storefrontItems;
+      next();
+    })
+    .catch(error => console.log(error))
+}
+
 module.exports = {
   getAllItems,
   addNewItem,
+  getStorefrontItems,
 };
