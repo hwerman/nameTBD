@@ -8,9 +8,13 @@
   <link rel="stylesheet" href="./nav.css">
   <link rel="stylesheet" href="./content.css">
 
+
   <link rel="stylesheet" href="./sellerForms.css">
   <link href="https://fonts.googleapis.com/css?family=Overlock:400,400i,700,700i,900,900i" rel="stylesheet">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+
+  <link rel="stylesheet" href="./createStore.css">
 
 </head>
 <body>
@@ -41,18 +45,32 @@
     <div id="welcome">Welcome, username!</div>
 
   <main>
-    <h3>Most Popular Items</h3>
-    <section class="popItems" id="popItemOne">
-      <img>
-    </section>
-    <section class="popItems" id="popItemTwo">
-      <img>
-    </section>
-    <section class="popItems" id="popItemThree">
-      <img>
-    </section>
-    <div id="map">
+    <div id="createStore">
+      <input id="name"type="text" placeholder="Store Name" required>
+      <input id="address"type="text" placeholder="Street Address" required>
+      <div id="smallLocations">
+        <input id="zip"type="text" placeholder="ZIP" required>
+        <select name="borough" id="borough">
+          <option value="" selected disabled>Select Borough</option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Queens">Queens</option>
+          <option value="Bronx">Bronx</option>
+          <option value="Manhattan">Manhattan</option>
+          <option value="Staten Island">Staten Island</option>
+        </select>
+      </div>
+      <input id="directions" type="text" placeholder="Directions (optional)">
+      <input id="date" type="date">
+      <div id="startEnd">
+        <input id="startTime" type="time" value="02:00 PM">
+        <input id="endTime" type="time">
+      </div>
+      <div id="createCancel">
+        <button id="createStoreButton">Create Store!</button>
+        <button id="cancelStoreButton">Cancel!</button>
+      </div>
     </div>
+
     <div id="mainCont">
 <!--       <aside class="leftAside" id="asideOne">
         <h2 id="instructionsAside">Instructions</h2>
@@ -566,6 +584,39 @@
             Description: This is an incredibly cozy blue couch. You know you want it.
             </p>
         </div>
+
+    <div id="content">
+      <h3>Most Popular Items</h3>
+      <section class="popItems" id="popItemOne">
+        <img>
+      </section>
+      <section class="popItems" id="popItemTwo">
+        <img>
+      </section>
+      <section class="popItems" id="popItemThree">
+        <img>
+      </section>
+      <div id="map">
+      </div>
+      <div id="mainCont">
+        <aside class="leftAside">
+          <h2 id="instructionsAside">Instructions</h2>
+          <p id="instructionsPara">Click on a pin to view details about a garage sale.</p>
+          <button id="instructionsButton">Filler</button>
+        </aside>
+        <div class="rightDiv">
+          <div class="saleItem" id="itemOne">Hi</div>
+          <div class="saleItem" id="itemTwo">Hi</div>
+          <div class="saleItem" id="itemThree">Hi</div>
+          <div class="saleItem" id="itemFour">Hi</div>
+          <div class="saleItem" id="itemFive">Hi</div>
+          <div class="saleItem" id="itemSix">Hi</div>
+          <div class="saleItem" id="itemSeven">Hi</div>
+          <div class="saleItem" id="itemEight">Hi</div>
+          <div class="saleItem" id="itemNine">Hi</div>
+        </div>
+      </div>
+
     </div>
 
   </main>
