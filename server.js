@@ -23,4 +23,4 @@ const userRouter = require('./routes/user.js');
 app.use('/api/', apiRouter);
 app.use('/user', userRouter)
 
-app.listen(PORT, () => {console.log('Listening')});
+app.listen(PORT, () => {console.log('Free tacos on port', PORT)});

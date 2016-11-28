@@ -29,10 +29,6 @@ export default class App extends Component {
         username: '',
         password: ''
       },
-      loginFormUsername: '',
-      loginFormPassword: '',
-      signupFormUsername: '',
-      signupFormPassword: '',
       currentStorefront: {
         name: '',
         address: '',
@@ -118,6 +114,23 @@ export default class App extends Component {
     })
     .then( () => {
       console.log(this.state)
+    })
+  }
+
+  getStorefrontItems() {
+    return fetch('/api/items', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/JSON',
+        'Authorization': 'Bearer ' + this.state.currentToken
+      },
+      body: JSON.stringify({
+        currentStorefront: this.state.currentStorefront.name
+      })
+    })
+    .then(r=>r.json())
+    .then( (data) => {
+      console.log(data)
     })
   }
 
@@ -341,9 +354,7 @@ export default class App extends Component {
         description: this.state.createItem.description,
         likes: 0,
         currentUser: this.state.currentUser,
-        currentStorefront: {
-          name: this.state.currentStorefront.name
-        }
+        currentStorefront: this.state.currentStorefront.name
       }),
     })
   };
@@ -387,8 +398,6 @@ export default class App extends Component {
       this.hideEditForm();
     })
   };
-
-
 
   render(){
     return (
@@ -434,7 +443,9 @@ export default class App extends Component {
             currentStorefront={this.state.currentStorefront}
             currentUser={this.state.currentUser}
           />
-          <MyItemList />
+          <MyItemList
+            getStorefrontItems={this.getStorefrontItems.bind(this)}
+          />
           <AddNewItem
             postNewItem={this.postNewItem.bind(this)}
             trackCreateItem={this.trackCreateItem.bind(this)}
