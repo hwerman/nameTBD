@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import './ItemList.css';
 import Item from '../02Item/Item.jsx';
 
-//props needed:
-// function that selects item by index
-// function that gets all items
-// like function
-
 class ItemList extends Component{
   renderItems(){
     return this.props.items.map((item, index) =>
@@ -25,11 +20,6 @@ class ItemList extends Component{
   }
 }
 
-//is this needed?
-componentWillMount(){
-  this.props.getAllItems();
-}
-
 render(){
   return(
     <div className="rightDiv">
@@ -39,4 +29,3 @@ render(){
 }
 
 export default ItemList;
-
