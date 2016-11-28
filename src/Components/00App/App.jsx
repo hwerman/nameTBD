@@ -4,6 +4,7 @@ import LoginSignup from '../01LoginSignup/LoginSignup.jsx';
 import Logout from '../01Logout/Logout.jsx';
 import CreateStore from '../02CreateStore/CreateStore.jsx';
 import StorefrontDD from '../01StorefrontDD/StorefrontDD.jsx';
+import SearchDD from '../01SearchDD/SearchDD.jsx';
 import AsideSMyStore from '../02AsideSmyStore/AsideSMyStore.jsx';
 import MyItemList from '../02MyItemList/MyItemList.jsx';
 import AddNewItem from '../02AddNewItem/AddNewItem.jsx';
@@ -16,6 +17,7 @@ export default class App extends Component {
     super();
 
     this.state = {
+      searchZip: '',
       loggedIn: false,
       currentUser: '',
       hasStorefront: false,
@@ -81,6 +83,12 @@ export default class App extends Component {
   hideEditForm() {
     let editStoreDiv = document.querySelector('#editStoreDiv');
     editStoreDiv.style.display = 'none';
+  }
+
+  showSearchInput() {
+    let searchInput = document.querySelector('#searchInput');
+    console.log(searchInput)
+    searchInput.style.display = 'block';
   }
 
   getOneStorefront() {
@@ -249,6 +257,12 @@ export default class App extends Component {
     })
   };
 
+  trackSearchInput(e) {
+    this.setState({
+      searchZip: e.target.value
+    });
+  }
+
   trackCreateStore(e) {
     let fieldsArr = e.target.parentElement.parentElement.childNodes;
     this.setState({
@@ -291,6 +305,23 @@ export default class App extends Component {
         startTime: fieldsArr[6].children[0].value,
         endTime: fieldsArr[6].children[1].value,
       },
+    })
+  }
+
+  postSearchZip() {
+    console.log('search posted')
+    return fetch('/search/zip', {
+      headers: {
+        'Content-Type': 'application/JSON'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        'searchZip': this.state.searchZip
+      })
+    })
+    .then(r => r.json())
+    .then(searchResults => {
+      console.log(searchResults)
     })
   }
 
@@ -409,7 +440,11 @@ export default class App extends Component {
             logout={this.logout.bind(this)}
           />
           <nav>
-            <div className="nButton">Search</div>
+            <SearchDD
+              showSearchInput={this.showSearchInput}
+              trackSearchInput={this.trackSearchInput.bind(this)}
+              postSearchZip={this.postSearchZip.bind(this)}
+            />
             <StorefrontDD
               loggedIn={this.state.loggedIn}
               currentUser={this.state.currentUser}
