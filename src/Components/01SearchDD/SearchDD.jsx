@@ -10,7 +10,7 @@ export default class SearchDD extends Component {
           Search
         </div>
         <div id="searchInput">
-          <input onChange={this.props.trackSearchInput} type="text" placeholder="search" />
+          <input onChange={this.props.trackSearchInput} type="text" placeholder="Search" />
           <button onClick={this.props.postSearchZip}>Search</button>
         </div>
       </div>

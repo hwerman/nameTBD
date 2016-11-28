@@ -240,7 +240,12 @@ export default class App extends Component {
     .then( () => {
       this.getOneStorefront();
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error);
+      this.setState({
+        userErrorMessage: true
+      })
+    })
   }
 
   logout() {
@@ -435,12 +440,7 @@ export default class App extends Component {
     })
   };
 
-<<<<<<< HEAD
-  validateInputs() {
-    let isValid = true;
 
-  }
-=======
    // componentWillMount() {
    //   const body = document.getElementsByTagName('body')[0];
    //   const script = document.createElement("script");
@@ -462,7 +462,6 @@ export default class App extends Component {
 
    //  // console.log(script)
    //  }
->>>>>>> master
 
   render(){
 

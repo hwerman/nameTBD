@@ -78,9 +78,7 @@ nav {
 nav > div {
   color: #fafafa;
   margin: 0 5vw;
-  position: relative;
   left: 12vw;
-  text-align: center;
   display: inline-block;
   width: 15vw;
 }

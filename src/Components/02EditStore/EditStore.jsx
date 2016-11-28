@@ -6,7 +6,7 @@ class EditStore extends Component {
   render(){
     return(
       <div id="editStoreDiv">
-        <h3 id="editStoreHeading">Edit your storefront</h3>
+        <h3 id="editStoreHeading">Edit your garage sale</h3>
           <input onChange={this.props.trackEditStore} className="name" type="text" value={this.props.currentStorefront.name} required></input>
           <input onChange={this.props.trackEditStore} className="address" type="text" value={this.props.currentStorefront.address} required></input>
         <div className="smallLocations">
@@ -27,7 +27,7 @@ class EditStore extends Component {
           <input onChange={this.props.trackEditStore} id="endTime" type="time" value={this.props.currentStorefront.endTime}></input>
         </div>
         <div className="editOrCancel">
-          <button onClick={this.props.putEditStorefront} id="editStoreButton">Edit Store</button>
+          <button onClick={this.props.putEditStorefront} id="editStoreButton">Edit Garage Sale</button>
           <button onClick={this.props.hideEditForm} id="editStoreButton">Cancel</button>
         </div>
     </div>
