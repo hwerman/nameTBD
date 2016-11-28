@@ -95,7 +95,6 @@ class App extends Component {
   showLogoutButton() {
     let logoutButton = document.querySelector('#logoutButton');
     logoutButton.style.display = 'block';
-
   }
 
   showAsideSMyStore() {
@@ -274,8 +273,9 @@ class App extends Component {
     .catch(error => this.loginError(error))
   }
 
-
   logout() {
+    this.showLoginButton()
+    .then(() => {
     this.setState({
       loggedIn: false,
       currentToken: '',
@@ -292,10 +292,8 @@ class App extends Component {
       },
       storefrontItems: []
     })
-    .then(() => {
-      showLogin();
     })
-  };
+  }
 
   trackSearchInput(e) {
     this.setState({
