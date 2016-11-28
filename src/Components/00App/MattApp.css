@@ -58,6 +58,7 @@ header > button {
   right: 1vw;
   width: 15vw;
   display: block;
+  border-radius: 8px;
 }
 
 header > button:hover {
@@ -102,8 +103,15 @@ nav > div {
   visibility: visible;
   transform: scaleX(1);
 }
-
-footer {
-  background-color: #F7CE3E;
-
+/*footer {
+  background-color: #394149;
+  color: #fafafa;
+  text-shadow: 2px 2px 2px #222;
+  letter-spacing: 1px;
+  font-family: 'Pacifico', cursive;
+  height: 6vh;
 }
+
+footer > p {
+  text-align: right;
+}*/
