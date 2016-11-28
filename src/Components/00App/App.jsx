@@ -1,5 +1,17 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+
+
+
+import saveMap from './Maps.jsx';
+
+
+// import Places from './Places.jsx';
+// import superagent from 'superagent';
+// import './normalize.css';
+// import style from './App.css';
+
+
 import LoginSignup from '../01LoginSignup/LoginSignup.jsx';
 import Logout from '../01Logout/Logout.jsx';
 import CreateStore from '../02CreateStore/CreateStore.jsx';
@@ -13,7 +25,8 @@ import './MattApp.css';
 
 
 
-export default class App extends Component {
+class App extends Component {
+
   constructor() {
     super();
 
@@ -72,6 +85,7 @@ export default class App extends Component {
     };
   }
 
+
   showLoginSignup() {
     let loginSignup = document.querySelector('#loginSignup');
     loginSignup.style.display = 'block';
@@ -90,6 +104,7 @@ export default class App extends Component {
   showLogoutButton() {
     let logoutButton = document.querySelector('#logoutButton');
     logoutButton.style.display = 'block';
+
   }
 
   hideEditForm() {
@@ -483,9 +498,77 @@ export default class App extends Component {
     loginError.style.display = 'block';
   }
 
+
+   // componentWillMount() {
+   //   const head = document.getElementsByTagName('head')[0];
+   //   const script = document.createElement("script");
+
+   //    script.type = 'text/javascript';
+   //    // script.className = 'container';
+
+   //    script.src = "http://maps.google.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c";
+   //    // script.async= true;
+   //    // script.defer= true;
+   //    console.log(script)
+   //    head.appendChild(script);
+   //    console.log(head)
+   //    // script.onload = () => {
+   //    //     console.log(document.querySelector('.container'));
+   //    //     ReactDOM.render( <script />,
+   //    //       document.querySelector('.container')
+   //    //     );
+   //    // };
+
+   //  // console.log(script)
+   //  }
+
+
+
   render(){
+
+
+    const location = {
+      lat: 40.7575285,
+      lng: -73.9884469
+    }
+//Below is where you create your pins/markers
+    const markers = [
+      {
+        location:{
+          lat: 40.7575285,
+          lng: -73.9884469
+        }
+      }
+    ]
+
+    // const script = document.querySelector('.container');
+
+    // script.onload = () => {
+    //       console.log(document.querySelector('.container'));
+    //       ReactDOM.render( <script />,
+    //         document.querySelector('.container')
+    //       );
+    //   };
+
+    // const body = document.getElementsByTagName('body');
+
+    // body.onload = () => {
+    //       console.log(document.querySelector('.container'));
+    //       componentWillMount();
+    //   };
+
     return (
       <div>
+
+        <div style={{width:300, height:600, background: 'pink'}}>
+
+          <saveMap
+            center={location}
+            markers={markers}
+          />
+
+        </div>
+
         <header>
           <h1>Grojj.</h1>
           <button id="loginButton" onClick={this.showLoginSignup}>Login or Sign Up</button>
@@ -514,8 +597,14 @@ export default class App extends Component {
                 postSignup={this.postSignup.bind(this)}
               />
           </nav>
+
+
         </header>
         <main>
+
+        <script> </script>
+
+
           <CreateStore
             postNewStorefront={this.postNewStorefront.bind(this)}
             trackCreateStore={this.trackCreateStore.bind(this)}
@@ -539,6 +628,7 @@ export default class App extends Component {
             trackCreateItem={this.trackCreateItem.bind(this)}
           />
         </main>
+
         <footer>
           <div></div>
         </footer>
@@ -546,3 +636,7 @@ export default class App extends Component {
     )
   }
 }
+
+
+
+export default App;

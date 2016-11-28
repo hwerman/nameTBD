@@ -11,9 +11,11 @@ body,
   width: 100%;
   height: 100%;
 }
+
 .map {
   margin: 100px;
 }
+
 
 .UpdatedText {
   color: red;
@@ -89,7 +91,9 @@ nav > div {
   color: #0A1612;
 }
 
+
 footer {
   background-color: #F7CE3E;
 
 }
+

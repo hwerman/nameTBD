@@ -21,13 +21,13 @@ module.exports = {
     reasons: true
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'grojj',
-      xhtml: true,
-      inject: false,
-      template: require('html-webpack-template'),
-      appMountId: 'root-container'
-    }),
+    // new HtmlWebpackPlugin({
+    //   title: 'grojj',
+    //   xhtml: true,
+    //   inject: false,
+    //   template: require('html-webpack-template'),
+    //   appMountId: 'root-container'
+    // }),
     new ExtractTextPlugin('/css/[name].css', {
       allChunks: true
     })
