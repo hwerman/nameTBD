@@ -1,0 +1,117 @@
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+
+html,
+body,
+.GMap {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.GMap-canvas {
+  top: 20px;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.UpdatedText {
+  color: red;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #394149;
+  padding: 6px;
+  height: 18vh;
+  display: block;
+}
+
+header > h1 {
+  position: absolute;
+  top: 1vh;
+  left: 5vw;
+  color: #fafafa;
+  text-shadow: 2px 2px 2px #222;
+  letter-spacing: 4px;
+  font-size: 2.5em;
+  display: block;
+  font-family: 'Pacifico', cursive;
+}
+
+.nButton {
+  color: #fafafa;
+  font-size: 14px;
+}
+
+header > button {
+  position: relative;
+  font-size: 1em;
+  border: 1px solid #fafafa;
+  color: #fafafa;
+  background-color: #394149;
+  position: absolute;
+  top: 3vh;
+  right: 1vw;
+  width: 15vw;
+  display: block;
+  border-radius: 8px;
+}
+
+header > button:hover {
+  background-color: #fafafa;
+  color: #0A1612;
+  transition: background-color 0.25s;
+}
+
+nav {
+  position: relative;
+  top: 13vh;
+  font-size: 1.5em;
+  width: 100%;
+  display: block;
+}
+
+nav > div {
+  color: #fafafa;
+  margin: 0 5vw;
+  position: relative;
+  left: 12vw;
+  text-align: center;
+  display: inline-block;
+  width: 15vw;
+}
+
+
+
+.nButton:before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fafafa;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+.nButton:hover:before{
+  visibility: visible;
+  transform: scaleX(1);
+}
+/*footer {
+  background-color: #394149;
+  color: #fafafa;
+  text-shadow: 2px 2px 2px #222;
+  letter-spacing: 1px;
+  font-family: 'Pacifico', cursive;
+  height: 6vh;
+}
+
+footer > p {
+  text-align: right;
+}*/

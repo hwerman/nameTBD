@@ -13,5 +13,10 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  display: none;
+}
+
+.myItemTest {
+  background-color: #ADDFAD;
+  height: 100px;
+  width: 100px;
 }

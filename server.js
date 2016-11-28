@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use(bodyParser.json());
 app.use(expressJWT({secret: process.env.secret}).unless(
-  {path: ['/favicon.ico', '/user/signup', '/user/login', '/api/storefronts', '/api/storefront', '/api/items']}
+  {path: ['/favicon.ico', '/user/signup', '/user/login', '/api/storefronts', '/api/myStorefront', '/api/storefront', '/api/items']}
 ));
 
 const apiRouter = require('./routes/api.js');
@@ -23,4 +23,4 @@ const userRouter = require('./routes/user.js');
 app.use('/api/', apiRouter);
 app.use('/user', userRouter)
 
-app.listen(PORT, () => {console.log('Listening')});
+app.listen(PORT, () => {console.log('Free tacos on port', PORT)});
