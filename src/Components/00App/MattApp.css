@@ -108,6 +108,19 @@ nav > div {
   display: none;
 }
 
+#loginButton {
+  position: absolute;
+  font-size: 1em;
+  border: 1px solid #fafafa;
+  background-color: #fafafa;
+  color: #0A1612;
+  top: 8vh;
+  right: 1vw;
+  width: 15vw;
+  display: block;
+}
+
+
 /*footer {
   background-color: #394149;
   color: #fafafa;
