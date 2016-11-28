@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import SaveMap from './Maps.jsx';
-
 import LoginSignup from '../01LoginSignup/LoginSignup.jsx';
 import Logout from '../01Logout/Logout.jsx';
 import CreateStore from '../02CreateStore/CreateStore.jsx';
@@ -21,10 +20,10 @@ class App extends Component {
     super();
 
     this.state = {
-      // markers: {
-      //   lat: 40.7575285,
-      //   lng: -73.9884469
-      // },
+      markers: {
+        lat: 40.7575285,
+        lng: -73.9884469
+      },
       searchZip: '',
       loggedIn: false,
       currentUser: '',
@@ -493,11 +492,8 @@ class App extends Component {
         }
       }
     ]
-
     return (
       <div>
-
-
         <header>
           <h1>Grojj.</h1>
           <button id="loginButton" onClick={this.showLoginSignup}>Login or Sign Up</button>
@@ -526,45 +522,38 @@ class App extends Component {
                 postSignup={this.postSignup.bind(this)}
               />
           </nav>
-
-
         </header>
         <main>
-
           <div style={{width:400, height:400, background: 'red'}}>
-
             <SaveMap
               center={location}
               markers={markers}
             />
-
           </div>
-
-          <CreateStore
-            postNewStorefront={this.postNewStorefront.bind(this)}
-            trackCreateStore={this.trackCreateStore.bind(this)}
-          />
-          <EditStore
-            currentStorefront={this.state.currentStorefront}
-            putEditStorefront={this.putEditStorefront.bind(this)}
-            trackEditStore={this.trackEditStore.bind(this)}
-            hideEditForm={this.hideEditForm.bind(this)}
-          />
-          <AsideSMyStore
-            currentStorefront={this.state.currentStorefront}
-            currentUser={this.state.currentUser}
-            editStorefront={this.state.editStorefront}
-            removeOneStorefront={this.removeOneStorefront.bind(this)}
-          />
-          <MyItemList
-            storefrontItems={this.state.storefrontItems}
-          />
-          <AddNewItem
-            postNewItem={this.postNewItem.bind(this)}
-            trackCreateItem={this.trackCreateItem.bind(this)}
-          />
+            <CreateStore
+              postNewStorefront={this.postNewStorefront.bind(this)}
+              trackCreateStore={this.trackCreateStore.bind(this)}
+            />
+            <EditStore
+              currentStorefront={this.state.currentStorefront}
+              putEditStorefront={this.putEditStorefront.bind(this)}
+              trackEditStore={this.trackEditStore.bind(this)}
+              hideEditForm={this.hideEditForm.bind(this)}
+            />
+            <AsideSMyStore
+              currentStorefront={this.state.currentStorefront}
+              currentUser={this.state.currentUser}
+              editStorefront={this.state.editStorefront}
+              removeOneStorefront={this.removeOneStorefront.bind(this)}
+            />
+            <MyItemList
+              storefrontItems={this.state.storefrontItems}
+            />
+            <AddNewItem
+              postNewItem={this.postNewItem.bind(this)}
+              trackCreateItem={this.trackCreateItem.bind(this)}
+            />
         </main>
-
         <footer>
           <div></div>
         </footer>
