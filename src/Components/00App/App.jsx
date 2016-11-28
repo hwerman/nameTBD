@@ -519,6 +519,8 @@ export default class App extends Component {
           />
         </main>
         <footer>
+          <a href="#" className='center-a'>About Us</a>
+          <a href="#" className='center-a'>Contact</a>
           <p>Grojj 2016</p>
         </footer>
       </div>
