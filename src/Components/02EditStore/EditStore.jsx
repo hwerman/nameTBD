@@ -28,7 +28,6 @@ class EditStore extends Component {
         </div>
         <div className="editOrCancel">
           <button onClick={this.props.putEditStorefront} id="editStoreButton">Edit Store</button>
-          <button onClick={this.props.deleteStorefront} id="deleteStoreButton">Delete Store</button>
           <button onClick={this.props.hideEditForm} id="editStoreButton">Cancel</button>
         </div>
     </div>

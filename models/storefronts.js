@@ -35,15 +35,6 @@ function addNewStorefront(req, res, next) {
   .catch((error) => console.log(error));
 };
 
-<<<<<<< HEAD
-function deleteStorefront(req, res, next){
-  db.none('DELETE FROM grojjStorefronts WHERE id = $1;', [req.params.id])
-  .then(() => {
-    next()
-  })
-  .catch((erorr) => console.log(error));
-}
-=======
 function removeOneStorefront(req, res, next) {
   console.log(req.body)
   db.none('DELETE FROM grojjStorefronts WHERE grojjStorefronts.currentUser = $/currentUser/;', req.body)
@@ -52,16 +43,11 @@ function removeOneStorefront(req, res, next) {
     })
     .catch(error => console.log(error))
 };
->>>>>>> bd3396612d626b7ef7c8ec1f40411a75f996d1db
 
 module.exports = {
   getAllStorefronts,
   addNewStorefront,
   getOneStorefront,
   editOneStorefront,
-<<<<<<< HEAD
-  deleteStorefront
-=======
   removeOneStorefront,
->>>>>>> bd3396612d626b7ef7c8ec1f40411a75f996d1db
 }

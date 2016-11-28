@@ -7,11 +7,7 @@ const { getAllStorefronts,
         addNewStorefront,
         getOneStorefront,
         editOneStorefront,
-<<<<<<< HEAD
-        deleteStorefront
-=======
         removeOneStorefront
->>>>>>> bd3396612d626b7ef7c8ec1f40411a75f996d1db
       } = require('../models/storefronts.js');
 
 apiRouter.route('/items')
