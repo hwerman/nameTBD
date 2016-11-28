@@ -8,14 +8,12 @@ class CreateStore extends Component {
     createStoreDiv.style.display = 'none';
   }
 
-
-
   render(){
     return(
       <div id="createStoreDiv">
-        <h3 id="createStoreHeading">Create a storefront</h3>
-          <input onChange={this.props.trackCreateStore} className="name" type="text" placeholder="What would you like to call your storefront?" required></input>
-          <input onChange={this.props.trackCreateStore} className="address" type="text" placeholder="Enter your street address." required></input>
+        <h3 id="createStoreHeading">Let's set up a garage sale! </h3>
+          <input onChange={this.props.trackCreateStore} className="name" type="text" placeholder="Name of garage sale" required></input>
+          <input onChange={this.props.trackCreateStore} className="address" type="text" placeholder="Street address" required></input>
         <div className="smallLocations">
           <select onChange={this.props.trackCreateStore} name="borough" className="borough">
             <option value="" disabled>Select Borough</option>
@@ -34,7 +32,7 @@ class CreateStore extends Component {
           <input onChange={this.props.trackCreateStore} id="endTime" type="time"></input>
         </div>
         <div className="createOrCancel">
-          <button onClick={this.props.postNewStorefront} id="createStoreButton">Create Store</button>
+          <button onClick={this.props.postNewStorefront} id="createStoreButton">Create Garage Sale</button>
           <button onClick={this.hideStoreButton} id="cancelStoreButton">Cancel</button>
         </div>
     </div>

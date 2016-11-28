@@ -457,6 +457,27 @@ export default class App extends Component {
     })
   };
 
+   // componentWillMount() {
+   //   const body = document.getElementsByTagName('body')[0];
+   //   const script = document.createElement("script");
+
+   //    script.type = 'text/javascript';
+   //    script.className = 'container';
+
+   //    script.src = "http://maps.google.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c";
+   //    script.async= true;
+   //    script.defer= true;
+
+   //    body.appendChild(script);
+   //    // script.onload = () => {
+   //    //     console.log(document.querySelector('.container'));
+   //    //     ReactDOM.render( <script />,
+   //    //       document.querySelector('.container')
+   //    //     );
+   //    // };
+
+   //  // console.log(script)
+   //  }
   loginError() {
     let loginError = document.querySelector('#loginError')
     loginError.style.display = 'block';
