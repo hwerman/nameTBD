@@ -375,6 +375,7 @@ export default class App extends Component {
     })
   };
 
+<<<<<<< HEAD
   deleteStorefront(id) {
     fetch('/api/storefronts/${id}', {
       method: 'DELETE'
@@ -390,6 +391,8 @@ export default class App extends Component {
     .catch(error => console.log(error))
   };
 
+=======
+>>>>>>> master
   render(){
     return (
       <div>
