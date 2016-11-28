@@ -15,12 +15,14 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use(bodyParser.json());
 app.use(expressJWT({secret: process.env.secret}).unless(
-  {path: ['/favicon.ico', '/user/signup', '/user/login', '/api/storefronts', '/api/storefront', '/api/items']}
+  {path: ['/favicon.ico', '/user/signup', '/user/login', '/api/storefronts', '/api/myStorefront', '/api/storefront', '/api/items', '/search/zip']}
 ));
 
 const apiRouter = require('./routes/api.js');
 const userRouter = require('./routes/user.js');
+const searchRouter = require('./routes/search.js');
 app.use('/api/', apiRouter);
-app.use('/user', userRouter)
+app.use('/user', userRouter);
+app.use('/search', searchRouter);
 
-app.listen(PORT, () => {console.log('Listening')});
+app.listen(PORT, () => {console.log('Overpriced organic artisanal tacos on port', PORT)});

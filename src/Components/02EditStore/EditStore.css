@@ -1,66 +1,57 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway);
-
-#addItemDiv{
+#editStoreDiv{
   position: relative;
   left: 20vw;
-  height: 90vh;
+  height: 100vh;
   width: 60vw;
   background-color: #0A1612;
   display: none;
-  border-radius: 3px;
-  font-family: 'Raleway', sans-serif;
 }
 
-#addItemHeading{
-  margin-top: 10%;
-  padding: 4%;
+#editStoreHeading{
   text-align: center;
-  color: #0A1612;
-  background-color: #FAFAFA;
-/*  -webkit-text-stroke-width: .3px;
-  -webkit-text-stroke-color: black;*/
-  border-radius: 3px;
+  color: #C5C1C0;
+  padding-top: 30px;
 }
 
-#addItemHeading:hover {
-  color: #F7CE3E;
-}
-
-#addItemDiv > input{
+#editStoreDiv > input{
   display: block;
   line-height: 40px;
   border: none;
 }
 
-.fillOut {
-  margin-top: 10%;
-}
-
+.uname,
 .name,
-.itemU{
+.address{
   position: relative;
   left: 15vw;
   width: 30vw;
 }
 
+.uname,
 .name,
+.address,
 .smallLocations,
-.itemU,
-#desc,
-#createItemButton,
-#cancelItemButton{
+#directions,
+#date,
+#startEnd,
+#editStoreButton,
+#cancelStoreButton{
   margin: 2vh 0;
   padding: .5vh;
   border-radius: .8vh;
 }
 
+.zip{
+  border-radius: .8vh;
+}
+
 .smallLocations{
   position: relative;
-  left: 8vw;
+  left: 15vw;
 }
 
 .smallLocations > select{
-  width: 10vw;
+  width: 17vw;
 }
 
 .smallLocations > input,
@@ -69,27 +60,50 @@
   border: none;
 }
 
-#desc{
+#date{
+  position: relative;
+  width: 30vw;
+  left: 15vw;
+}
+
+#directions{
   position: relative;
   left: 15vw;
   width: 30vw;
 }
 
-.createOrCancel{
+#startEnd{
+  position: relative;
+  left: 15vw;
+  display: inline;
+}
+
+#startEnd > input[type=time]{
+  height: 40px;
+  width: 15vw;
+  border: none;
+}
+
+#startTime,
+#endTime{
+  border-radius: .8vh;
+}
+
+.editOrCancel{
   height: 40px;
   width: 30vw;
   position: relative;
   left: 15vw;
 }
 
-.createOrCancel > button{
+.editOrCancel > button{
   height: 40px;
   width: 15vw;
   font-size: 1em;
   border: 3px solid #0A1612;
 }
 
-#createItemButton{
+#editStoreButton{
   position: relative;
   color: #C5C1C0;
   border: 3px solid #1A2930;
@@ -97,7 +111,7 @@
   background-color: #F7CE3E;
 }
 
-#cancelItemButton{
+#cancelStoreButton{
   position: absolute;
   left: 15vw;
   border: 3px solid #1A2930;
@@ -105,20 +119,10 @@
   background-color: #F7CE3E;
 }
 
-#createItemButton:hover{
+#editStoreButton:hover{
   box-shadow: 2px 2px 2px #222;
 }
 
-#cancelItemButton:hover{
+#cancelStoreButton:hover{
   box-shadow: 2px 2px 2px #222;
-}
-
-.condi {
-  /*margin: 10px;*/
-
-}
-
-input {
-  font-family: 'Raleway', sans-serif;
-  font-size: 15px;
 }

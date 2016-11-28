@@ -103,6 +103,7 @@ nav > div {
   visibility: visible;
   transform: scaleX(1);
 }
+
 footer {
   background-color: #394149;
   color: #fafafa;
@@ -114,4 +115,9 @@ footer {
 
 footer > p {
   text-align: right;
+}
+
+
+#loginError {
+  display: none;
 }

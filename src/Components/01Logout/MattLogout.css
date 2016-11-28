@@ -5,17 +5,17 @@ color scheme*/
   position: absolute;
   font-size: 1em;
   border: 1px solid #fafafa;
-  color: #0A1612;
-  background-color: #F7CE3E;
+  color: #fafafa;
+  background-color: #394149;
   top: 8vh;
   right: 1vw;
   width: 15vw;
-  display: block;
+  display: none;
 }
 
 #logoutButton:hover{
   background-color: #fafafa;
-  color: #0A1612;
+  color: #394149;
   transition: background-color 0.5s ease-in;
   cursor: pointer;
 }
