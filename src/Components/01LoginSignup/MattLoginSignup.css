@@ -27,6 +27,7 @@
   color:  #394149;
   box-shadow: 0 0 3px gray;
   transition: background .5s ease;
+  cursor: pointer;
 }
 #login {
   width: 29.45vw;
