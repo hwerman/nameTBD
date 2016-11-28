@@ -30,6 +30,7 @@ revealUploadForm() {
       <div className="rightDiv" id="rightDiv">
         <h3>Click button to sell items!</h3>
         <button id="addItemButton" onClick={this.revealUploadForm}>Add item!</button>
+        <button onClick={this.props.getStorefrontItems}>getStorefrontItems</button>
       </div>
     )
   }

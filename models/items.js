@@ -17,7 +17,17 @@ function addNewItem(req, res, next) {
   .catch((error) => console.log(error));
 };
 
+function getStorefrontItems(req, res, next) {
+  db.many('SELECT * FROM grojjItems WHERE grojjItems.currentStorefront = $/currentStorefront/;', req.body)
+    .then((storefrontItems) => {
+      res.storefrontItems = storefrontItems;
+      next();
+    })
+    .catch(error => console.log(error))
+}
+
 module.exports = {
   getAllItems,
   addNewItem,
+  getStorefrontItems,
 };
