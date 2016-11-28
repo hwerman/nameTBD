@@ -85,14 +85,6 @@ class App extends Component {
     };
   }
 
-      address: 'time square address',
-      loginFormUsername: '',
-      loginFormPassword: '',
-      signupFormUsername: '',
-      signupFormPassword: '',
-      currentToken: '',
-
-    };
 
   showLoginSignup() {
     let loginSignup = document.querySelector('#loginSignup');
@@ -613,9 +605,9 @@ class App extends Component {
         <script> </script>
 
 
-
           <TestLogin
             testLogin={this.testLogin.bind(this)}
+            />
           <CreateStore
             postNewStorefront={this.postNewStorefront.bind(this)}
             trackCreateStore={this.trackCreateStore.bind(this)}
@@ -651,7 +643,3 @@ class App extends Component {
 
 
 export default App;
-
-
-=======
->>>>>>> 0b2034b94874478016264c62be63664120a5c3f3
