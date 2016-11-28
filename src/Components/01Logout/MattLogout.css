@@ -10,7 +10,7 @@ color scheme*/
   top: 8vh;
   right: 1vw;
   width: 15vw;
-  display: none;
+  display: block;
 }
 
 #logoutButton:hover{
