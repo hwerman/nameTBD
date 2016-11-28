@@ -25,7 +25,7 @@ export default class LoginSignup extends Component {
             <button onClick={this.props.postSignup} className="modalButton">Sign Up</button>
             <br></br>
         </div>
-        <div id="loginError">Incorrect username or password. Please try again.</div>
+        <p id="loginError">Incorrect username or password. Please try again.</p>
       </div>
     )
   }
