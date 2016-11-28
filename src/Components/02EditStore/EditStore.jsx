@@ -7,8 +7,8 @@ class EditStore extends Component {
     return(
       <div id="editStoreDiv">
         <h3 id="editStoreHeading">Edit your storefront</h3>
-          <input onChange={this.props.trackEditStore} className="name" type="text" placeholder="What would you like to call your storefront?" required></input>
-          <input onChange={this.props.trackEditStore} className="address" type="text" placeholder="Enter your street address." required></input>
+          <input onChange={this.props.trackEditStore} className="name" type="text" value={this.props.currentStorefront.name} required></input>
+          <input onChange={this.props.trackEditStore} className="address" type="text" value={this.props.currentStorefront.address} required></input>
         <div className="smallLocations">
           <select onChange={this.props.trackEditStore} name="borough" className="borough">
             <option value="" disabled>Select Borough</option>
@@ -18,13 +18,13 @@ class EditStore extends Component {
             <option value="Manhattan">Manhattan</option>
             <option value="Staten Island">Staten Island</option>
           </select>
-          <input onChange={this.props.trackEditStore} className="zip" type="text" placeholder="ZIP" required></input>
+          <input onChange={this.props.trackEditStore} className="zip" type="text" value={this.props.currentStorefront.zip} required></input>
         </div>
-          <input onChange={this.props.trackEditStore} id="directions" type="text" placeholder="Directions (optional)"></input>
+          <input onChange={this.props.trackEditStore} id="directions" type="text" value={this.props.currentStorefront.directions}></input>
           <input onChange={this.props.trackEditStore} id="date" type="date" min="2016-11-25"></input>
         <div id="startEnd">
-          <input onChange={this.props.trackEditStore} id="startTime" type="time"></input>
-          <input onChange={this.props.trackEditStore} id="endTime" type="time"></input>
+          <input onChange={this.props.trackEditStore} id="startTime" type="time" value={this.props.currentStorefront.startTime}></input>
+          <input onChange={this.props.trackEditStore} id="endTime" type="time" value={this.props.currentStorefront.endTime}></input>
         </div>
         <div className="editOrCancel">
           <button onClick={this.props.putEditStorefront} id="editStoreButton">Edit Store</button>
