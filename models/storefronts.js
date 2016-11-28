@@ -35,7 +35,6 @@ function addNewStorefront(req, res, next) {
   .catch((error) => console.log(error));
 };
 
-<<<<<<< HEAD
 function deleteStorefront(req, res, next) {
   db.none('DELETE FROM grojjStorefronts WHERE id = $1;', [req.params.id])
   .then(() => {
@@ -43,15 +42,6 @@ function deleteStorefront(req, res, next) {
   })
   .catch((error) => console.log(error));
 };
-=======
-function deleteStorefront(req, res, next){
-  db.none('DELETE FROM grojjStorefronts WHERE id = $1;', [req.params.id])
-  .then(() => {
-    next()
-  })
-  .catch((erorr) => console.log(error));
-}
->>>>>>> master
 
 module.exports = {
   getAllStorefronts,
