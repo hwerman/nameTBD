@@ -8,13 +8,9 @@ import SearchDD from '../01SearchDD/SearchDD.jsx';
 import AsideSMyStore from '../02AsideSmyStore/AsideSMyStore.jsx';
 import MyItemList from '../02MyItemList/MyItemList.jsx';
 import AddNewItem from '../02AddNewItem/AddNewItem.jsx';
-
-// import Map from './Maps.jsx';
-import './App.css';
-
 import EditStore from '../02EditStore/EditStore.jsx';
 import './MattApp.css';
-// import './App.css';
+
 
 
 export default class App extends Component {
@@ -40,6 +36,7 @@ export default class App extends Component {
         address: '',
         borough: '',
         directions: '',
+        sale_date: '',
         endTime: '',
         startTime: '',
         zip: ''
@@ -75,14 +72,24 @@ export default class App extends Component {
     };
   }
 
-  showLogin() {
-    let showLogin = document.querySelector('#loginSignup');
-    showLogin.style.display = 'block';
+  showLoginSignup() {
+    let loginSignup = document.querySelector('#loginSignup');
+    loginSignup.style.display = 'block';
   }
 
-  hideLogin() {
-    let showLogin = document.querySelector('#loginSignup');
-    showLogin.style.display = 'none';
+  showLoginButton() {
+    let loginButton = document.querySelector('#loginButton');
+    loginButton.style.display = 'block';
+  }
+
+  hideLoginButton() {
+    let loginButton = document.querySelector('#loginButton');
+    loginButton.style.display = 'none';
+  }
+
+  showLogoutButton() {
+    let logoutButton = document.querySelector('#logoutButton');
+    logoutButton.style.display = 'block';
   }
 
   hideEditForm() {
@@ -90,10 +97,19 @@ export default class App extends Component {
     editStoreDiv.style.display = 'none';
   }
 
+  hideLoginSignup() {
+    let loginSignup = document.querySelector('#loginSignup');
+    loginSignup.style.display = 'none';
+  }
+
   showSearchInput() {
     let searchInput = document.querySelector('#searchInput');
-    console.log(searchInput)
     searchInput.style.display = 'block';
+  }
+
+  relaunchLogin() {
+    let loginError = document.querySelector('#loginError');
+    loginError.style.display = 'none';
   }
 
   getOneStorefront() {
@@ -238,9 +254,12 @@ export default class App extends Component {
       })
     })
     .then( () => {
-      this.getOneStorefront();
+      this.hideLoginSignup();
+      this.hideLoginButton();
+      this.showLogoutButton();
+      console.log(this.state)
     })
-    .catch(error => console.log(error))
+    .catch(error => this.loginError(error))
   }
 
   logout() {
@@ -259,6 +278,9 @@ export default class App extends Component {
         zip: ''
       },
       storefrontItems: []
+    })
+    .then(() => {
+      showLogin();
     })
   };
 
@@ -331,7 +353,7 @@ export default class App extends Component {
   }
 
   postNewStorefront() {
-    let userItemList = document.querySelector('#rightDiv')
+    let userItemList = document.querySelector('.rightDiv')
     userItemList.style.display = 'flex';
     let createStorefront = document.querySelector('#createStoreDiv');
     createStorefront.style.display = 'none';
@@ -435,66 +457,20 @@ export default class App extends Component {
     })
   };
 
-   // componentWillMount() {
-   //   const body = document.getElementsByTagName('body')[0];
-   //   const script = document.createElement("script");
-
-   //    script.type = 'text/javascript';
-   //    script.className = 'container';
-
-   //    script.src = "http://maps.google.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c";
-   //    script.async= true;
-   //    script.defer= true;
-
-   //    body.appendChild(script);
-   //    // script.onload = () => {
-   //    //     console.log(document.querySelector('.container'));
-   //    //     ReactDOM.render( <script />,
-   //    //       document.querySelector('.container')
-   //    //     );
-   //    // };
-
-   //  // console.log(script)
-   //  }
+  loginError() {
+    let loginError = document.querySelector('#loginError')
+    loginError.style.display = 'block';
+  }
 
   render(){
-
-  // const location = {
-  //   lat: 40.7575285,
-  //   lng: -73.9884469
-  // }
-
-  //   const markers = [
-  //     {
-  //       location:{
-  //         lat: 40.7575285,
-  //         lng: -73.9884469
-  //       }
-  //     }
-  //   ]
-
-
-  // const script = document.querySelector('.container');
-
-  //   script.onload = () => {
-  //         console.log(document.querySelector('.container'));
-  //         ReactDOM.render( <script />,
-  //           document.querySelector('.container')
-  //         );
-  //     };
-
-
     return (
       <div>
-
-
-
         <header>
           <h1>Grojj.</h1>
-          <button onClick={this.showLogin}>Login or Sign Up</button>
-          <Logout
-            logout={this.logout.bind(this)}
-          />
+          <button id="loginButton" onClick={this.showLoginSignup}>Login or Sign Up</button>
+            <Logout
+              logout={this.logout.bind(this)}
+            />
           <nav>
             <SearchDD
               showSearchInput={this.showSearchInput}
@@ -505,10 +481,11 @@ export default class App extends Component {
               loggedIn={this.state.loggedIn}
               currentUser={this.state.currentUser}
               hasStorefront={this.state.hasStorefront}
+              showLoginButton={this.showLoginButton}
             />
             <div className="nButton">Messages</div>
               <LoginSignup
-                showLogin={this.showLogin}
+                showLoginSignup={this.showLoginSignup}
                 hideLogin={this.hideLogin}
                 trackLoginForm={this.trackLoginForm.bind(this)}
                 trackSignupForm={this.trackSignupForm.bind(this)}

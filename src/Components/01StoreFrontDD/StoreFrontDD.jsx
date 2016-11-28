@@ -21,9 +21,13 @@ export default class StorefrontDD extends Component {
       return(
         <div onClick={this.showMyStoreDiv}>Edit My Storefront</div>
       )
-    } else {
+    } else if (this.props.loggedIn) {
       return(
         <div onClick={this.showCreateStoreDiv}>Create My Storefront</div>
+      )
+    } else {
+      return(
+        <div onClick={this.props.showLogin}>Create My Storefront</div>
       )
     }
   }
