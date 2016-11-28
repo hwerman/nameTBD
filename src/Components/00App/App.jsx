@@ -21,10 +21,10 @@ class App extends Component {
     super();
 
     this.state = {
-      center: {
-        lat: 40.7575285,
-        lng: -73.9884469
-      },
+      // markers: {
+      //   lat: 40.7575285,
+      //   lng: -73.9884469
+      // },
       searchZip: '',
       loggedIn: false,
       currentUser: '',
@@ -527,7 +527,7 @@ class App extends Component {
           <div style={{width:400, height:400, background: 'red'}}>
 
             <SaveMap
-              center={this.state.center}
+              center={location}
               markers={markers}
             />
 
