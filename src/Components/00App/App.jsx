@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import LoginSignup from '../01LoginSignup/LoginSignup.jsx';
-import TestLogin from '../TestLogin/TestLogin.jsx';
 import Logout from '../01Logout/Logout.jsx';
 import CreateStore from '../02CreateStore/CreateStore.jsx';
 import StorefrontDD from '../01StorefrontDD/StorefrontDD.jsx';
@@ -207,6 +206,7 @@ export default class App extends Component {
     })
     .then( () => {
       this.getOneStorefront();
+      this.getStorefrontItems();
     })
     .then( () => {
       console.log(this.state)
@@ -228,24 +228,11 @@ export default class App extends Component {
         endTime: '',
         startTime: '',
         zip: ''
-      }
+      },
+      storefrontItems: []
     }, () => {
       console.log(this.state)
     })
-  };
-
-  testLogin() {
-    return fetch('/api/items', {
-      headers: {
-        'Content-Type': 'application/JSON',
-        'Authorization': 'Bearer ' + this.state.currentToken
-      },
-    })
-    .then(r=> r.json())
-    .then(() => {
-      console.log(this.state)
-    })
-    .catch(error => console.log(error))
   };
 
   trackCreateStore(e) {
@@ -361,6 +348,9 @@ export default class App extends Component {
         currentStorefront: this.state.currentStorefront.name
       }),
     })
+    .then(() => {
+      this.getStorefrontItems();
+    })
   };
 
   putEditStorefront() {
@@ -399,6 +389,7 @@ export default class App extends Component {
     })
     .then( () => {
       this.getOneStorefront();
+      this.getStorefrontItems();
       this.hideEditForm();
     })
   };
@@ -446,9 +437,6 @@ export default class App extends Component {
           </nav>
         </header>
         <main>
-          <TestLogin
-            testLogin={this.testLogin.bind(this)}
-          />
           <CreateStore
             postNewStorefront={this.postNewStorefront.bind(this)}
             trackCreateStore={this.trackCreateStore.bind(this)}
@@ -464,6 +452,7 @@ export default class App extends Component {
           />
           <MyItemList
             getStorefrontItems={this.getStorefrontItems.bind(this)}
+            storefrontItems={this.state.storefrontItems}
           />
           <AddNewItem
             postNewItem={this.postNewItem.bind(this)}
