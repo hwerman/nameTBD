@@ -101,6 +101,11 @@ class App extends Component {
 
   }
 
+  showAsideSMyStore() {
+    let asideMyStore = document.querySelector('.leftAside');
+    asideMyStore.style.display = 'block';
+  }
+
   hideEditForm() {
     let editStoreDiv = document.querySelector('#editStoreDiv');
     editStoreDiv.style.display = 'none';
@@ -266,10 +271,12 @@ class App extends Component {
       this.hideLoginSignup();
       this.hideLoginButton();
       this.showLogoutButton();
+      this.showAsideSMyStore();
       console.log(this.state)
     })
     .catch(error => this.loginError(error))
   }
+
 
   logout() {
     this.setState({
@@ -546,6 +553,7 @@ class App extends Component {
           <AsideSMyStore
             currentStorefront={this.state.currentStorefront}
             currentUser={this.state.currentUser}
+            editStorefront={this.state.editStorefront}
             removeOneStorefront={this.removeOneStorefront.bind(this)}
           />
           <MyItemList
