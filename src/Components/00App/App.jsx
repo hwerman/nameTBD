@@ -65,7 +65,7 @@ export default class App extends Component {
         price: '',
         description: '',
       },
-      storefronts: []
+      storefrontItems: []
     };
   }
 
@@ -130,7 +130,11 @@ export default class App extends Component {
     })
     .then(r=>r.json())
     .then( (data) => {
-      console.log(data)
+      this.setState({
+        storefrontItems: data
+      }, () => {
+        console.log(this.state)
+      })
     })
   }
 
