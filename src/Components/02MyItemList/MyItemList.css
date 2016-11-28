@@ -17,7 +17,7 @@
   flex-wrap: wrap;
   font-size: 15px;
   font-family: 'Raleway', sans-serif;
-
+  display: none;
 }
 
 .myItemTest {
@@ -50,6 +50,3 @@ h3:hover {
   text-decoration: underline;
   transform: scale(1.2);
 }
-
-
-
