@@ -12,18 +12,16 @@ import AddNewItem from '../02AddNewItem/AddNewItem.jsx';
 import EditStore from '../02EditStore/EditStore.jsx';
 import './MattApp.css';
 
-
-
 class App extends Component {
 
   constructor() {
     super();
 
     this.state = {
-      markers: {
-        lat: 40.7575285,
-        lng: -73.9884469
-      },
+      // markers: {
+      //   lat: 40.7575285,
+      //   lng: -73.9884469
+      // },
       searchZip: '',
       loggedIn: false,
       currentUser: '',
