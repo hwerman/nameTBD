@@ -4,18 +4,25 @@ import LoginSignup from '../01LoginSignup/LoginSignup.jsx';
 import Logout from '../01Logout/Logout.jsx';
 import CreateStore from '../02CreateStore/CreateStore.jsx';
 import StorefrontDD from '../01StorefrontDD/StorefrontDD.jsx';
+import SearchDD from '../01SearchDD/SearchDD.jsx';
 import AsideSMyStore from '../02AsideSmyStore/AsideSMyStore.jsx';
 import MyItemList from '../02MyItemList/MyItemList.jsx';
 import AddNewItem from '../02AddNewItem/AddNewItem.jsx';
+
+// import Map from './Maps.jsx';
+import './App.css';
+
 import EditStore from '../02EditStore/EditStore.jsx';
 import './MattApp.css';
 // import './App.css';
+
 
 export default class App extends Component {
   constructor() {
     super();
 
     this.state = {
+      searchZip: '',
       loggedIn: false,
       currentUser: '',
       hasStorefront: false,
@@ -81,6 +88,12 @@ export default class App extends Component {
   hideEditForm() {
     let editStoreDiv = document.querySelector('#editStoreDiv');
     editStoreDiv.style.display = 'none';
+  }
+
+  showSearchInput() {
+    let searchInput = document.querySelector('#searchInput');
+    console.log(searchInput)
+    searchInput.style.display = 'block';
   }
 
   getOneStorefront() {
@@ -249,6 +262,12 @@ export default class App extends Component {
     })
   };
 
+  trackSearchInput(e) {
+    this.setState({
+      searchZip: e.target.value
+    });
+  }
+
   trackCreateStore(e) {
     let fieldsArr = e.target.parentElement.parentElement.childNodes;
     this.setState({
@@ -291,6 +310,23 @@ export default class App extends Component {
         startTime: fieldsArr[6].children[0].value,
         endTime: fieldsArr[6].children[1].value,
       },
+    })
+  }
+
+  postSearchZip() {
+    console.log('search posted')
+    return fetch('/search/zip', {
+      headers: {
+        'Content-Type': 'application/JSON'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        'searchZip': this.state.searchZip
+      })
+    })
+    .then(r => r.json())
+    .then(searchResults => {
+      console.log(searchResults)
     })
   }
 
@@ -399,14 +435,67 @@ export default class App extends Component {
     })
   };
 
+<<<<<<< HEAD
   validateInputs() {
     let isValid = true;
 
   }
+=======
+   // componentWillMount() {
+   //   const body = document.getElementsByTagName('body')[0];
+   //   const script = document.createElement("script");
+
+   //    script.type = 'text/javascript';
+   //    script.className = 'container';
+
+   //    script.src = "http://maps.google.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c";
+   //    script.async= true;
+   //    script.defer= true;
+
+   //    body.appendChild(script);
+   //    // script.onload = () => {
+   //    //     console.log(document.querySelector('.container'));
+   //    //     ReactDOM.render( <script />,
+   //    //       document.querySelector('.container')
+   //    //     );
+   //    // };
+
+   //  // console.log(script)
+   //  }
+>>>>>>> master
 
   render(){
+
+  // const location = {
+  //   lat: 40.7575285,
+  //   lng: -73.9884469
+  // }
+
+  //   const markers = [
+  //     {
+  //       location:{
+  //         lat: 40.7575285,
+  //         lng: -73.9884469
+  //       }
+  //     }
+  //   ]
+
+
+  // const script = document.querySelector('.container');
+
+  //   script.onload = () => {
+  //         console.log(document.querySelector('.container'));
+  //         ReactDOM.render( <script />,
+  //           document.querySelector('.container')
+  //         );
+  //     };
+
+
     return (
       <div>
+
+
+
         <header>
           <h1>Grojj.</h1>
           <button onClick={this.showLogin}>Login or Sign Up</button>
@@ -414,7 +503,11 @@ export default class App extends Component {
             logout={this.logout.bind(this)}
           />
           <nav>
-            <div className="nButton">Search</div>
+            <SearchDD
+              showSearchInput={this.showSearchInput}
+              trackSearchInput={this.trackSearchInput.bind(this)}
+              postSearchZip={this.postSearchZip.bind(this)}
+            />
             <StorefrontDD
               loggedIn={this.state.loggedIn}
               currentUser={this.state.currentUser}

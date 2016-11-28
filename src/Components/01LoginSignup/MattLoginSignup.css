@@ -1,16 +1,34 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
 #loginSignup {
   position: relative;
-  top: 20vh;
+  top: 3vh;
   left: 20vw;
   height: 70vh;
   width: 60vw;
-  background: #fff;
   background: -moz-linear-gradient(#fff, #999);
   background: -webkit-linear-gradient(#fff, #999);
   background: -o-linear-gradient(#fff, #999);
   display: none;
 }
+.close-btn{
+  height: 3vh;
+  position: relative;
+  top: 0vh;
+  left: 44vh;
+  border-radius: 50%;
+  color: #fafafa;
+  background: #394149;
+  border: none;
+}
 
+.close-btn:hover{
+  background: #fafafa;
+  color:  #394149;
+  box-shadow: 0 0 3px gray;
+  transition: background .5s ease;
+  cursor: pointer;
+}
 #login {
   width: 29.45vw;
   height: 70vh;
@@ -19,14 +37,15 @@
 #signup {
   border-left: .1vw solid #999;
   position: absolute;
-  top: 0;
+  top: 4.2vh;
   left: 50%;
   width: 29.45vw;
-  height: 70vh;
+  height: 65vh;
 }
 
 .loginModal > h1 {
-  text-align: center;
+  font-family: 'Raleway', cursive;
+  letter-spacing: 4px;
   width: 100%;
   color: #222;
   /*font-size: .8em;*/
@@ -45,17 +64,19 @@
 }
 
 .modalButton{
-  border: 1px solid #999;
+  border: none;
   width: 15vw;
   font-size: .5em;
   letter-spacing: 1.5px;
+  background: #394149;
   color: #fafafa;
   border-radius: 8px;
 }
 
 .modalButton:hover{
-  color: #222;
+  color: #394149;
   background: #fafafa;
+  box-shadow: 0 0 3px gray;
   transition: background .5s ease-in;
   cursor: pointer;
 }

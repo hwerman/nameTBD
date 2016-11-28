@@ -1,21 +1,39 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
 #addItemDiv{
   position: relative;
   left: 20vw;
-  height: 100vh;
+  height: 90vh;
   width: 60vw;
   background-color: #0A1612;
   display: none;
+  border-radius: 3px;
+  font-family: 'Raleway', sans-serif;
 }
 
 #addItemHeading{
+  margin-top: 10%;
+  padding: 4%;
   text-align: center;
-  color: #C5C1C0;
+  color: #0A1612;
+  background-color: #FAFAFA;
+/*  -webkit-text-stroke-width: .3px;
+  -webkit-text-stroke-color: black;*/
+  border-radius: 3px;
+}
+
+#addItemHeading:hover {
+  color: #F7CE3E;
 }
 
 #addItemDiv > input{
   display: block;
   line-height: 40px;
   border: none;
+}
+
+.fillOut {
+  margin-top: 10%;
 }
 
 .name,
@@ -38,11 +56,11 @@
 
 .smallLocations{
   position: relative;
-  left: 15vw;
+  left: 8vw;
 }
 
 .smallLocations > select{
-  width: 17vw;
+  width: 10vw;
 }
 
 .smallLocations > input,
@@ -93,4 +111,14 @@
 
 #cancelItemButton:hover{
   box-shadow: 2px 2px 2px #222;
+}
+
+.condi {
+  /*margin: 10px;*/
+
+}
+
+input {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
 }

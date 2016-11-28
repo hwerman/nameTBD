@@ -1,7 +1,22 @@
 import React, { Component } from 'react'
 import './MyItem.css'
 
+
+//props needed:
+// name
+// url
+// price
+// condition
+// description
+// likes
+// id
+
+//functions needed:
+// for the edit button
+// for the delete button
+
 export default class MyItem extends Component {
+
   render() {
     return (
       <div className="saleItem">
@@ -29,3 +44,5 @@ export default class MyItem extends Component {
     );
   }
 }
+
+// export default MyItem;
