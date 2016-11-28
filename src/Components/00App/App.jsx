@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 
-import Map from './Maps.jsx';
+import saveMap from './Maps.jsx';
 
 
 // import Places from './Places.jsx';
@@ -137,27 +137,28 @@ class App extends Component {
   }
 
 
-   componentWillMount() {
-     const body = document.getElementsByTagName('body')[0];
-     const script = document.createElement("script");
+   // componentWillMount() {
+   //   const head = document.getElementsByTagName('head')[0];
+   //   const script = document.createElement("script");
 
-      script.type = 'text/javascript';
-      script.className = 'container';
+   //    script.type = 'text/javascript';
+   //    // script.className = 'container';
 
-      script.src = "http://maps.google.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c";
-      // script.async= true;
-      // script.defer= true;
+   //    script.src = "http://maps.google.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c";
+   //    // script.async= true;
+   //    // script.defer= true;
+   //    console.log(script)
+   //    head.appendChild(script);
+   //    console.log(head)
+   //    // script.onload = () => {
+   //    //     console.log(document.querySelector('.container'));
+   //    //     ReactDOM.render( <script />,
+   //    //       document.querySelector('.container')
+   //    //     );
+   //    // };
 
-      body.appendChild(script);
-      script.onload = () => {
-          console.log(document.querySelector('.container'));
-          ReactDOM.render( <script />,
-            document.querySelector('.container')
-          );
-      };
-
-    // console.log(script)
-    }
+   //  // console.log(script)
+   //  }
 
 
 
@@ -198,7 +199,7 @@ class App extends Component {
 
         <div style={{width:300, height:600, background: 'pink'}}>
 
-          <Map
+          <saveMap
             center={location}
             markers={markers}
           />

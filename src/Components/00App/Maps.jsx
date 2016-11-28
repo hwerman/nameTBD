@@ -2,7 +2,7 @@ import React, { Component} from 'react'
 import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps'
 // import { GoogleMap } from 'google-map-react';
 
-class Map extends Component {
+class saveMap extends Component {
 
   render() {
     const mapContainer = <div style={{height: '100%', width:'100%'}}></div>
@@ -37,7 +37,7 @@ class Map extends Component {
       )
   }
 }
-export default Map;
+export default saveMap;
 
 //import in app.js with <Map />
 //import Map from './components/Map'
