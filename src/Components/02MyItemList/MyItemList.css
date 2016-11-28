@@ -14,3 +14,9 @@
   justify-content: center;
   align-items: center;
 }
+
+.myItemTest {
+  background-color: #ADDFAD;
+  height: 100px;
+  width: 100px;
+}
