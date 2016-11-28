@@ -3,8 +3,6 @@ import './EditStore.css';
 
 class EditStore extends Component {
 
-
-
   render(){
     return(
       <div id="editStoreDiv">

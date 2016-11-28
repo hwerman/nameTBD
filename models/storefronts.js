@@ -30,11 +30,12 @@ function getAllStorefronts(req, res, next) {
 function addNewStorefront(req, res, next) {
   db.none('INSERT INTO grojjStorefronts (name, address, borough, zip, directions, sale_date, startTime, endTime, unitedState, currentUser) VALUES ($/name/, $/address/, $/borough/, $/zip/, $/directions/, $/sale_date/, $/startTime/, $/endTime/, $/unitedState/, $/currentUser/);', req.body)
     .then(() => {
-      next()
+      next();
   })
   .catch((error) => console.log(error));
 };
 
+<<<<<<< HEAD
 function deleteStorefront(req, res, next){
   db.none('DELETE FROM grojjStorefronts WHERE id = $1;', [req.params.id])
   .then(() => {
@@ -42,11 +43,25 @@ function deleteStorefront(req, res, next){
   })
   .catch((erorr) => console.log(error));
 }
+=======
+function removeOneStorefront(req, res, next) {
+  console.log(req.body)
+  db.none('DELETE FROM grojjStorefronts WHERE grojjStorefronts.currentUser = $/currentUser/;', req.body)
+    .then( () => {
+      next();
+    })
+    .catch(error => console.log(error))
+};
+>>>>>>> bd3396612d626b7ef7c8ec1f40411a75f996d1db
 
 module.exports = {
   getAllStorefronts,
   addNewStorefront,
   getOneStorefront,
   editOneStorefront,
+<<<<<<< HEAD
   deleteStorefront
+=======
+  removeOneStorefront,
+>>>>>>> bd3396612d626b7ef7c8ec1f40411a75f996d1db
 }
