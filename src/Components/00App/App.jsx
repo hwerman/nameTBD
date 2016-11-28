@@ -605,9 +605,6 @@ class App extends Component {
         <script> </script>
 
 
-          <TestLogin
-            testLogin={this.testLogin.bind(this)}
-            />
           <CreateStore
             postNewStorefront={this.postNewStorefront.bind(this)}
             trackCreateStore={this.trackCreateStore.bind(this)}

@@ -110,7 +110,4 @@ export default saveMap;
 
 // //for api call video tutorial uses superagent, for that we need npm install -S superagent
 
-           <div style={{width:500, height:400, background: 'red'}}>
-          <Map center={location} markers={markers} />
-        </div>
 
