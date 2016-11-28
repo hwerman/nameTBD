@@ -145,16 +145,16 @@ class App extends Component {
       script.className = 'container';
 
       script.src = "http://maps.google.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c";
-      script.async= true;
-      script.defer= true;
+      // script.async= true;
+      // script.defer= true;
 
       body.appendChild(script);
-      // script.onload = () => {
-      //     console.log(document.querySelector('.container'));
-      //     ReactDOM.render( <script />,
-      //       document.querySelector('.container')
-      //     );
-      // };
+      script.onload = () => {
+          console.log(document.querySelector('.container'));
+          ReactDOM.render( <script />,
+            document.querySelector('.container')
+          );
+      };
 
     // console.log(script)
     }
@@ -177,14 +177,14 @@ class App extends Component {
       }
     ]
 
-    const script = document.querySelector('.container');
+    // const script = document.querySelector('.container');
 
-    script.onload = () => {
-          console.log(document.querySelector('.container'));
-          ReactDOM.render( <script />,
-            document.querySelector('.container')
-          );
-      };
+    // script.onload = () => {
+    //       console.log(document.querySelector('.container'));
+    //       ReactDOM.render( <script />,
+    //         document.querySelector('.container')
+    //       );
+    //   };
 
     // const body = document.getElementsByTagName('body');
 
