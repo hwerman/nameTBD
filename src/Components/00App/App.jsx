@@ -399,6 +399,11 @@ export default class App extends Component {
     })
   };
 
+  validateInputs() {
+    let isValid = true;
+
+  }
+
   render(){
     return (
       <div>

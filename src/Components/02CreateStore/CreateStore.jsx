@@ -8,8 +8,6 @@ class CreateStore extends Component {
     createStoreDiv.style.display = 'none';
   }
 
-
-
   render(){
     return(
       <div id="createStoreDiv">

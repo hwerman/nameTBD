@@ -10,7 +10,7 @@ class EditStore extends Component {
           <input onChange={this.props.trackEditStore} className="name" type="text" value={this.props.currentStorefront.name} required></input>
           <input onChange={this.props.trackEditStore} className="address" type="text" value={this.props.currentStorefront.address} required></input>
         <div className="smallLocations">
-          <select onChange={this.props.trackEditStore} name="borough" className="borough">
+          <select onChange={this.props.trackEditStore} name="borough" className="borough" value={this.props.currentStorefront.borough}>
             <option value="" disabled>Select Borough</option>
             <option value="Brooklyn">Brooklyn</option>
             <option value="Queens">Queens</option>
