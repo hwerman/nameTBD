@@ -18,9 +18,9 @@ class CreateStore extends Component {
           <select onChange={this.props.trackCreateStore} name="borough" className="borough">
             <option value="" disabled>Select Borough</option>
             <option value="Brooklyn">Brooklyn</option>
-            <option value="Queens">Queens</option>
             <option value="Bronx">Bronx</option>
             <option value="Manhattan">Manhattan</option>
+            <option value="Queens">Queens</option>
             <option value="Staten Island">Staten Island</option>
           </select>
           <input onChange={this.props.trackCreateStore} className="zip" type="text" placeholder="ZIP" required></input>

@@ -107,6 +107,11 @@ class App extends Component {
     editStoreDiv.style.display = 'none';
   }
 
+  hideAddItemDiv() {
+    let addItemDiv = document.querySelector('#addItemDiv');
+    addItemDiv.style.display = 'none';
+  }
+
   hideLoginSignup() {
     let loginSignup = document.querySelector('#loginSignup');
     loginSignup.style.display = 'none';
@@ -425,6 +430,7 @@ class App extends Component {
     })
     .then(() => {
       this.getStorefrontItems();
+      this.hideAddItemDiv();
     })
   };
 
