@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-
-
-
-import saveMap from './Maps.jsx';
-
-
-// import Places from './Places.jsx';
-// import superagent from 'superagent';
-// import './normalize.css';
-// import style from './App.css';
-
+import SaveMap from './Maps.jsx';
 
 import LoginSignup from '../01LoginSignup/LoginSignup.jsx';
 import Logout from '../01Logout/Logout.jsx';
@@ -31,6 +21,10 @@ class App extends Component {
     super();
 
     this.state = {
+      center: {
+        lat: 40.7575285,
+        lng: -73.9884469
+      },
       searchZip: '',
       loggedIn: false,
       currentUser: '',
@@ -472,60 +466,12 @@ class App extends Component {
     })
   };
 
-   // componentWillMount() {
-   //   const body = document.getElementsByTagName('body')[0];
-   //   const script = document.createElement("script");
-
-   //    script.type = 'text/javascript';
-   //    script.className = 'container';
-
-   //    script.src = "http://maps.google.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c";
-   //    script.async= true;
-   //    script.defer= true;
-
-   //    body.appendChild(script);
-   //    // script.onload = () => {
-   //    //     console.log(document.querySelector('.container'));
-   //    //     ReactDOM.render( <script />,
-   //    //       document.querySelector('.container')
-   //    //     );
-   //    // };
-
-   //  // console.log(script)
-   //  }
   loginError() {
     let loginError = document.querySelector('#loginError')
     loginError.style.display = 'block';
   }
 
-
-   // componentWillMount() {
-   //   const head = document.getElementsByTagName('head')[0];
-   //   const script = document.createElement("script");
-
-   //    script.type = 'text/javascript';
-   //    // script.className = 'container';
-
-   //    script.src = "http://maps.google.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c";
-   //    // script.async= true;
-   //    // script.defer= true;
-   //    console.log(script)
-   //    head.appendChild(script);
-   //    console.log(head)
-   //    // script.onload = () => {
-   //    //     console.log(document.querySelector('.container'));
-   //    //     ReactDOM.render( <script />,
-   //    //       document.querySelector('.container')
-   //    //     );
-   //    // };
-
-   //  // console.log(script)
-   //  }
-
-
-
   render(){
-
 
     const location = {
       lat: 40.7575285,
@@ -541,33 +487,9 @@ class App extends Component {
       }
     ]
 
-    // const script = document.querySelector('.container');
-
-    // script.onload = () => {
-    //       console.log(document.querySelector('.container'));
-    //       ReactDOM.render( <script />,
-    //         document.querySelector('.container')
-    //       );
-    //   };
-
-    // const body = document.getElementsByTagName('body');
-
-    // body.onload = () => {
-    //       console.log(document.querySelector('.container'));
-    //       componentWillMount();
-    //   };
-
     return (
       <div>
 
-        <div style={{width:300, height:600, background: 'pink'}}>
-
-          <saveMap
-            center={location}
-            markers={markers}
-          />
-
-        </div>
 
         <header>
           <h1>Grojj.</h1>
@@ -602,8 +524,14 @@ class App extends Component {
         </header>
         <main>
 
-        <script> </script>
+          <div style={{width:400, height:400, background: 'red'}}>
 
+            <SaveMap
+              center={this.state.center}
+              markers={markers}
+            />
+
+          </div>
 
           <CreateStore
             postNewStorefront={this.postNewStorefront.bind(this)}
