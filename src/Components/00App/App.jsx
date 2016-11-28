@@ -394,21 +394,6 @@ export default class App extends Component {
     })
   };
 
-  deleteStorefront(id){
-    fetch('/api/storefronts/{id}', {
-      method: 'DELETE'
-    })
-    .then(() => {
-      const storefronts = this.state.storefronts.filter((storefront)=> {
-        return storefront.id !==id;
-      })
-      this.setState({
-        storefronts: storefronts
-      })
-    })
-      .catch(err => console.log(error));
-  }
-
   render(){
     return (
       <div>
