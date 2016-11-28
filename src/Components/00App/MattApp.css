@@ -103,6 +103,11 @@ nav > div {
   visibility: visible;
   transform: scaleX(1);
 }
+
+#loginError {
+  display: none;
+}
+
 /*footer {
   background-color: #394149;
   color: #fafafa;
