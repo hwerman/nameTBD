@@ -432,10 +432,11 @@ export default class App extends Component {
             trackCreateStore={this.trackCreateStore.bind(this)}
           />
           <EditStore
+            trackCreateStore={this.trackCreateStore.bind(this)}
+            currentStorefront={this.state.currentStorefront}
             putEditStorefront={this.putEditStorefront.bind(this)}
             trackEditStore={this.trackEditStore.bind(this)}
             hideEditForm={this.hideEditForm.bind(this)}
-
           />
           <AsideSMyStore
             currentStorefront={this.state.currentStorefront}
