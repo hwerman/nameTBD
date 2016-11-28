@@ -45,4 +45,4 @@ export default class MyItem extends Component {
   }
 }
 
-export default MyItem;
+// export default MyItem;

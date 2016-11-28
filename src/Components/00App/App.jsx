@@ -8,15 +8,12 @@ import AsideSMyStore from '../02AsideSmyStore/AsideSMyStore.jsx';
 import MyItemList from '../02MyItemList/MyItemList.jsx';
 import AddNewItem from '../02AddNewItem/AddNewItem.jsx';
 
-import Map from './Maps.jsx';
+// import Map from './Maps.jsx';
 import './App.css';
 
 import EditStore from '../02EditStore/EditStore.jsx';
 import './MattApp.css';
 // import './App.css';
-
-
-
 
 
 export default class App extends Component {
@@ -402,61 +399,59 @@ export default class App extends Component {
     })
   };
 
-   componentWillMount() {
-     const body = document.getElementsByTagName('body')[0];
-     const script = document.createElement("script");
+   // componentWillMount() {
+   //   const body = document.getElementsByTagName('body')[0];
+   //   const script = document.createElement("script");
 
-      script.type = 'text/javascript';
-      script.className = 'container';
+   //    script.type = 'text/javascript';
+   //    script.className = 'container';
 
-      script.src = "http://maps.google.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c";
-      script.async= true;
-      script.defer= true;
+   //    script.src = "http://maps.google.com/maps/api/js?key=AIzaSyDu1zOGCMJEMn2Ja45WRuyWFN_Rv7ZSh3c";
+   //    script.async= true;
+   //    script.defer= true;
 
-      body.appendChild(script);
-      // script.onload = () => {
-      //     console.log(document.querySelector('.container'));
-      //     ReactDOM.render( <script />,
-      //       document.querySelector('.container')
-      //     );
-      // };
+   //    body.appendChild(script);
+   //    // script.onload = () => {
+   //    //     console.log(document.querySelector('.container'));
+   //    //     ReactDOM.render( <script />,
+   //    //       document.querySelector('.container')
+   //    //     );
+   //    // };
 
-    // console.log(script)
-    }
+   //  // console.log(script)
+   //  }
 
   render(){
 
-  const location = {
-    lat: 40.7575285,
-    lng: -73.9884469
-  }
+  // const location = {
+  //   lat: 40.7575285,
+  //   lng: -73.9884469
+  // }
 
-    const markers = [
-      {
-        location:{
-          lat: 40.7575285,
-          lng: -73.9884469
-        }
-      }
-    ]
+  //   const markers = [
+  //     {
+  //       location:{
+  //         lat: 40.7575285,
+  //         lng: -73.9884469
+  //       }
+  //     }
+  //   ]
 
 
-  const script = document.querySelector('.container');
+  // const script = document.querySelector('.container');
 
-    script.onload = () => {
-          console.log(document.querySelector('.container'));
-          ReactDOM.render( <script />,
-            document.querySelector('.container')
-          );
-      };
+  //   script.onload = () => {
+  //         console.log(document.querySelector('.container'));
+  //         ReactDOM.render( <script />,
+  //           document.querySelector('.container')
+  //         );
+  //     };
 
 
     return (
       <div>
 
-           <div style={{width:500, height:400, background: 'red'}}>
-          <Map center={location} markers={markers} />
-        </div>
+
 
         <header>
           <h1>Grojj.</h1>
