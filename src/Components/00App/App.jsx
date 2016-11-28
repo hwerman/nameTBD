@@ -101,7 +101,6 @@ export default class App extends Component {
     })
     .then(r=> r.json())
     .then((data) => {
-      console.log(data[0])
       this.setState({
         hasStorefront: true,
         currentStorefront: {
@@ -115,9 +114,6 @@ export default class App extends Component {
           zip: data[0].zip,
         }
       })
-    })
-    .then( () => {
-      console.log(this.state)
     })
   }
 
@@ -136,8 +132,34 @@ export default class App extends Component {
     .then( (data) => {
       this.setState({
         storefrontItems: data
-      }, () => {
-        console.log(this.state)
+      })
+    })
+  }
+
+  removeOneStorefront() {
+    return fetch('/api/storefronts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/JSON',
+        'Authorization': 'Bearer ' + this.state.currentToken
+      },
+      body: JSON.stringify({
+        currentUser: this.state.currentUser
+      })
+    })
+    .then(() => {
+      this.setState({
+        hasStorefront: false,
+        storefrontItems: [],
+        currentStorefront: {
+          name: '',
+          address: '',
+          borough: '',
+          directions: '',
+          endTime: '',
+          startTime: '',
+          zip: ''
+        }
       })
     })
   }
@@ -181,9 +203,7 @@ export default class App extends Component {
         }
       })
     })
-    .then(() => {
-      console.log(this.state)
-    });
+    .catch(error => hadasErrorHandlingFunction(error))
   }
 
   postLogin() {
@@ -211,10 +231,6 @@ export default class App extends Component {
     })
     .then( () => {
       this.getOneStorefront();
-      this.getStorefrontItems();
-    })
-    .then( () => {
-      console.log(this.state)
     })
     .catch(error => console.log(error))
   }
@@ -235,8 +251,6 @@ export default class App extends Component {
         zip: ''
       },
       storefrontItems: []
-    }, () => {
-      console.log(this.state)
     })
   };
 
@@ -253,8 +267,6 @@ export default class App extends Component {
         startTime: fieldsArr[6].children[0].value,
         endTime: fieldsArr[6].children[1].value,
       },
-    }, () => {
-      console.log(this.state)
     })
   }
 
@@ -284,8 +296,6 @@ export default class App extends Component {
         startTime: fieldsArr[6].children[0].value,
         endTime: fieldsArr[6].children[1].value,
       },
-    }, () => {
-      console.log(this.state)
     })
   }
 
@@ -297,7 +307,6 @@ export default class App extends Component {
     let reveal = document.querySelector('#asideSellerMyStore');
     reveal.style.display = 'block';
 
-    console.log('posting')
     return fetch('/api/storefront', {
       headers: {
         'Content-Type': 'application/JSON'
@@ -330,9 +339,6 @@ export default class App extends Component {
         }
       })
     })
-    .then(() => {
-      console.log(this.state)
-    })
   };
 
   postNewItem() {
@@ -359,7 +365,6 @@ export default class App extends Component {
   };
 
   putEditStorefront() {
-    console.log('put edit storefront before')
     return fetch('/api/storefronts', {
       headers: {
         'Content-Type': 'application/JSON'
@@ -486,13 +491,14 @@ export default class App extends Component {
             putEditStorefront={this.putEditStorefront.bind(this)}
             trackEditStore={this.trackEditStore.bind(this)}
             hideEditForm={this.hideEditForm.bind(this)}
+
           />
           <AsideSMyStore
             currentStorefront={this.state.currentStorefront}
             currentUser={this.state.currentUser}
+            removeOneStorefront={this.removeOneStorefront.bind(this)}
           />
           <MyItemList
-            getStorefrontItems={this.getStorefrontItems.bind(this)}
             storefrontItems={this.state.storefrontItems}
           />
           <AddNewItem

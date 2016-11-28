@@ -10,7 +10,6 @@ export default class MyItemList extends Component{
   }
 
   renderItems() {
-    console.log(this.props.storefrontItems[0])
     return this.props.storefrontItems.map((item, i) =>
       <div key={item.item_id}>
         <MyItem
@@ -30,7 +29,6 @@ export default class MyItemList extends Component{
       <div className="rightDiv" id="rightDiv">
         <h3>Click button to sell items!</h3>
         <button id="addItemButton" onClick={this.revealUploadForm}>Add item!</button>
-        <button onClick={this.props.getStorefrontItems}>getStorefrontItems</button>
         <div>
           {this.renderItems()}
         </div>

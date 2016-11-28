@@ -1,0 +1,122 @@
+#content {
+  display: none;
+}
+
+#mainCont{
+  position: absolute;
+  width: 95%;
+  height: 95%;
+  background: #333333;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.leftAside{
+  float: left;
+  border: 3px solid #000000;
+  width: 30%;
+  height: 90%;
+  background: #422222;
+  margin: 4vh;
+}
+
+#instructionsAside{
+  margin-left: 4vh;
+  margin-right: 4vh;
+  color: #ffffff;
+}
+
+#instructionsPara{
+  margin-left: 4vh;
+  margin-right: 4vh;
+  color: #ffffff;
+}
+
+#instructionsButton{
+  margin-left: 4vh;
+  margin-right: 4vh;
+  margin-bottom: 4vh;
+  margin-top: 8vh;
+}
+
+.rightDiv{
+  float: left;
+  width: 50%;
+  height: 90%;
+  margin: 4vh;
+  background: #ffffff;
+  border: solid 3px #282828;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.saleItem{
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  margin: 5px;
+  background: yellow;
+}
+
+#itemOne{
+  color: black;
+}
+
+ul{
+  list-style-type: none;
+  display: block;
+}
+
+.itemBox{
+  margin: 5px;
+}
+
+.itemTitle{
+  font-size: 36px;
+}
+
+.itemImage{
+  max-height: 220px;
+  max-width: 280px;
+  margin: 4px;
+}
+
+.itemDescription{
+  overflow: y;
+}
+
+#storefrontAside {
+  margin-left: 4vh;
+  margin-right: 4vh;
+  color: #ffffff;
+}
+
+.username {
+  margin-left: 4vh;
+  margin-right: 4vh;
+  color: #ffffff;
+}
+
+address {
+  margin-left: 4vh;
+  margin-right: 4vh;
+  color: #ffffff;
+}
+
+#messageButton {
+  margin-left: 4vh;
+  margin-right: 4vh;
+  margin-bottom: 4vh;
+  margin-top: 8vh;
+}
+
+#garageSaleButton {
+  margin-left: 4vh;
+  margin-right: 4vh;
+  margin-bottom: 4vh;
+  margin-top: 8vh;
+}
