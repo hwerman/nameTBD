@@ -429,7 +429,9 @@ class App extends Component {
       }),
     })
     .then(() => {
-      this.getStorefrontItems();
+      this.getStorefrontItems()
+    })
+    .then(() => {
       this.hideAddItemDiv();
     })
   };
