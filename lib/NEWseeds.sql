@@ -26,4 +26,8 @@ INSERT INTO grojjaddresses(address_id, street, city, state, zip, latitude, longi
 (9, '8666 23rd Ave', 'Brooklyn', 'NY', '11214', '40.59941°', '-73.993082°'),
 (10, '243 W 54th St', 'New York', 'NY', '10019', '40.764522°', '-73.983276°');
 
+INSERT INTO grojjusers(user_id, userimage_url, username, password) VALUES
+(1, 'https://img.buzzfeed.com/buzzfeed-static/static/2016-11/18/17/asset/buzzfeed-prod-fastlane01/sub-buzz-21330-1479506533-8.jpg?resize=625:781', 'annaK234', 'annakendrick');
+
+
 COMMIT;

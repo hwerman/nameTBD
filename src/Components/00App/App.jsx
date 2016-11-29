@@ -7,10 +7,10 @@ import CreateStore from '../02CreateStore/CreateStore.jsx';
 import StorefrontDD from '../01StorefrontDD/StorefrontDD.jsx';
 import SearchDD from '../01SearchDD/SearchDD.jsx';
 import AsideSMyStore from '../02AsideSmyStore/AsideSMyStore.jsx';
-import MyItemList from '../02MyItemList/MyItemList.jsx';
-import MyItem from '../02MyItem/MyItem.jsx'
-import AddNewItem from '../02AddNewItem/AddNewItem.jsx';
 import EditStore from '../02EditStore/EditStore.jsx';
+import MyItemList from '../02MyItemList/MyItemList.jsx';
+import EditItem from '../02EditItem/EditItem.jsx'
+import AddNewItem from '../02AddNewItem/AddNewItem.jsx';
 import './MattApp.css';
 
 class App extends Component {
@@ -19,10 +19,6 @@ class App extends Component {
     super();
 
     this.state = {
-      // markers: {
-      //   lat: 40.7575285,
-      //   lng: -73.9884469
-      // },
       searchZip: '',
       loggedIn: false,
       currentUser: '',
@@ -73,6 +69,13 @@ class App extends Component {
         price: '',
         description: '',
       },
+      editItem: {
+        name: '',
+        image_url: '',
+        condition: '',
+        price: '',
+        description: '',
+      },
       storefrontItems: []
     };
   }
@@ -106,6 +109,11 @@ class App extends Component {
   hideEditForm() {
     let editStoreDiv = document.querySelector('#editStoreDiv');
     editStoreDiv.style.display = 'none';
+  }
+
+  hideEditItem() {
+    let editItemDiv = document.querySelector('#editItemDiv');
+    editItemDiv.style.display = 'none';
   }
 
   hideAddItemDiv() {
@@ -348,9 +356,23 @@ class App extends Component {
         sale_date: fieldsArr[5].value,
         startTime: fieldsArr[6].children[0].value,
         endTime: fieldsArr[6].children[1].value,
-      },
+      }
     })
   }
+
+  trackEditItem(e) {
+    let fieldsArr = e.target.parentElement.childNodes;
+    console.log(fieldsArr)
+    this.setState({
+      editItem: {
+        name: fieldsArr[1].value,
+        image_url: fieldsArr[2].value,
+        condition: fieldsArr[3].children[0].value,
+        price: fieldsArr[3].children[1].value,
+        description: fieldsArr[4].value
+      }
+    })
+}
 
   postSearchZip() {
     console.log('search posted')
@@ -573,8 +595,11 @@ class App extends Component {
             <MyItemList
               storefrontItems={this.state.storefrontItems}
             />
-            <MyItem
-              putEditItem={this.state.putEditItem}
+            <EditItem
+              currentStorefront={this.state.currentStorefront}
+              putEditItem={this.putEditItem.bind(this)}
+              trackEditItem={this.trackEditItem.bind(this)}
+              hideEditItem={this.hideEditItem.bind(this)}
             />
             <AddNewItem
               postNewItem={this.postNewItem.bind(this)}
@@ -588,7 +613,5 @@ class App extends Component {
     )
   }
 }
-
-
 
 export default App;
