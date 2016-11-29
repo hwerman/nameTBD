@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
+@import url(http://fonts.googleapis.com/css?family=Raleway);
 
 html,
 body,
@@ -85,8 +86,6 @@ nav > div {
   width: 15vw;
 }
 
-
-
 .nButton:before{
   content: '';
   position: absolute;
@@ -119,17 +118,3 @@ nav > div {
   width: 15vw;
   display: block;
 }
-
-
-/*footer {
-  background-color: #394149;
-  color: #fafafa;
-  text-shadow: 2px 2px 2px #222;
-  letter-spacing: 1px;
-  font-family: 'Pacifico', cursive;
-  height: 6vh;
-}
-
-footer > p {
-  text-align: right;
-}*/
