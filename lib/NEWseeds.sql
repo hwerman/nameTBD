@@ -13,9 +13,6 @@ INSERT INTO grojjItems(item_id, name, image_url, condition, price, description, 
 (9, 'Glass coffee table', 'http://freepngimages.com/wp-content/uploads/2015/10/Chrome-Coffee-Table-transparent-background.png', 'Barely Used', '$', '', '0', '', ''),
 (10, 'Game of Thrones Board Game', 'http://www.fantasyflightgames.com/ffg_content/agot-bg-2nd-ed/board.png', 'Used', '$$', '', '0', '', '');
 
-INSERT INTO grojjStorefronts (storefront_id, name, address, borough, zip, directions, sale_date, startTime, endTime, unitedState, currentUser) VALUES
-(1, 'irwin', '123 ga street', 'Brooklyn', '11104', 'left at the tree', '2016-11-30', '03:00 PM', '20:00', '', '');
-
 INSERT INTO grojjaddresses(address_id, street, city, state, zip, latitude, longitude) VALUES
 
 (1, '180 Rivington St', 'New York', 'NY', '10002', '40.718789°', '-73.984037°'),

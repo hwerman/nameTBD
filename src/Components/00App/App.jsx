@@ -8,6 +8,7 @@ import StorefrontDD from '../01StorefrontDD/StorefrontDD.jsx';
 import SearchDD from '../01SearchDD/SearchDD.jsx';
 import AsideSMyStore from '../02AsideSmyStore/AsideSMyStore.jsx';
 import MyItemList from '../02MyItemList/MyItemList.jsx';
+import MyItem from '../02MyItem/MyItem.jsx'
 import AddNewItem from '../02AddNewItem/AddNewItem.jsx';
 import EditStore from '../02EditStore/EditStore.jsx';
 import './MattApp.css';
@@ -436,6 +437,25 @@ class App extends Component {
     })
   };
 
+  putEditItem(){
+    return fetch('/api/items', {
+      headers: {
+        'Content-Type:' : 'application/JSON'
+      },
+      method: 'PUT',
+      body: JSON.stringify({
+        name: this.state.editItem.name,
+        image_url: this.state.editItem.image_url,
+        condition: this.state.editItem.condition,
+        price: this.state.editItem.price,
+        description: this.state.editItem.description,
+        likes: 0,
+        currentUser: this.state.currentUser,
+        currentStorefront: this.state.currentStorefront.name
+      })
+    })
+  }
+
   putEditStorefront() {
     return fetch('/api/storefronts', {
       headers: {
@@ -552,6 +572,9 @@ class App extends Component {
             />
             <MyItemList
               storefrontItems={this.state.storefrontItems}
+            />
+            <MyItem
+              putEditItem={this.state.putEditItem}
             />
             <AddNewItem
               postNewItem={this.postNewItem.bind(this)}

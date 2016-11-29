@@ -17,6 +17,12 @@ CREATE TABLE grojjItems(
   currentStorefront VARCHAR NOT NULL
 );
 
+CREATE TABLE grojjUsers(
+  user_id SERIAL PRIMARY KEY,
+  username VARCHAR NOT NULL UNIQUE,
+  password VARCHAR NOT NULL UNIQUE
+);
+
 CREATE TABLE grojjStorefronts(
   storefront_id SERIAL PRIMARY KEY,
   name VARCHAR NOT NULL,
